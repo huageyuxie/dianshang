@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'CHARSET': 'utf8',
-        'HOST': 'localhost',
+        'HOST': '192.168.13.31',
         'PORT': '3306',
     }
 }
