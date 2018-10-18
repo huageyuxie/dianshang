@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -18,3 +19,4 @@ class NormalUser(models.Model):
     # 联系方式
     phone = models.CharField(max_length=30, verbose_name='用户联系方式')
 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
