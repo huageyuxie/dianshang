@@ -26,7 +26,7 @@
 
 .heager_a a{
     text-decoration: none;
-    color: black;
+    color: #3A3A3A;
 
 }
 .heager_a a:hover{
@@ -46,9 +46,22 @@
     /*float: right;*/
     width: 320px;
     height: 460px;
-    background:#fff;
+    border:solid 1px black ;
+    /*border-radius: 10px;*/
     margin-left: 1000px;
+    overflow: hidden;
+    margin-top: 30px;
 }
+
+.login1{
+    width: 800px;
+    height: auto;
+    float: left;
+    margin-left: 100px;
+    margin-top: 20px;
+    position: absolute;
+}
+
 #setNumber-1{
     width: 320px;
     height: 44px;
@@ -83,3 +96,17 @@
     height: 22px;
     line-height:22px;
     color: #ccc;}
+
+#setNumber-wrap .setNumber-4a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
+#setNumber-wrap .setNumber-5a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
+#setNumber-wrap .setNumber-6a{width: 100px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
+#setNumber-wrap .setNumber-8a{width: 262px;height: 40px;padding-left: 8px;}
+#setNumber-wrap .setNumber-8a a{width: 270px;height: 40px;display: block;line-height: 40px;text-align: center;background: #ee120b;font-size: 16px;color: #fff;margin-top: 25px;border-radius:3px ;}
+#setNumber-ts{position: absolute;padding-top: 3px;top:155px;display: none;}
+#setNumber-ts span{display:block;float:left;margin-right:5px;line-height: 16px;text-align: center;}
+#setNumber-ts .mimaruo{width: 30px;height: 16px;background: #ccc;margin-right:2px;}
+#setNumber-ts .mimazhong{width: 30px;height: 16px;background: #ccc;margin-right:2px;}
+#setNumber-ts .mimaqiang{width: 30px;height: 16px;background: #ccc;}
+.set-yanzm-wrap{width: 150px;height: 38px;border: 1px solid #fff;position: absolute;left:150px;top:242px;}
+.set-yanzm{width:88px;height: 36px;line-height: 38px;display: block;float: left;margin-right: 10px;border: 1px solid #999;}
+.set-yanzm-wrap a{width: 48px;line-height: 36px;float: left;text-align: center;border: 1px solid #999;}

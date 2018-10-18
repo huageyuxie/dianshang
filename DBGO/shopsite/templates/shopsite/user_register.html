@@ -32,7 +32,7 @@
 {% endblock %}
 {% block content %}
 
-<h1>lalalalalalla</h1>
+<img  class="login1" src="/static/images/log/login1.jpg" alt="">
 
 <div id="setNumber-right">
     <div id="setNumber-1">DBGO注册</div>
@@ -64,7 +64,7 @@
         <input placeholder="验证码" class="setNumber-6a" type="text">
         <div class="set-yanzm-wrap" style="display: none;">
             <span class="set-yanzm"></span>
-            <a href="javascript:;">
+            <a href="">
                 换一批
             </a>
         </div>
@@ -75,22 +75,23 @@
             <input value="" checked="checked" type="radio">
             <span>我已阅读并同意</span>
             <a href="http://www.yintai.com/help/#terms" style="color:black; font-weight: bolder ;text-decoration: none">
-                《银泰网用户注册服务协议》
+                《DBGO网用户注册服务协议》
             </a>
         </div>
         <div class="setNumber-8a">
-            <a href="javascript:;" class="setNumberbtn">注册</a>
+            <a href="" class="setNumberbtn">注册</a>
         </div>
     </div>
 </div>
 
+
+<script>
+$(function() {
+    $('.login1').animate({left: 0}, 800);    //椤甸潰鍔犺浇鎵ц   鍐呭浠庝袱杈硅繘鍘�
+    $('#setNumber-right').animate({right: 0}, 800);
+})
+</script>
+
 {% endblock %}
-
-{% block footer %}
-
-
-
-{% endblock %}
-
 
 
