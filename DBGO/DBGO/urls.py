@@ -18,6 +18,7 @@ from django.conf.urls import include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^shopsite/', include('shopsite.urls', namespace='shopsite')),
     url(r'^admin/', admin.site.urls),
+    url(r'^shopsite/', include('shopsite.urls', namespace='shopsite')),
+    url(r'^$', include('shopsite.urls')),
 ]

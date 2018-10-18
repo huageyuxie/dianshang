@@ -11,6 +11,16 @@ from . import models
 from . import utils
 
 
+# 首页
+def index(request):
+    """
+    用户首页
+    :param request:
+    :return:
+    """
+    return render(request, 'shopsite/index.html')
+
+
 # 用户登录
 def user_login(request):
     """

@@ -1,0 +1,10 @@
+.site-footer{
+    width: 1286px;
+    height: 367px;
+    background-color: #000000;
+    float: bottom;
+}
+.site-footer .first-row{
+    width: 1286px;
+    height: 64px;
+}
