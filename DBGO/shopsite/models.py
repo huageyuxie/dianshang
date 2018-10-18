@@ -17,6 +17,6 @@ class NormalUser(models.Model):
                                default='static/images/headers/default.jpg',
                                verbose_name='用户头像')
     # 联系方式
-    phone = models.CharField(max_length=30, verbose_name='用户联系方式')
+    phone = models.CharField(max_length=30, blank=True, verbose_name='用户联系方式')
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
