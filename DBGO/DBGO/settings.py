@@ -81,9 +81,9 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DBSO',
-        'USER': 'root',
-        'PASSWORD': 'root',
+        'NAME': 'dbgo',
+        'USER': 'xmkf',
+        'PASSWORD': 'xmkf',
         'CHARSET': 'utf8',
         'HOST': '192.168.13.31',
         'PORT': '3306',
@@ -130,6 +130,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS ={
-    os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = {
+    os.path.join(BASE_DIR, 'static'),
 }
