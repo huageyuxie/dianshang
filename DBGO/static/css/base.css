@@ -2,9 +2,35 @@
     width: 1286px;
     height: 367px;
     background-color: #000000;
-    float: bottom;
+    position: fixed;
+    bottom: 0;
 }
 .site-footer .first-row{
     width: 1286px;
     height: 64px;
+}
+.center-centent{
+    width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0 10px;
+}
+.center-centent .left{
+    margin-right: 60px;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFF;
+    display: inline-block;
+}
+.left .left-icon{
+    width: 27px;
+    height: 30px;
+    font-weight: 400;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.left-icon img{
+    width: 35px;
+    height: auto;
 }
