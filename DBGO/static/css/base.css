@@ -1,3 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 .site-footer{
     width: 1286px;
     height: 367px;
@@ -7,13 +12,14 @@
 }
 .site-footer .first-row{
     width: 1286px;
-    height: 64px;
 }
 .center-centent{
     width: 1150px;
     margin-left: auto;
     margin-right: auto;
-    padding: 20px 0 10px;
+    padding: 20px 0 20px;
+    border-bottom: 1px #3c3c3c solid;
+    height: 64px;
 }
 .center-centent .left{
     margin-right: 60px;
@@ -33,4 +39,94 @@
 .left-icon img{
     width: 35px;
     height: auto;
+}
+.center-centent .right{
+    float: right;
+    border: 1px #343434 solid;
+    background-color: #000;
+    color: #5c5c5b;
+}
+.right input{
+    background-color: #000;
+    border: 0;
+    padding: 5px 15px;
+}
+.right img{
+    width: 27px;
+    height: auto;
+}
+
+.first-row > .left > ul{
+    width: 1260px;
+    margin-left: 68px;
+    margin-right: auto;
+    height: auto;
+}
+
+.first-row > .left > ul > li > p > a{
+    text-decoration: none;
+    color: #666;
+    font-size: 6px;
+}
+
+.first-row > .left > ul > li{
+    float: left;
+    list-style: none;
+    padding: 0;
+    width: 180px;
+    height: 120px;
+}
+
+.first-row > .left > ul > li > p{
+    width: 180px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0;
+}
+
+.first-row > .left > ul > li > p > span{
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.footer-link{
+    float: left;
+}
+
+.footer-link .about-us{
+    width: 1150px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+}
+.about-us .left-flag{
+    float: left;
+    position: relative;
+    left: 0;
+}
+
+.about-us .left-flag a{
+    width: 26px;
+    margin-right: 6px;
+}
+
+.about-us .links{
+    padding-left: 200px;
+    padding-top: 17px;
+    word-break: keep-all;
+}
+
+.about-us .links a{
+    color: #666;
+    font-size: 10px;
+}
+
+.footer-link .copyright{
+    text-align: center;
+    color: #666;
+}
+.footer-link .copyright a{
+    text-decoration: none;
+    color: #666;
 }
