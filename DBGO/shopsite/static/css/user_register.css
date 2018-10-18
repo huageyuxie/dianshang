@@ -1,0 +1,85 @@
+#header-wrap{
+    /*height: 1000px;*/
+    width: 1200px;
+}
+
+#header{
+    width: 1200px;
+    height: 60px;
+    border-bottom: solid 1px black;
+    margin-top: 20px;
+}
+
+.logo{
+    margin-left: 100px;
+}
+
+.heager_a{
+    list-style: none;
+    /*background-color: #7c7272;*/
+    width: 600px;
+    height: 55px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.heager_a a{
+    text-decoration: none;
+    color: black;
+
+}
+.heager_a a:hover{
+    color: #6E6E6E;
+}
+
+.heager_a li{
+    /*width: 100px;*/
+    height: 55px;
+    float: left;
+    margin-left: 10px;
+    position: relative;
+    display: block;
+}
+
+#setNumber-right{
+    /*float: right;*/
+    width: 320px;
+    height: 460px;
+    background:#fff;
+    margin-left: 1000px;
+}
+#setNumber-1{
+    width: 320px;
+    height: 44px;
+    background: black;
+    font:16px/44px '黑体';
+    color:#fff;
+    text-align: center;
+    border-bottom: 1px solid #CCCCCC;
+}
+
+#setNumber-wrap{
+    width: 280px;
+    height: 415px;
+    padding: 0 20px;
+    position: relative;
+}
+#setNumber-2{
+    float: right;
+    line-height: 50px;
+}
+#setNumber-wrap .setNumber-3a{
+    width: 270px;height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+    outline-color: #4F4F4F;
+    padding-left: 8px;
+}
+
+.setNumber-tishi{
+    width: 270px;
+    height: 22px;
+    line-height:22px;
+    color: #ccc;}

@@ -1,10 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>用户注册界面</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+<title>用户登录</title>
+
+{% endblock %}
+
+{% block css_and_js %}
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/user_register.css">
+<link rel="stylesheet" href="/static/css/comment.css">
+
+{% endblock %}
+
+{% block header %}
+<div id="header-wrap">
+    <div id="header">
+        <form class="form-horizontal" action="/shopsite/user_register/" method="post" enctype="multipart/form-data">
+            <img class="logo" src="/static/images/log/logo_e.png" alt="logo">
+            <ul class="heager_a">
+
+                <li>hi~</li>
+                <li><a href="">[请登录]</a>  </li>
+                <li><a href="">[免费注册]</a> </li>
+                <li><a href="">MY有货</a> </li>
+                <li><a href="">订单中心</a> </li>
+                <li><a href="">客户服务</a> </li>
+            </ul>
+        </form>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<h1>lalalalalalla</h1>
+
+<div id="setNumber-right">
+    <div id="setNumber-1">DBGO注册</div>
+    <div id="setNumber-wrap">
+        <div id="setNumber-2">
+            <p>已注册可
+                <a href="/shopsite/user_login/" style="color:black; font-weight: bolder ;text-decoration: none">直接登录</a>
+            </p>
+        </div>
+
+        <input placeholder="常用手机号" class="setNumber-3a" type="text"  name="phone">
+        <div class="setNumber-tishi setNumber-tishi1">
+            手机号/E-mail用于登录和找回密码，请正确填写。
+        </div>
+        <input placeholder="请输入密码" class="setNumber-4a" type="password">
+        <div class="setNumber-tishi setNumber-tishi2">
+            6-16个字符，可使用字母、数字、符号任意组合
+        </div>
+        <input placeholder="请再次输入密码" class="setNumber-5a" type="password">
+        <div class="setNumber-tishi setNumber-tishi3">
+            请再次输入您设置的密码
+        </div>
+        <div id="setNumber-ts">
+            <span>安全强度</span>
+            <span class="mimaruo">弱</span>
+            <span class="mimazhong">中</span>
+            <span class="mimaqiang">强</span>
+        </div>
+        <input placeholder="验证码" class="setNumber-6a" type="text">
+        <div class="set-yanzm-wrap" style="display: none;">
+            <span class="set-yanzm"></span>
+            <a href="javascript:;">
+                换一批
+            </a>
+        </div>
+        <div class="setNumber-tishi setNumber-tishi4">
+            请输入验证码
+        </div>
+        <div class="setNumber-7a">
+            <input value="" checked="checked" type="radio">
+            <span>我已阅读并同意</span>
+            <a href="http://www.yintai.com/help/#terms" style="color:black; font-weight: bolder ;text-decoration: none">
+                《银泰网用户注册服务协议》
+            </a>
+        </div>
+        <div class="setNumber-8a">
+            <a href="javascript:;" class="setNumberbtn">注册</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+
+
+{% endblock %}
+
+
+
