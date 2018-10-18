@@ -7,5 +7,4 @@ urlpatterns = [
     url(r'^user_loginout/$',views.user_loginout,name='user_loginout'),
     url(r'^register/$',views.register,name='register'),
 
-
 ]
