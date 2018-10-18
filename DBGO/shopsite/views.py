@@ -1,4 +1,7 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render
+
+
 
 
 #用户登录
@@ -9,7 +12,7 @@ def user_login(request):
     :return:
     """
     if request.method == 'GET':
-        return render(request, 'shopsite/login.html', {})
+        return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -38,8 +41,15 @@ def user_register(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        confirm_pwd = request.POST['confirm_pwd']
         code = request.POST['code']
+
+        # 判断用户名是否可用
+        try:
+            User.objects.get(username=username)
+            return render(request, 'shopsite/register.html', {"msg": "用户名已存在"})
+        except:
+            code
+
 
 
 
