@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>用户登录</title>
+
+{% endblock %}
+
+{% block css_and_js %}
+<link rel="stylesheet" href="/static/css/base.css">
+<link rel="stylesheet" href="/static/css/user_login.css">
+<link rel="stylesheet" href="/static/css/user_register.css">
+<link rel="stylesheet" href="/static/css/comment.css">
+
+{% endblock %}
+
+{% block header %}
+<div id="header-wrap">
+    <div id="header">
+
+        <img class="logo" src="/static/images/log/logo_e.png" alt="logo">
+        <ul class="heager_a">
+
+            <li>hi~</li>
+            <li><a href="">[请登录]</a>  </li>
+            <li><a href="">[免费注册]</a> </li>
+            <li><a href="">MY有货</a> </li>
+            <li><a href="">订单中心</a> </li>
+            <li><a href="">客户服务</a> </li>
+        </ul>
+
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="content-reg">
+    <img  class="login1" src="/static/images/log/login1.jpg" alt="">
+    <div id="login-all">
+
+
+
+
+        <div>
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">&nbsp;DBGO 登录&nbsp;&nbsp;</a></li>
+                <li role="presentation" class="log-tit"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">二维码扫描登录</a></li>
+            </ul>
+
+            <div class="tab-content">
+                 <div role="tabpanel" class="tab-pane active" id="home">
+                     <input placeholder="以验证手机/邮箱" class="log-input" type="text"  >
+                     <div class="log-tishi setNumber-tishi1">
+                        手机号用于登录和找回密码，请正确填写。
+                     </div>
+                     <input placeholder="请输入密码" class="log-input" type="password">
+                     <div class="log-tishi setNumber-tishi2">
+                        6-16个字符，可使用字母、数字、符号任意组合
+                     </div>
+                     <input placeholder="验证码" class="log-input1" type="text">
+                     <div class="log-tishi setNumber-tishi4">
+                        请输入验证码
+                     </div>
+                     <div class="self-login">
+                        <input value="" type="checkbox">
+                        <span>自动登录</span>
+                        <span class="public">
+                            公众场合不建议自动登录
+                        </span>
+
+                        <a href="" class="forget">忘记密码</a>
+                     </div>
+
+                     <div class="setNumber-8a">
+                        <a href="" class="setNumberbtn">登录</a>
+                     </div>
+
+                     <div class="setNumber-9a">
+                        <div class="setNumber-9aa">您可以使用合作网站登录账号</div>
+                     </div>
+                     <ul class="setNumber-10a">
+                        <li>QQ</li><span>|</span>
+                        <li>支付宝</li><span>|</span>
+                        <li>微博</li><span>|</span>
+                        <li>139邮箱</li><span>|</span>
+                        <li>手机支付</li>
+                     </ul>
+
+
+
+
+                 </div>
+                 <div role="tabpanel" class="tab-pane" id="profile">
+                     <div id="logNumber2-con">用DBDO APP 扫描二维码安全登录</div>
+                     <div id="logNumber-pic">
+                        <img class="img1" src="/static/images/log/log-number2-er.jpg">
+                        <img class="img2" src="/static/images/log/log-number2-er1.png">
+                     </div>
+
+                     <div id="logNumber-con2">
+                        <span><a href="">下载DBGO APP</a></span>
+                        <span><a href="">使用帮助</a></span>
+                     </div>
+                     <div id="logNumber-con3">
+                        <p>仅限4.1.1版本以上使用</p>
+                     </div>
+                 </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+</div>
+
+
+<script>
+// $(function() {
+//     $('.login1').animate({left: 0}, 800);    //椤甸潰鍔犺浇鎵ц   鍐呭浠庝袱杈硅繘鍘�
+//     $('#setNumber-right').animate({right: 0}, 800);
+// })
+    $(function () {
+        var $logNumberPic  =  $('#logNumber-pic');
+        var $logNumberPic1 =  $('#logNumber-pic .img1');
+        var $logNumberPic2 =  $('#logNumber-pic .img2');
+        $logNumberPic.hover(
+            function(){
+                $logNumberPic1.animate({left:20},300);
+                $logNumberPic2.fadeIn(300);
+            },function(){
+                $logNumberPic1.animate({left:80},300);
+                $logNumberPic2.fadeOut(300);
+            }
+	)
+    })
+
+
+
+</script>
+
+{% endblock %}
+
+
+
+
