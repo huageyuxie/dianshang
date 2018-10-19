@@ -9,13 +9,15 @@
     background-color: #000000;
     /*position: fixed;*/
     bottom: 0;
+    /*margin-left: 100px;*/
+    
 
 }
 .site-footer .first-row{
     width: 1286px;
 }
 .all-footer{
-    margin-left: 100px;
+
 
 }
 .center-centent{
