@@ -7,6 +7,7 @@
 
 {% block css_and_js %}
 <link rel="stylesheet" href="/static/css/user_register.css">
+<script src="/static/js/app/user_register.js"></script>
 {% endblock %}
 
 {% block header %}
@@ -41,16 +42,16 @@
             </div>
 
             <input placeholder="用户名" class="setNumber-3a" type="text"  name="username">
-            <div class="setNumber-tishi setNumber-tishi1">
-                用户名称要求唯一
-            </div>
+            <label class="setNumber-tishi  setNumber-tishi1">
+                <p>用户名称要求唯一</p>
+            </label>
             <input placeholder="请输入密码" name="password" class="setNumber-4a" type="password">
             <div class="setNumber-tishi setNumber-tishi2">
-                6-16个字符，可使用字母、数字、符号任意组合
+                <p>6-16个字符，可使用字母、数字、符号任意组合</p>
             </div>
             <input placeholder="请再次输入密码" name="confirm_pwd" class="setNumber-5a" type="password">
             <div class="setNumber-tishi setNumber-tishi3">
-                请再次输入您设置的密码
+                <p>请再次输入您设置的密码</p>
             </div>
             <div id="setNumber-ts">
                 <span>安全强度</span>
@@ -66,7 +67,7 @@
                 <!--</a>-->
             </div>
             <div class="setNumber-tishi setNumber-tishi4">
-                请输入右方的验证码
+                <p>请输入右方的验证码</p>
             </div>
             <div class="setNumber-7a">
                 <input value="" checked="checked" type="radio">
@@ -82,13 +83,6 @@
     </div>
 </div>
 
-
-<script>
-$(function() {
-    $('.login1').animate({left: 0}, 800);
-    $('#setNumber-right').animate({right: 0}, 800);
-})
-</script>
 
 {% endblock %}
 
