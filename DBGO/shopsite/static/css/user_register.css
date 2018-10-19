@@ -1,6 +1,7 @@
 #header-wrap{
     /*height: 1000px;*/
     width: 1200px;
+    margin-left: 100px;
 }
 
 #header{
@@ -16,17 +17,19 @@
 
 .heager_a{
     list-style: none;
+
     /*background-color: #7c7272;*/
     width: 600px;
     height: 55px;
     float: right;
     margin-top: 10px;
-    margin-left: 20px;
+    margin-left: 200px;
 }
 
 .heager_a a{
     text-decoration: none;
     color: #3A3A3A;
+
 
 }
 .heager_a a:hover{
@@ -51,6 +54,13 @@
     margin-left: 1000px;
     overflow: hidden;
     margin-top: 30px;
+}
+
+.content-reg{
+
+    width: 1200px;
+    height: 600px;
+    margin-top: 100px;
 }
 
 .login1{

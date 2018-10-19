@@ -4,14 +4,19 @@
 }
 
 .site-footer{
-    width: 1286px;
-    height: 367px;
+    width: 100%;
+    height: 300px;
     background-color: #000000;
-    position: fixed;
+    /*position: fixed;*/
     bottom: 0;
+
 }
 .site-footer .first-row{
     width: 1286px;
+}
+.all-footer{
+    margin-left: 100px;
+
 }
 .center-centent{
     width: 1150px;
