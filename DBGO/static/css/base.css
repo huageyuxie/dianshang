@@ -3,11 +3,23 @@
     margin: 0;
 }
 
+/*标题栏CSS*/
+.tool-wrapper {
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    background-color: #f4f4f4;
+}
+
+
+
+
+/*页面底部CSS*/
 .site-footer{
     width: 1286px;
     height: 367px;
     background-color: #000000;
-    position: fixed;
     bottom: 0;
 }
 .site-footer .first-row{

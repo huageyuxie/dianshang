@@ -42,14 +42,14 @@
     display: block;
 }
 
-#setNumber-right{
+#register-right{
     /*float: right;*/
     width: 320px;
     height: 460px;
     background:#fff;
     margin-left: 1000px;
 }
-#setNumber-1{
+#register-1{
     width: 320px;
     height: 44px;
     background: black;
@@ -59,17 +59,17 @@
     border-bottom: 1px solid #CCCCCC;
 }
 
-#setNumber-wrap{
+#register-wrap{
     width: 280px;
     height: 415px;
     padding: 0 20px;
     position: relative;
 }
-#setNumber-2{
+#register-2{
     float: right;
     line-height: 50px;
 }
-#setNumber-wrap .setNumber-3a{
+#register-wrap .register-3a{
     width: 270px;height: 38px;
     border: 1px solid #ccc;
     border-radius: 2px;
@@ -78,7 +78,7 @@
     padding-left: 8px;
 }
 
-.setNumber-tishi{
+.register-tishi{
     width: 270px;
     height: 22px;
     line-height:22px;
