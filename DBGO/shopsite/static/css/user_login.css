@@ -16,7 +16,7 @@
     border: 1px solid #ccc;
     font-size: 14px;
     padding-left: 8px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 20px;
 
 }
@@ -110,7 +110,7 @@
 .setNumber-10a span{float: left;}
 
 #logNumber-con2{width: 260px;height: 30px;padding-left: 60px;}
-#logNumber-con2 span{display: block;float: left;margin: 0 5px;font-size: 14px;}
+#logNumber-con2 span a{display: block;float: left;margin: 0 5px;font-size: 14px; text-decoration: none ;color: #888888}
 #logNumber-con2 span a:hover{color: #ee120b;}
 #logNumber-con3{width: 250px;height: 20px;padding-left: 70px;}
 #logNumber-con3 p{display: block;width: 160px;height: 20px;line-height: 20px;border: 1px solid #ee120b;color: #ee120b;text-align: center;}
