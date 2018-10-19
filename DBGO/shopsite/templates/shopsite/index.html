@@ -2,3 +2,55 @@
 {% block title %}
 <title>用户首页</title>
 {% endblock %}
+
+{% block css_and_js %}
+<!--<link rel="stylesheet" href="/static/css/user_register.css">-->
+<link rel="stylesheet" href="/static/css/index.css">
+
+{% endblock %}
+
+{% block header %}
+
+<div id="header-wrap">
+    <div id="header">
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tasks " style="margin-right: 2px"></span>DBGO 有货！ <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li class="list-group-item">
+                  <a href="/blog/list_user/">DBGO!</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="/blog/add_user/">DBGO!BOYS</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="/blog/add_article/">DBGO!GIRLS</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="/blog/show_allart/">Mars</a>
+                </li>
+                <li class="list-group-item">
+                  <a href="/blog/show_allart/">DBGOHOOD</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <ul class="heager_a">
+
+            <li>hi~</li>
+            <li><a href="/shopsite/user_login/">[请登录]</a>  </li>
+            <li><a href="/shopsite/user_register/">[免费注册]</a> </li>
+            <li><a href="" >MY有货</a> </li>
+            <li><a href="" class="glyphicon glyphicon-list-alt">我的订单 |</a> </li>
+            <li><a href="" class="glyphicon glyphicon-heart">我的收藏 |</a> </li>
+            <li><a href="" class="glyphicon glyphicon-envelope">消息 |</a> </li>
+            <li><a href="" class="glyphicon glyphicon-headphones">客户服务 |</a> </li>
+            <li><a href="">关注有货 |</a> </li>
+            <li><a href="">手机版 |</a> </li>
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}

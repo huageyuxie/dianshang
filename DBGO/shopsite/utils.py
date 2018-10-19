@@ -38,7 +38,7 @@ def create_code():
     for _ in range(random.randint(0, 100)):
         draw.point((random.randint(0, 120), random.randint(0, 30)), fill=get_random_color())
     # 使用模糊滤镜
-    img = img.filter(ImageFilter.BLUR)
+    # img = img.filter(ImageFilter.BLUR)
     return img, code
 
 
