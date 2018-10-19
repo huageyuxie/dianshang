@@ -14,8 +14,3 @@ body{
 .common-width{
     width: 100%;
 }
-/*默认内容宽度*/
-.content-width{
-    width: 1200px;
-    margin: auto ;
-}
