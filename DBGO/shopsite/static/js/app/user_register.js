@@ -20,7 +20,7 @@ $(document).ready(function() {
         if (userFlag) {
             $userErrorInfo.html("用户名长度正确(6-18位)");
         }else{
-            $userErrorInfo.html("用户名长度不正确");
+            $userErrorInfo.html("用户名长度不正确且不能包含中文");
         }
     });
     //校验密码

@@ -2,7 +2,7 @@ import uuid
 from io import BytesIO
 
 from django.contrib.auth.models import User
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -28,23 +28,38 @@ def user_login(request):
     :param request:
     :return:
     """
+    try:
+        request.session['login_times']
+    except:
+        request.session['login_times'] = 1
     if request.method == 'GET':
         return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        request.POST['login_times'] = 1
+        code = request.POST['code']
+        print(request.session['code'])
+        if code.upper() == request.session['code'].upper():
+            del request.session['code']
+        else:
+            print('验证码错误')
+            return render(request, 'shopsite/user_login.html', {'msg': '验证码错误'})
         try:
-            user = User.objects.get(username=username)
-            if user.password == password:
-                login(request, user)
-                return render(request, 'shopsite/index.html', {})
+            user = authenticate(username=username, password=password)
+            if user:
+                if user.is_active:
+                    login(request, user)
+                    request.session['login_times'] = 1
+                    return render(request, 'shopsite/index.html', {})
+                else:
+                    print("账号未激活")
+                    return render(request, 'shopsite/user_login.html', {'msg': '账户未激活'})
             else:
-                request.POST['login_times'] += 1
-                return render(request, 'shopsite/login.html', {'msg': '用户名或密码错误'})
+                request.session['login_times'] += 1
+                return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
         except:
-            request.POST['login_times'] += 1
-            return render(request, 'shopsite/login.html', {'msg': '用户名或密码错误'})
+            request.session['login_times'] += 1
+            return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
 
 
 # 用户退出
@@ -76,7 +91,7 @@ def user_register(request):
         code = request.POST['code']
 
         # 判断验证码是否正确
-        if code != request.session['code']:
+        if code.upper() != request.session['code'].upper():
             print("验证码错误")
             return render(request, 'shopsite/user_register.html', {'msg': "验证码错误"})
         print("验证码正确")
@@ -90,7 +105,7 @@ def user_register(request):
             # 创建用户保存用户
             print("用户名可用")
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname=str(uuid.uuid1()), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(uuid.uuid1()), user=user)
             user.save()
             normal_user.save()
             print("用户保存成功")
