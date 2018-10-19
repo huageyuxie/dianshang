@@ -11,7 +11,7 @@ class NormalUser(models.Model):
     # 用户年龄
     age = models.IntegerField(default=0, verbose_name="用户年龄")
     # 用户性别
-    gender = models.BooleanField(blank=True, verbose_name="用户性别")
+    gender = models.CharField(max_length=5, blank=True, null=True, verbose_name="用户性别")
     # 用户头像
     header = models.ImageField(upload_to='static/images/headers',
                                default='static/images/headers/default.jpg',
