@@ -33,14 +33,13 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        request.POST['login_times'] = 1
         try:
             user = User.objects.get(username=username)
             if user.password == password:
                 login(request, user)
                 return render(request, 'shopsite/index.html', {})
             else:
-                # if request.POST['login_times'] >= 3:
-                    # TODO 登录次数超过三次需要验证码
                 request.POST['login_times'] += 1
                 return render(request, 'shopsite/login.html', {'msg': '用户名或密码错误'})
         except:
@@ -60,6 +59,7 @@ def user_logout(request):
 
 
 # 注册
+
 def user_register(request):
     """
     用户注册函数
@@ -67,23 +67,33 @@ def user_register(request):
     :return:
     """
     if request.method == 'GET':
+        print("使用了GET方式")
         return render(request, 'shopsite/user_register.html', {})
     if request.method == 'POST':
+        print("使用POST方式")
         username = request.POST['username']
         password = request.POST['password']
         code = request.POST['code']
 
+        # 判断验证码是否正确
+        if code != request.session['code']:
+            print("验证码错误")
+            return render(request, 'shopsite/user_register.html', {'msg': "验证码错误"})
+        print("验证码正确")
+        del request.session['code']
+
         # 判断用户名是否可用
-        try:
-            User.objects.get(username=username)
-            return render(request, 'shopsite/register.html', {"msg": "用户名已存在"})
-        except:
-            # 判断验证码是否正确
-            #TODO
-            user = User(nickname=username, password=password)
+        if User.objects.filter(username=username):
+            print("用户名已存在")
+            return render(request, 'shopsite/user_register.html', {"msg": "用户名已存在"})
+        else:
+            # 创建用户保存用户
+            print("用户名可用")
+            user = User.objects.create_user(username=username, password=password)
+            normal_user = models.NormalUser(nickname=str(uuid.uuid1()), user=user)
             user.save()
-            normaluser = models.NormalUser(nickname=uuid.uuid1())
-            normaluser.save()
+            normal_user.save()
+            print("用户保存成功")
             return render(request, 'shopsite/index.html',)
 
 

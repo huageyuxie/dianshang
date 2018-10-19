@@ -25,7 +25,7 @@ def get_random_color():
 # 创建验证码
 def create_code():
     # 创建图片，模式，大小，背景色
-    img = Image.new(mode='RGB', size=(120, 30), color=(255,255,255))
+    img = Image.new(mode='RGB', size=(120, 30), color=(255, 255, 255))
     # 创建画布
     draw = ImageDraw.Draw(img)
     # 设置字体
@@ -35,8 +35,11 @@ def create_code():
     for i in range(4):
         draw.text((30*i+5, 0), code[i], get_random_color(), font)
     # 生成干扰点
-    for i in range(100):
-        draw.point(random.randint(0, 120), random.randint(0, 30), fill=get_random_color())
+    for _ in range(random.randint(0, 100)):
+        draw.point((random.randint(0, 120), random.randint(0, 30)), fill=get_random_color())
     # 使用模糊滤镜
     img = img.filter(ImageFilter.BLUR)
     return img, code
+
+
+# 事务处理
