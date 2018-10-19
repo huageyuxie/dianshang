@@ -107,6 +107,10 @@
     line-height:22px;
     color: #ccc;}
 
+.setNumber-tishi1{
+    color: #ccc;
+}
+
 #setNumber-wrap .setNumber-4a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
 #setNumber-wrap .setNumber-5a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
 #setNumber-wrap .setNumber-6a{width: 100px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
