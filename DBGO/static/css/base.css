@@ -10,7 +10,7 @@
     /*position: fixed;*/
     bottom: 0;
     /*margin-left: 100px;*/
-    
+
 
 }
 .site-footer .first-row{
@@ -137,3 +137,146 @@
     text-decoration: none;
     color: #666;
 }
+
+#header{
+    width: 100%;
+    height: 30px;
+    background-color: #FAFAFA;
+}
+
+.heager_a{
+    list-style: none;
+
+    /*background-color: #7c7272;*/
+    width: 800px;
+    /*height: 10px;*/
+    /*float: right;*/
+    margin-top: -20px;
+    margin-left: 700px;
+}
+
+.heager_a a{
+    text-decoration: none;
+    color: #8e8e8e;
+
+
+}
+.heager_a a:hover{
+    color: #6E6E6E;
+}
+
+.heager_a li{
+    /*width: 100px;*/
+    height: 10px;
+    float: left;
+    margin-left: 10px;
+    position: relative;
+    display: block;
+}
+.dropdown{
+    margin-left: 200px;
+    /*color: black;*/
+}
+.dropdown a{
+    color: black;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+#header1{
+    width: 100%;
+    height:150px;
+    margin-top: 50px;
+    margin-left: 20px;
+    /*background-color: #888888;*/
+}
+.logo{
+    width: 200px;
+    height: auto;
+    margin-top: -30px;
+    margin-left: 500px;
+}
+
+#search-form{
+    width: 320px;
+    height: 26px;
+
+    float: right;
+    margin-right: 200px;
+}
+#search-form #defaultsearch{
+    width: 220px;
+    height: 26px;
+    /*border-style: none;*/
+}
+#search-form .search-btn{
+    background-color: #5e4b3c;
+    width: 100px;
+    height: 26px;
+    float: right;
+}
+
+
+.header-change{
+    width: 100%;
+    height: 150px;
+    /*margin-left: 100px;*/
+
+    /*background-color: #7cb8bb;*/
+}
+.nav-tabs a{
+    color: #3a3a3a;
+    font-weight: bolder;
+}
+
+
+#home .intro-info{
+
+    background-color: #3a3a3a;
+
+}
+.boys :hover{
+    background-color: #3a3a3a;
+}
+
+.intro-info{
+    width: 1500px;
+    height: 40px;
+    /*background-color: #3a3a3a;*/
+    margin-top: 0.5px;
+}
+.intro-info ul{
+    display: block;
+    list-style: none;
+    margin-left: 200px;
+
+}
+.intro-info ul li {
+    line-height: 40px;
+    padding-right: 46px;
+    box-sizing: border-box;
+    margin-right: 36px;
+    display: inline-block;
+}
+
+.intro-info ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+
+#profile .intro-info{
+    background-color: #ff88ae;
+}
+
+
+ #messages .intro-info{
+    background-color: 	#A4D3EE;
+}
+#settings .intro-info{
+    background-color: #5e4b3c;
+}
+
+
+
+
