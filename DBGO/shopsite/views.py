@@ -37,13 +37,14 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        code = request.POST['code']
-        print(request.session['code'])
-        if code.upper() == request.session['code'].upper():
-            del request.session['code']
-        else:
-            print('验证码错误')
-            return render(request, 'shopsite/user_login.html', {'msg': '验证码错误'})
+        if request.session['login_times'] > 3:
+            input_code = request.POST['code']
+            print(request.session['code'])
+            if input_code.upper() == request.session['code'].upper():
+                del request.session['code']
+            else:
+                print('验证码错误')
+                return render(request, 'shopsite/user_login.html', {'msg': '验证码错误'})
         try:
             user = authenticate(username=username, password=password)
             if user:

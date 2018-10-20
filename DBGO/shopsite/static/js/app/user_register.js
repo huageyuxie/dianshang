@@ -76,3 +76,8 @@ $(document).ready(function() {
 function change_code() {
     document.getElementById("code-img").src="/shopsite/code?id="+ Math.random()
 }
+
+
+var xhr = new XMLHttpRequest();
+
+xhr.open('GET', '')

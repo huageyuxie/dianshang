@@ -35,7 +35,7 @@ def create_code():
     for i in range(4):
         draw.text((30*i+5, 0), code[i], get_random_color(), font)
     # 生成干扰点
-    for _ in range(random.randint(0, 100)):
+    for _ in range(random.randint(0, 300)):
         draw.point((random.randint(0, 120), random.randint(0, 30)), fill=get_random_color())
     # 使用模糊滤镜
     # img = img.filter(ImageFilter.BLUR)
