@@ -54,6 +54,7 @@ def user_login(request):
                 if user.is_active:
                     login(request, user)
                     request.session['login_times'] = 1
+
                     return render(request, 'shopsite/index.html', {})
                 else:
                     print("账号未激活")
@@ -130,9 +131,11 @@ def user_self(request):
 
 
 #用户修改界面
-def update_user_self(request):
+def update_user_self(request,u_id):
     if request.method == 'GET':
-        return render(request, 'shopsite/update_user_self.html')
+        user = models.User.objects.filter(id=u_id).first()
+
+        return render(request, 'shopsite/update_user_self.html',{'user':user})
     if request.method == 'POST':
         pass
 

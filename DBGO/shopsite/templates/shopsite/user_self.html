@@ -1,0 +1,342 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>用户界面</title>
+
+{% endblock %}
+
+{% block css_and_js %}
+<link rel="stylesheet" href="/static/css/user_self.css">
+{% endblock %}
+
+
+
+{% block content %}
+
+<!--<div class="container">-->
+    <!--<div class="row">-->
+
+        <!--<div class="col-md-4">-->
+                <!--llllllllllllllllll-->
+        <!--</div>-->
+
+
+
+        <!--<div class="col-md-8">-->
+            <!--rrrrrrrrrrrrrrrrrrrrrrrrr-->
+        <!--</div>-->
+
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div id="content" class="padTop">
+    <div class="acount_con clearfix">
+        <!--主体部分左侧内容-->
+        <div class="acount_l">
+            <span><img src="/static/images/main/pic_member_01.gif" alt="" /></span>
+            <dl class="ac_01">
+                <dd><a href="javascript:;">我的DBGO</a></dd>
+                <dd><a href="javascript:;">我的订单</a></dd>
+                <dd><a href="javascript:;">我的收藏</a></dd>
+                <dd><a href="javascript:;">地址薄</a></dd>
+                <dd><a class="cur" href="javascript:;">个人设置</a></dd>
+                <dd><a href="javascript:;">快捷支付</a></dd>
+                <dd><a href="javascript:;">邀请朋友</a></dd>
+                <dd><a href="javascript:;">晒单有礼</a></dd>
+                <dd><a href="javascript:;">会员活动</a></dd>
+            </dl>
+        </div>
+
+        <!--主体部分右侧内容-->
+        <div class="auount_r">
+            <!--个人设置-->
+            <div class="acount_box">
+                <div class="ac_title">
+                    <cite>个人设置 · Personal Setting</cite>
+                </div>
+                <div class="ac_container my_information">
+                    <h4>请您放心填写，我们承诺妥善保管个人信息的隐私权。</h4>
+                    <div class="my_information_box">
+                        <form action="" id="regother" >
+                            <table class="type_input">
+                                <tr>
+                                    <th><i>登录账户：</i></th>
+                                    <td colspan="3">54****@qq.com</td>
+                                </tr>
+                                <tr>
+                                    <th><i>真实姓名：</i></th>
+                                    <td colspan="3">
+                                        <input type="text" class="input_large_ch" name="name" id="name" maxlength="30" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i>性 &nbsp;&nbsp; &nbsp;&nbsp; 别：</i></th>
+                                    <td colspan="3" class="sex">
+                                        <input type="radio" class="input_small" name="gender" id="male" value="0" checked="checked" />
+                                        <label for="male"><i>先生</i></label>
+                                        <input type="radio" class="input_small" name="gender" id="female" value="1"/>
+                                        <label for="female"><i>小姐</i></label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i>生 &nbsp;&nbsp; &nbsp;&nbsp; 日：</i></th>
+                                    <td colspan="3">
+                                        <select class="YYYY select_normal" name="YYYY" style="width:62px; height:22px;" noteid="birthday">
+                                            <option value>----</option>
+                                            <option value="1990">1990</option>
+                                            <option value="1992">1992</option>
+                                            <option value="1994">1994</option>
+                                            <option value="1996">1996</option>
+                                            <option value="1998">1998</option>
+                                            <option value="2000">2000</option>
+                                            <option value="2002">2002</option>
+                                            <option value="2004">2004</option>
+                                            <option value="2006">2006</option>
+                                            <option value="2008">2008</option>
+                                        </select>
+                                        年
+                                        <select class="MM select_normal" name="MM" style="width:60px; height:22px;" noteid="birthday">
+                                            <option value=>--</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                        月
+                                        <select class="DD select_normal" name="DD" style="width:60px; height:22px;" noteid="birthday">
+                                            <option value=>--</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                        日
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>邮 &nbsp;&nbsp; &nbsp;&nbsp; 箱：</th>
+                                    <td>
+                                        <input type="text" class="input_large_en" id="email" name="email" value="54****@qq.com" />
+                                        <span class="c_purple">*</span>
+                                        <span style="display: none;">
+                                            <a href="javascript:;">保存</a>&nbsp;
+                                        </span>
+                                        <span class="change_a">修改</span>
+                                        <span id="maillink" style="display:inline; ">
+                                            &nbsp;
+                                            <a href="javascript:;"><img src="images/pic_mail_c.gif" border="0" style="vertical-align: middle;" alt="" /></a>
+                                        </span>
+                                        <span id="mailnolink" style="display:none;">
+                                            &nbsp;
+                                            <a href="javascript:;"><img src="images/pic_mail_a.gif" style="vertical-align: middle; margin-right:5px;" alt="" /></a>
+                                        </span>
+                                        <span class="prompt-info red" id="email_text"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>手机号码：</th>
+                                    <td>
+                                        <input type="text" class="input_large_en" id="mobile" name="mobile" value="" />
+                                        <span class="c_purple">*</span>
+                                        <span id="email_save" style="display: none;">
+                                            <a href="javascript:;">保存</a>&nbsp;
+                                        </span>
+                                        <span class="change_m">修改</span>
+                                        <span id="mobilelink" style="display:none; ">
+                                            &nbsp;
+                                            <a href="javascript:;"><img src="images/pic_tel_c.gif" border="0" style="vertical-align: middle;" alt="" /></a>
+                                        </span>
+                                        <span id="mobilenolink" style="display:none;">
+                                            &nbsp;
+                                            <a href="javascript:;"><img src="images/pic_tel_a.gif" style="vertical-align: middle; margin-right:5px;" alt="" /></a>
+                                        </span>
+                                        <span class="prompt-info red" id="mobile_text"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i>固定电话：</i></th>
+                                    <td colspan="3">
+                                        <input type="text" class="input_large_en" value  id="phone" name="phone" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td colspan="3">
+                                        <input type="checkbox" class="input_small" value="1"  id="if_order_newsletter" />
+                                        <label for="if_order_newsletter">订阅美西时尚资讯</label>
+                                        <label for="if_order_newsletter" class="cursor tip" onmouseover="tipsShow('美西时尚资讯包含以下内容：<ul><li>· 新品上架</br>可以获取当季新品上架信息</li><li>· 优惠促销</br>各类优惠、促销等活动信息</li><li>· 资讯文章</br>定期的潮流文章，让您紧跟时尚步伐</li></ul>')">（？）</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td colspan="3"><button class="p_btn_s" type="submit">保存修改</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="acount_box">
+                <div class="ac_title">
+                    <cite>扩展资料 · Extended Information</cite>
+                </div>
+                <div class="ac_container my_information">
+                    <h4>我们希望了解您的更多个人信息，以便为您提供更加贴心的服务体验。</h4>
+                    <div class="my_information_box">
+                        <form action="" id="extendedreg">
+                            <table class="type_input">
+                                <tr>
+                                    <th><i>身 &nbsp;&nbsp; &nbsp;&nbsp; 高：</i></th>
+                                    <td>
+                                        <input type="text" class="b_height input_large_ch" name="u_height" value="170cm" style="color:rgb(153,153,153);" />
+                                    </td>
+                                    <th style="padding-left: 50px;"><i>腰围：</i></th>
+                                    <td>
+                                        <input type="text" class="waisline input_large_ch" name="u_waisline" value="28cm" style="color:rgb(153,153,153);" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i>上衣尺码：</i></th>
+                                    <td>
+                                        <select name="coat_size" class="select_normal" style="width:130px;">
+                                            <option value>请选择</option>
+                                            <option value="S">S</option>
+                                            <option value="XXXL">XXXL</option>
+                                            <option value="M">M</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="3XL">3XL</option>
+                                            <option value="XXS">XXS</option>
+                                            <option value="XS">XS</option>
+                                            <option value="XL">XL</option>
+                                            <option value="L">L</option>
+                                            <option value="ML">ML</option>
+                                        </select>
+                                    </td>
+                                    <th><i>裤子尺码：</i></th>
+                                    <td>
+                                        <select name="pants_size" class="select_normal" style="width:130px;">
+                                            <option value>请选择</option>
+                                            <option value="S">S</option>
+                                            <option value="XXXL">XXXL</option>
+                                            <option value="M">M</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="3XL">3XL</option>
+                                            <option value="XXS">XXS</option>
+                                            <option value="XS">XS</option>
+                                            <option value="XL">XL</option>
+                                            <option value="L">L</option>
+                                            <option value="ML">ML</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th><i>鞋 &nbsp;&nbsp; &nbsp;&nbsp; 码：</i></th>
+                                    <td>
+                                        <select name="shoes_size" id="shoes_size" class="select_normal" style="width:130px;">
+                                            <option value>请选择</option>
+                                            <option value="35">35</option>
+                                            <option value="36">36</option>
+                                            <option value="37">37</option>
+                                            <option value="38">38</option>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                        </select>
+                                    </td>
+                                    <th><i>喜欢的颜色：</i></th>
+                                    <td>
+                                        <input type="text" class="input_large_ch" name="favorite_color" value />
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="acount_box">
+                <div class="ac_title">
+                    <cite>修改密码 · Change Password</cite>
+                </div>
+                <div class="ac_container my_information">
+                    <form action="" id="editPass">
+                        <table class="type_input">
+                            <tr>
+                                <th><i>原始密码：</i></th>
+                                <td>
+                                    <input type="password" texttype="text" id="pass" name="pass" class="input_large_en" />&nbsp;
+                                    <span class="c_purple">*</span>
+                                    <span class="prompt-info red"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i>新密码：</i></th>
+                                <td>
+                                    <input type="password" texttype="equal" id="password" name="password" class="input_large_en" />&nbsp;
+                                    <span class="c_purple">*</span>
+                                    <span class="prompt-info red" id="pass_equal"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i>确认新密码：</i></th>
+                                <td>
+                                    <input type="password" id="password2" name="password2" class="input_large_en" />&nbsp;
+                                    <span class="c_purple">*</span>
+                                    <span class="prompt-info red" id="pass_text"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td colspan="3"><button class="p_btn_s" type="submit">保存密码</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a name="myBrand">&nbsp;</a>
+
+</div>
+
+
+{% endblock %}
