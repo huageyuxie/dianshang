@@ -9,7 +9,7 @@ $(document).ready(function() {
         $psw = $("input[name='password']"),
         $repsw = $("input[name='confirm_pwd']");
         // $mail = $("input[name='mail']"),
-    //校验用户名
+    // 校验用户名
     $user.on('blur', function (e) {
         var userFlag = regUser.test($(this).val());
         console.log($(this).val());
@@ -21,6 +21,8 @@ $(document).ready(function() {
             $userErrorInfo.css({'color': 'red'});
         }
     });
+
+
     //校验密码
     $psw.on('blur', function (e) {
         var pswFlag = regPsw.test($(this).val());
@@ -77,7 +79,3 @@ function change_code() {
     document.getElementById("code-img").src="/shopsite/code?id="+ Math.random()
 }
 
-
-var xhr = new XMLHttpRequest();
-
-xhr.open('GET', '')

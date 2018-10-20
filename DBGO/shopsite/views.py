@@ -33,6 +33,7 @@ def user_login(request):
     except:
         request.session['login_times'] = 1
     if request.method == 'GET':
+        request.session['login_times'] = 1
         return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
         username = request.POST['username']

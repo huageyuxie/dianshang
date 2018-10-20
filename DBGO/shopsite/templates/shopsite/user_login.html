@@ -50,7 +50,7 @@
                      <div class="log-tishi setNumber-tishi2">
                         6-16个字符，可使用字母、数字、符号任意组合
                      </div>
-                     {% if request.session.login_times and request.session.login_times > 3 %}
+                     {% if request.session.login_times > 3 %}
                      <input placeholder="验证码" class="log-input1" name="code" type="text">
                      <div class="log-tishi setNumber-tishi4">
                         请输入验证码
