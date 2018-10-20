@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
 from django.contrib.auth.decorators import login_required
 
 
@@ -40,6 +40,10 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        try:
+            is_remember = request.POST['is_remember']
+        except:
+            is_remember = ''
         if request.session['login_times'] > 3:
             input_code = request.POST['code']
             print(request.session['code'])
@@ -53,16 +57,21 @@ def user_login(request):
             if user:
                 if user.is_active:
                     login(request, user)
+                    login_user = models.NormalUser.objects.get(user=user)
                     request.session['login_times'] = 1
-
-                    return render(request, 'shopsite/index.html', {})
+                    request.session['login_user'] = login_user
+                    if is_remember == 'YES':
+                        response = redirect('/shopsite/index/')
+                        response.set_cookie('login_user', login_user, max_age=1800)
+                        return response
+                    else:
+                        return redirect('/shopsite/index/')
                 else:
                     print("账号未激活")
                     return render(request, 'shopsite/user_login.html', {'msg': '账户未激活'})
             else:
                 request.session['login_times'] += 1
                 return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
-
         except:
             request.session['login_times'] += 1
             return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
@@ -76,7 +85,8 @@ def user_logout(request):
     :return:
     """
     logout(request)
-    return redirect('shopsite/index')
+    del request.session['login_user']
+    return redirect('/shopsite/index')
 
 
 # 注册
@@ -115,7 +125,7 @@ def user_register(request):
             user.save()
             normal_user.save()
             print("用户保存成功")
-            return render(request, 'shopsite./user_login.html',)
+            return render(request, 'shopsite/index.html',)
 
 
 # 个人信息展示界面
@@ -123,7 +133,7 @@ def user_register(request):
 @login_required(login_url='/shopsite/user_login/')
 def user_self(request):
     """
-    返回当前用户个人信息界面，可以使用request.user属性查看信息
+    返回当前用户个人信息界面，可以使用request.session['login_user'].属性查看信息
     :param request:
     :return:
     """
@@ -131,13 +141,47 @@ def user_self(request):
 
 
 #用户修改界面
-def update_user_self(request,u_id):
+@login_required(login_url="/shopsite/user_login/")
+def update_user_self(request):
+    """
+    修改用户信息界面
+    修改nickname,age,gender
+    :param request:
+    :return:
+    """
     if request.method == 'GET':
-        user = models.User.objects.filter(id=u_id).first()
-
-        return render(request, 'shopsite/update_user_self.html',{'user':user})
+        return render(request, 'shopsite/update_user_self.html')
     if request.method == 'POST':
-        pass
+        nickname = request.POST['nickname']
+        age = request.POST['age']
+        gender = request.POST['gender']
+        new_user = models.NormalUser.objects.get(user=request.user)
+        new_user.nickname = nickname
+        new_user.age = age
+        new_user.gender = gender
+        # request.user = new_user # 是否需要自己更新当前request保存的user?
+        new_user.save()
+        return redirect('/shopsite/user_self')
+
+
+# 修改个人密码
+@login_required(login_url="/shopsite/user_login/")
+def update_user_password(request):
+    password = request.POST['password']
+    new_password = request.POST['new_password']
+    if password == request.user.password:
+        user = models.User.objects.get(username=request.user.username)
+        user.password = new_password
+        return render(request, 'shopsite/user_login.html', {'msg':
+                                                             '修改密码成功，请重新登陆'})
+    else:
+        return redirect('/shopsite/update_user_self/')
+
+
+# 修改头像 #TODO 修改头像功能待完善
+@login_required(login_url="/shopsite/user_login/")
+def update_user_header(request):
+    pass
 
 
 
@@ -151,7 +195,6 @@ def code(request):
     file = BytesIO()
     img.save(file, 'PNG')
     return HttpResponse(file.getvalue(), 'image/png')
-
 
 
 

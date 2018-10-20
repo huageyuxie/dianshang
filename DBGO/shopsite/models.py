@@ -20,3 +20,28 @@ class NormalUser(models.Model):
     phone = models.CharField(max_length=30, blank=True, verbose_name='用户联系方式')
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
+class Address(models.Model):
+    id = models.AutoField(primary_key=True)
+    # 收货人姓名
+    recv_name = models.CharField(max_length=255, verbose_name='收货人')
+    # 收货人联系方式
+    recv_phone = models.IntegerField(max_length=50, verbose_name="收货人联系方式")
+    # 国家
+    native = models.CharField(max_length=50, verbose_name="国家")
+    # 省份
+    provice = models.CharField(max_length=50, verbose_name="省份")
+    # 市区
+    city = models.CharField(max_length=50, verbose_name="市区")
+    # 县区
+    country = models.CharField(max_length=50, verbose_name="县区")
+    # 街道
+    street = models.CharField(max_length=255, verbose_name="街道")
+    # 详细介绍
+    desc = models.CharField(max_length=255, verbose_name="详细描述")
+    # 是否是默认地址
+    status = models.BooleanField(default=False, verbose_name="是否默认地址")
+
+    # 属于谁的地址
+    user = models.ForeignKey(NormalUser, on_delete=models.CASCADE)
