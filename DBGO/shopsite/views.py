@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET
 from django.contrib.auth.decorators import login_required
 
 
@@ -168,27 +168,53 @@ def update_user_self(request):
 # 修改个人密码
 @login_required(login_url="/shopsite/user_login/")
 def update_user_password(request):
-    password = request.POST['password']
-    new_password = request.POST['new_password']
-    if password == request.user.password:
-        user = models.User.objects.get(username=request.user.username)
-        user.password = new_password
-        return render(request, 'shopsite/user_login.html', {'msg':
-                                                             '修改密码成功，请重新登陆'})
-    else:
+    """
+    修改个人密码
+    :param request:
+    :return:
+    """
+    if request.method == "GET":
         return redirect('/shopsite/update_user_self/')
+    if request.method == "POST":
+        password = request.POST['password']
+        new_password = request.POST['new_password']
+        if password == request.user.password:
+            user = models.User.objects.get(username=request.user.username)
+            user.password = new_password
+            return render(request, 'shopsite/user_login.html', {'msg':
+                                                                 '修改密码成功，请重新登陆'})
+        else:
+            return redirect('/shopsite/update_user_self/')
 
 
-# 修改头像 #TODO 修改头像功能待完善
+# 修改头像
 @login_required(login_url="/shopsite/user_login/")
 def update_user_header(request):
-    pass
-
+    """
+    修改头像
+    :param request:
+    :return:
+    """
+    user = request.user
+    try:
+        header = request.FILES.get("avatar")
+        header = '/static/images/headers/' + user.username + header
+    except:
+        header = '/static/images/headers/default.jpg'
+    user.normaluser.header = header
+    user.save()
+    user.normaluser.save()
+    return redirect('/shopsite/update_user_self/')
 
 
 
 # 验证码
 def code(request):
+    """
+    生成验证码
+    :param request:
+    :return:
+    """
     img, create_code = utils.create_code()
     # 将生成的验证码保存到session中
     request.session['code'] = create_code
