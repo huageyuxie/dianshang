@@ -8,6 +8,8 @@
 {% block css_and_js %}
 <link rel="stylesheet" href="/static/css/user_login.css">
 <link rel="stylesheet" href="/static/css/user_register.css">
+<script src="/static/js/app/user_login.js"></script>
+
 {% endblock %}
 
 {% block header %}
@@ -35,10 +37,10 @@
 
         <div>
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">&nbsp;DBGO 登录&nbsp;&nbsp;</a></li>
+                <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">DBGO &nbsp;登录</a></li>
                 <li role="presentation" class="log-tit"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">二维码扫描登录</a></li>
             </ul>
-
+            <div style="color:#ee120b;font-size: 14px;margin-top: 10px;margin-left: 30px ">{{msg}}</div>
             <form action="/shopsite/user_login/" method="post"  class="tab-content">
                  {% csrf_token %}
                  <div role="tabpanel" class="tab-pane active" id="home">
@@ -55,9 +57,9 @@
                      <div class="log-tishi setNumber-tishi4">
                         请输入验证码
                      </div>
-                     <div class="code-img"><img src="/shopsite/code/" alt="">
+                     <div onclick="change_code()" id="code-img" ><img src="/shopsite/code/"  alt="">
                      </div>
-                     <a href="" onclick="change_code()">换一张</a>
+                     <!--<a href="" onclick="change_code()">换一张</a>-->
                      {% endif %}
                      <div class="self-login">
                         <input value="" type="checkbox">

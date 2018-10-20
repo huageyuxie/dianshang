@@ -59,6 +59,7 @@ def user_login(request):
             else:
                 request.session['login_times'] += 1
                 return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
+
         except:
             request.session['login_times'] += 1
             return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
@@ -111,7 +112,7 @@ def user_register(request):
             user.save()
             normal_user.save()
             print("用户保存成功")
-            return render(request, 'shopsite/index.html',)
+            return render(request, 'shopsite./user_login.html',)
 
 
 # 验证码

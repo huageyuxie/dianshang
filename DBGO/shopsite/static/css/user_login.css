@@ -16,13 +16,13 @@
     border: 1px solid #ccc;
     font-size: 14px;
     padding-left: 8px;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 20px;
 
 }
 .log-input1{
 
-    width: 120px;
+    width: 100px;
     height: 38px;
     border: 1px solid #ccc;
     font-size: 14px;
@@ -32,6 +32,13 @@
     margin-left: 20px;
     color: #CCCCCC;
 }
+
+#code-img{
+    width: 100px;
+    height: 40px;
+    float: right;
+}
+
 .log-tit{
     background-color: black;
 
