@@ -72,6 +72,7 @@ def user_login(request):
             else:
                 request.session['login_times'] += 1
                 return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
+
         except:
             request.session['login_times'] += 1
             return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
@@ -85,8 +86,10 @@ def user_logout(request):
     :return:
     """
     logout(request)
-    del request.session['login_user']
-    return redirect('/shopsite/index')
+    try:
+        del request.session['login_user']
+    except:
+        return redirect('/shopsite/index')
 
 
 # 注册
@@ -125,7 +128,7 @@ def user_register(request):
             user.save()
             normal_user.save()
             print("用户保存成功")
-            return render(request, 'shopsite/index.html',)
+            return render(request, 'shopsite./user_login.html',)
 
 
 # 个人信息展示界面
@@ -155,10 +158,11 @@ def update_user_self(request):
         nickname = request.POST['nickname']
         age = request.POST['age']
         gender = request.POST['gender']
+        putfile = request.FILES['putfile']
         new_user = models.NormalUser.objects.get(user=request.user)
         new_user.nickname = nickname
         new_user.age = age
-        new_user.gender = gender
+
         # request.user = new_user # 是否需要自己更新当前request保存的user?
         new_user.save()
         return redirect('/shopsite/user_self')
@@ -195,6 +199,7 @@ def code(request):
     file = BytesIO()
     img.save(file, 'PNG')
     return HttpResponse(file.getvalue(), 'image/png')
+
 
 
 

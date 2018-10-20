@@ -61,9 +61,28 @@
                     <div class="my_information_box">
                         <form action="" id="regother" >
                             <table class="type_input">
+                                <!--<a href="">-->
+
+                                    <!--<img id="miao" class="media-object img-circle" src="/static/images/header/{{request.session.loginUser.header}}" alt="头像">-->
+                                <!--</a>-->
+
+                                <div id="img_warp">
+                                    <div id="imgdiv"><img src="{{request.session.login_user.header}}" alt="wwww"></div>
+                                    <label id="up_img" for="putfile">更换头像</label>
+                                    <input type="file" id="putfile" style="visibility: hidden;" />
+                                    <script>
+                                       window.onload = function () {
+                                            new uploadPreview({ UpBtn: "putfile", DivShow: "imgdiv", ImgShow: "imgShow" });
+                                        }
+                                    </script>
+                                </div>
+
+
+
+
                                 <tr>
                                     <th><i>登录账户：</i></th>
-                                    <td colspan="3">54****@qq.com</td>
+                                    <td colspan="3">{{request.user.username }}</td>
                                 </tr>
                                 <tr>
                                     <th><i>真实姓名：</i></th>
