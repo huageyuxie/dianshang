@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.http import require_GET
+from django.contrib.auth.decorators import login_required
 
 
 from . import models
@@ -113,6 +115,28 @@ def user_register(request):
             normal_user.save()
             print("用户保存成功")
             return render(request, 'shopsite./user_login.html',)
+
+
+# 个人信息展示界面
+@require_GET
+@login_required(login_url='/shopsite/user_login/')
+def user_self(request):
+    """
+    返回当前用户个人信息界面，可以使用request.user属性查看信息
+    :param request:
+    :return:
+    """
+    return render(request, 'shopsite/user_self.html')
+
+
+#用户修改界面
+def update_user_self(request):
+    if request.method == 'GET':
+        return render(request, 'shopsite/update_user_self.html')
+    if request.method == 'POST':
+        pass
+
+
 
 
 # 验证码
