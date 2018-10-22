@@ -150,7 +150,7 @@
 
     /*background-color: #7c7272;*/
     width: 800px;
-    height: 10px;
+    /*height: 10px;*/
     /*float: right;*/
     margin-top: -20px;
     margin-left: 700px;
@@ -194,7 +194,12 @@
 .logo{
     width: 200px;
     height: auto;
-    margin-top: -30px;
+    margin-left: 500px;
+}
+.index_logo{
+    width: 200px;
+    height: auto;
+    margin-top: -30px ;
     margin-left: 500px;
 }
 

@@ -32,11 +32,11 @@
     <img  class="login1" src="/static/images/log/login1.jpg" alt="">
 
     <div id="setNumber-right">
-        <div id="setNumber-1">DBGO注册</div>
+        <div id="setNumber-1">DBGO&nbsp注册</div>
         <form id="setNumber-wrap" method="post" action="/shopsite/user_register/">
             {% csrf_token %}
             <div id="setNumber-2">
-                <p>已注册可
+                <p style="margin: 0">已注册可
                     <a href="/shopsite/user_login/" style="color:black; font-weight: bolder ;text-decoration: none">直接登录</a>
                 </p>
             </div>
@@ -69,7 +69,7 @@
             <div class="setNumber-tishi setNumber-tishi4">
                 <p>请输入右方的验证码</p>
             </div>
-            <div class="setNumber-7a">
+            <div class="setNumber-7a" style="width: 280px">
                 <input value="" checked="checked" type="radio">
                 <span>我已阅读并同意</span>
                 <a href="http://www.yintai.com/help/#terms" style="color:black; font-weight: bolder ;text-decoration: none">
@@ -77,7 +77,7 @@
                 </a>
             </div>
             <div class="setNumber-8a">
-                <Button  id="tijiao" class="setNumberbtn">注册</Button>
+                <Button  id="tijiao" class="setNumberbtn" style="margin-top: 10px">注册</Button>
             </div>
         </form>
     </div>

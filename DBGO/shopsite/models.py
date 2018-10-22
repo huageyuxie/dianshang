@@ -27,7 +27,7 @@ class Address(models.Model):
     # 收货人姓名
     recv_name = models.CharField(max_length=255, verbose_name='收货人')
     # 收货人联系方式
-    recv_phone = models.IntegerField(max_length=50, verbose_name="收货人联系方式")
+    recv_phone = models.IntegerField(verbose_name="收货人联系方式")
     # 国家
     native = models.CharField(max_length=50, verbose_name="国家")
     # 省份

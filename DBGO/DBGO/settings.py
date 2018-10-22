@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shopsite',
+    'goods',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,6 @@ DATABASES = {
         'PASSWORD': 'xmkf',
         'CHARSET': 'utf8',
         'HOST': '192.168.13.31',
-        # 'HOST': 'localhost',
         'PORT': '3306',
     }
 }

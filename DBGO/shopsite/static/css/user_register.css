@@ -114,7 +114,7 @@
 #setNumber-wrap .setNumber-4a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
 #setNumber-wrap .setNumber-5a{width: 270px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
 #setNumber-wrap .setNumber-6a{width: 100px;height: 38px;border: 1px solid #ccc;border-radius: 2px;font-size: 14px;outline-color: black;padding-left: 8px;}
-#setNumber-wrap .setNumber-8a{width: 262px;height: 40px;padding-left: 8px;}
+#setNumber-wrap .setNumber-8a{width: 262px;height: 40px;padding-left: 4px;}
 #setNumber-wrap .setNumber-8a button{width: 270px;height: 40px;display: block;line-height: 40px;text-align: center;background: #ee120b;font-size: 16px;color: #fff;margin-top: 25px;border-radius:3px ;}
 #setNumber-ts{position: absolute;padding-top: 3px;top:155px;display: none;}
 #setNumber-ts span{display:block;float:left;margin-right:5px;line-height: 16px;text-align: center;}
@@ -125,7 +125,7 @@
     width: 150px;height: 38px;
     /*border: 1px solid #fff;*/
     position: absolute;
-    left:130px;top:242px;}
+    left:130px;top:235px;}
 /*.set-yanzm{width:88px;height: 36px;line-height: 38px;display: block;float: left;margin-right: 10px;border: 1px solid #999;}*/
 /*.set-yanzm-wrap a{width: 48px;line-height: 36px;float: left;text-align: center;border: 1px solid #999;}*/
 

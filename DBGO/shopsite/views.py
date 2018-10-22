@@ -101,34 +101,27 @@ def user_register(request):
     :return:
     """
     if request.method == 'GET':
-        print("使用了GET方式")
         return render(request, 'shopsite/user_register.html', {})
     if request.method == 'POST':
-        print("使用POST方式")
         username = request.POST['username']
         password = request.POST['password']
         code = request.POST['code']
 
         # 判断验证码是否正确
         if code.upper() != request.session['code'].upper():
-            print("验证码错误")
             return render(request, 'shopsite/user_register.html', {'msg': "验证码错误"})
-        print("验证码正确")
         del request.session['code']
 
         # 判断用户名是否可用
         if User.objects.filter(username=username):
-            print("用户名已存在")
             return render(request, 'shopsite/user_register.html', {"msg": "用户名已存在"})
         else:
             # 创建用户保存用户
-            print("用户名可用")
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(uuid.uuid1()), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
             user.save()
             normal_user.save()
-            print("用户保存成功")
-            return render(request, 'shopsite/user_login.html',)
+            return render(request, 'shopsite/index.html',)
 
 
 # 个人信息展示界面
@@ -163,13 +156,20 @@ def update_user_self(request):
         new_user.age = age
         new_user.gender = gender
         new_user.save()
-        return redirect('/shopsite/user_self')
+        return redirect('/shopsite/user_self/')
 
 
 # 修改个人密码
 @login_required(login_url="/shopsite/user_login/")
 def update_user_password(request):
-    if request.method =='POST':
+    """
+    修改个人密码
+    :param request:
+    :return:
+    """
+    if request.method == "GET":
+        return redirect('/shopsite/update_user_self/')
+    if request.method == "POST":
         password = request.POST['password']
         new_password = request.POST['new_password']
         if password == request.user.password:
@@ -182,16 +182,34 @@ def update_user_password(request):
             return redirect('/shopsite/user_self/')
 
 
-# 修改头像 #TODO 修改头像功能待完善
+# 修改头像
 @login_required(login_url="/shopsite/user_login/")
 def update_user_header(request):
-    pass
-
+    """
+    修改头像
+    :param request:
+    :return:
+    """
+    user = request.user
+    try:
+        header = request.FILES.get("avatar")
+        header = '/static/images/headers/' + user.username + header
+    except:
+        header = '/static/images/headers/default.jpg'
+    user.normaluser.header = header
+    user.save()
+    user.normaluser.save()
+    return redirect('/shopsite/update_user_self/')
 
 
 
 # 验证码
 def code(request):
+    """
+    生成验证码
+    :param request:
+    :return:
+    """
     img, create_code = utils.create_code()
     # 将生成的验证码保存到session中
     request.session['code'] = create_code
