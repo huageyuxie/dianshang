@@ -1,7 +1,6 @@
 import random
 import string
 
-
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
@@ -33,7 +32,7 @@ def create_code():
     code = get_random_char(4)
     # 将生成的字符写在画布上
     for i in range(4):
-        draw.text((30*i+5, 0), code[i], get_random_color(), font)
+        draw.text((30 * i + 5, 0), code[i], get_random_color(), font)
     # 生成干扰点
     for _ in range(random.randint(0, 300)):
         draw.point((random.randint(0, 120), random.randint(0, 30)), fill=get_random_color())
@@ -42,4 +41,10 @@ def create_code():
     return img, code
 
 
+# 创建验证码
+def create_phonecode():
+    chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    x = random.choice(chars), random.choice(chars), random.choice(chars), random.choice(chars)
+    code = "".join(x)
+    return code
 # 事务处理
