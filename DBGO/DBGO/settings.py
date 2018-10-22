@@ -87,7 +87,6 @@ DATABASES = {
         'PASSWORD': 'xmkf',
         'CHARSET': 'utf8',
         'HOST': '192.168.13.31',
-        # 'HOST': 'localhost',
         'PORT': '3306',
     }
 }

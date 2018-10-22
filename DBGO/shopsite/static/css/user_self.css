@@ -193,29 +193,7 @@ button{
 	color:#fff;
 }
 
-#img_warp{
-	float: left;
-	width: 185px;
-	text-align: center;
-}
-#img_warp img{
-	width: 120px;
-	height: 120px;
-	/*margin-left: 20px;*/
-}
-#img_warp label{
-	display: inline-block;
-	height: 30px;
-	width: 120px;
-	text-align: center;
-	border-radius: 5px;
-	line-height: 30px;
-	margin: 3px 0 0 0;
-	color: #fff;
-	cursor: pointer;
-	font-weight: 900;
-	background: #00A5E0 url(/static/images/main/index.png) no-repeat -595px -48px;
-}
+
 
 
 
