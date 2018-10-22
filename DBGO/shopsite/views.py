@@ -118,7 +118,7 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0, 1000000)), user=user)
             user.save()
             normal_user.save()
             return render(request, 'shopsite/index.html',)
@@ -175,8 +175,7 @@ def update_user_password(request):
         if password == request.user.password:
             user = models.User.objects.get(username=request.user.username)
             user.password = new_password
-            return render(request, 'shopsite/user_login.html', {'msg':
-                                                                 '修改密码成功，请重新登陆'})
+            return render(request, 'shopsite/user_login.html', {'msg': '修改密码成功，请重新登陆'})
         else:
             return redirect('/shopsite/update_user_self/')
 
@@ -233,3 +232,5 @@ def sms(request,phone):
     params = "{'code': phone_code.create_code}"
     demo_sms_send.send_sms(__business_id, phone, "gqw", "SMS_148613819", params)
 
+def goods_show(request):
+    return render(request,'shopsite/goods_show.html')
