@@ -1,0 +1,159 @@
+/***************内容**********************/
+#content{width:1000px;margin:0 auto;position: relative;padding:20px 20px 17px 20px;margin-top:-100px;background: #fff;}
+#content:after{content: ".";clear: both;display: block;height:0;overflow: hidden;visibility: hidden;}
+
+	/*浮动层的阴影*/
+	#content_bg_left{width:20px;height:500px;position: absolute;left:-20px;top:0;background: url(/static/images/img/base.png) no-repeat -110px 0;}
+	#content_bg_right{width:20px;height:500px;position: absolute;right:-20px;top:0;background: url(/static/images/img/base.png) no-repeat 0px 0;}
+	
+	/*主要内容区*/
+	#index_content_top{width:100%;height:140px;text-align: center;}
+	#index_content_top img{height:100px;width:100%;}
+	
+	/*后来添加的刘嘉玲*/
+	.today_new{height:auto;width:100%;}
+	.today_new_left{width:680px;float: left;}
+	.today_new_right{width:320px;height:484px;overflow: hidden;position:relative;}
+	.today_new_right .index_turn{width:1280px;height:484px; position: absolute;left:-320px;top:0}
+	.today_new_right img{width:320px;height:484px;}
+	.today_new_right .index_turn a{display: inline-block;width:100%;height:100%;}
+
+	.page_left{background: url(/static/images/img/left_page.png) no-repeat 0 0;height:40px;width:25px;position: absolute;top:228px;left:6px;cursor:pointer;}
+	.page_right{background: url(/static/images/img/page_right.png) no-repeat 0 0;position: absolute;top:228px;right:7px;width:25px;height:40px;cursor:pointer;}
+	
+	.pageBtn{width:100%;height:12px;position: absolute;bottom: 10px;font-size: 0;text-align: center;}
+	.pageBtn1{background: url(/static/images/img/btn1.png) no-repeat 0 0;display: inline-block; height:11px;margin:0 8px;vertical-align: middle;width:12px; }
+	.pageBtn .active{background: url/static/images/img/btn2.png) no-repeat 0 0;}
+	
+	
+	/*标题样式*/
+	.content_tit{height:38px;width:100%;font-size:24px;color:#000;font-family: "microsoft yahei";}
+	.content_tit .tit{font-size: 22px;padding:0 10px;}
+	.content-main:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	
+	/***********************热卖品牌*******************/
+	.content_main_img{width:318px;height:191px;border:1px solid #e7e7e7;overflow: hidden;text-align: center;position: relative;}
+	.content_main_img img{width:318px;height:191px;display:inline;vertical-align: bottom;position:absolute;left:0;top:0;}
+				/*******灰色浮动层效果********/
+				
+	.greyscale{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);filter: grayscale(100%);filter: gray;}
+	.content_main_goods{color:#fff;position:absolute;left:0;top:0;letter-spacing: 0.5px;}
+	.content_main_goods_td{width:258px;height:191px;background:#000;opacity: 0.6;filter: alpha(opacity=60);padding:0 30px;line-height:20px;}
+	
+	.content_main_cen{width:320px;font-size:12px;height:39px;line-height:39px;background: #f2f2f2;}
+	.content_main_cen1{color:#000;text-indent: 10px;width:258px;float: left;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:180px;}
+	.content_main_span2{float: right;padding-right:10px;}
+	.content_main_cen2{font-size:14px;}
+	.content_main_cen3{font-size:11px;}
+	.content-main-block{width:320px;height:232px;margin-bottom: 20px;}
+	.hot_sale{margin-top:20px;}
+	.havelrmargin{margin-left:20px;margin-right:20px;}
+	/***************************女士活动*********************************/
+	.woman-bargain{}
+	.woman-bargain:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.woman-bargain-block1,.man-bargain-block1,.beauty-bargain-block1,.family-bargain-block1,.child-bargain-block1{width:218px;height:207px;background: url(../img/twicebig.jpg) no-repeat 0 0;padding-top: 277px;padding-left:50px;padding-right: 52px;margin-bottom: 20px;float:left;}
+	.woman-top{height:73px;width:217px;background: url(../img/twicebig-tit.png) no-repeat -13px 0;margin-bottom: 9px;}
+	.woman-bottom{width:100%;padding-top: 10px;border-top:1px solid #fff;border-bottom: 1px solid #fff;}
+	.woman-bottom a{color:#fff;}
+	.woman-bottom a:hover{color:#db2726;}
+	.wbot1{height:22px;line-height: 22px;text-align: center;}
+	.wbot1 a{display: inline;padding: 0 5px;}
+	.wbot2{height:22px;line-height: 22px;text-align: center;}
+	.wbot2 a{display: inline;padding: 0 5px;}
+	.wbot3{width:65px;height:32px;line-height: 32px;margin: 0 auto;}
+	.wbot3 span{font-size: 18px;}
+	/***************************男士活动*********************************/
+	.man-bargain:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.man-bargain-block1{background-position:-320px 0;padding-top:301px;height:182px;}
+	.man-top{height:73px;width:217px;background: url(../img/twicebig-tit.png) no-repeat -13px -75px;margin-bottom: 9px;}
+	.man-bottom{width:100%;padding-top: 10px;border-top:1px solid #000;border-bottom: 1px solid #000;}
+	.man-bottom a{color:#000;}
+	.man-bottom a:hover{color:#db2726;}
+	/***************************美妆活动*********************************/
+	.beauty-bargain:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.beauty-bargain-block1{background-position:-640px 0;}
+	.beauty-top{height:73px;width:217px;background: url(../img/twicebig-tit.png) no-repeat -13px -149px;margin-bottom: 9px;}
+	.beauty-bottom{width:100%;padding-top: 10px;border-top:1px solid #000;border-bottom: 1px solid #000;}
+	.beauty-bottom a{color:#000;}
+	.beauty-bottom a:hover{color:#db2726;}
+	/***************************家居活动*********************************/
+	.family-bargain:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.family-bargain-block1{background-position:-960px 0;padding-left:38px;padding-right:38px;width:244px;padding-top:260px;height:224px;}
+	.family-top{height:73px;width:242px;background:url(../img/twicebig-tit.png) no-repeat 0px -225px;margin-bottom: 9px;}
+	.family-bottom{width:100%;padding-top: 10px;border-top:1px solid #000;border-bottom: 1px solid #000;}
+	.family-bottom a{color:#000;}
+	.family-bottom a:hover{color:#db2726;}
+	/***************************婴童活动*********************************/
+	.child-bargain:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.child-bargain-block1{background-position:-1280px 0;padding-top:301px;height:183px;}
+	.child-top{height:73px;width:217px;background: url(../img/twicebig-tit.png) no-repeat center -302px;margin-bottom: 9px;}
+	.child-bottom{width:100%;padding-top: 10px;border-top:1px solid #fff;border-bottom: 1px solid #fff;}
+	.child-bottom a{color:#fff;}
+	.child-bottom a:hover{color:#db2726;}
+	.child-bottom .wbot1{height:22px;line-height: 22px;text-align: center;width:234px;margin-left:-10px;}
+	
+		/******************查看更多活动****************/
+		.look_more{width:990px;height:37px;clear: both; display:block;margin-right: 20px; padding-right: 8px;text-align: right;background:url(../img/look_more.gif) no-repeat right 4px;}
+		.look_more:hover{color:#db2726;}
+	
+	/***************即将推出的活动**********************/
+	#activitiesList{height:auto;overflow: hidden;width:100%;}
+	.activitiesList_tit{margin-bottom: 10px;}
+	.activitiesList_time{height:35px;position:relative;}
+	.activitiesList_day{height:25px;width:550px;}
+	.activitiesList_day li{height:21px;width:90px;float: left;font-size:14px;}
+	.activitiesList_day .active{border-bottom: 4px solid #000;}
+	.activitiesList_day li a{height:16px;border-left: 1px solid #000;width:88px;text-align: center;line-height: 16px;float: left;color:#000;}
+	.activitiesList_day li .border_right{height:16px;border-right: 1px solid #000;width:88px;text-align: center;line-height: 16px;float: left;}
+	
+	
+	.activitiesList_update{height:27px;width:92px;color:#000;font-size:14px;position: absolute;right:0;letter-spacing: 1px;}
+	.activitiesList_update .num{color:#db2726;font-size:27px;font-family:Constantia;height:27px;position:relative}
+	
+	
+	.activity_brand{height:auto;}
+	.activity_brand:after{content:".";display: block;clear: both;height:0;overflow: hidden;visibility: hidden;}
+	.activity_brand_block{width:318px;height:88px;border:1px solid #e7e7e7;margin-bottom: 20px;position: relative;}
+	/***********活动层的遮罩***********/
+	.activity_brand_mask{width:318px;height:88px;position:absolute;left:0;top:0;background:#000;opacity: 0.7;filter: alpha(opacity=70);z-index: 1;}
+	.activity_brand_take{width:120px;height:30px;background: #db2726;position: absolute;left:99px;top:30px;z-index: 2;font-size:11px;}
+	.activity_brand_take a{color:#fff;display: block;width:45%;float: left;text-align: center;height:30px;line-height: 30px;}
+	.activity_brand_take a:hover{text-decoration: underline;}
+	.activity_brand_take .spacing{color:#fff;width:10%;text-align: center;float: left;height:30px;line-height: 30px;}
+	
+	.activity_brand_block dt{width:149px;height:88px;}
+	.activity_brand_block dt img{width:149px;height:88px;}
+	.activity_brand_block dd{width:149px;height:88px;clear: right;background: #f2f2f2;padding: 0px 10px;}
+	.brand_p1{padding:10px 0 12px;line-height:16ppx;font-size:11px;}
+	.brand_p2{color:#db2726;font-size:11px;letter-spacing: 1px;}
+	.brand_p2 .em_span{font-size:14px;}
+	.activity_brand_block .activity_take_chose{position: absolute; color:#db2726;right:5px;bottom:5px;} 
+	.activity_brand .lRmargin{margin-left:20px;margin-right: 20px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

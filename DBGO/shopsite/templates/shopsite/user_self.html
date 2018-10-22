@@ -7,29 +7,14 @@
 
 {% block css_and_js %}
 <link rel="stylesheet" href="/static/css/user_self.css">
+<script src="/static/js/app/uploadPreview.min.js"></script>
 {% endblock %}
 
 
 
 {% block content %}
 
-<!--<div class="container">-->
-    <!--<div class="row">-->
 
-        <!--<div class="col-md-4">-->
-                <!--llllllllllllllllll-->
-        <!--</div>-->
-
-
-
-        <!--<div class="col-md-8">-->
-            <!--rrrrrrrrrrrrrrrrrrrrrrrrr-->
-        <!--</div>-->
-
-
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
 <div id="content" class="padTop">
     <div class="acount_con clearfix">
@@ -59,7 +44,7 @@
                 <div class="ac_container my_information">
                     <h4>请您放心填写，我们承诺妥善保管个人信息的隐私权。</h4>
                     <div class="my_information_box">
-                        <form action="" id="regother" >
+                        <form action="/shopsite/update_user_self/" id="regother" method="post" >
                             <table class="type_input">
                                 <!--<a href="">-->
 
@@ -67,7 +52,7 @@
                                 <!--</a>-->
 
                                 <div id="img_warp">
-                                    <div id="imgdiv"><img src="{{request.session.login_user.header}}" alt="wwww"></div>
+                                    <div id="imgdiv"><img src="/{{request.session.login_user.header}}" alt="wwww"></div>
                                     <label id="up_img" for="putfile">更换头像</label>
                                     <input type="file" id="putfile" style="visibility: hidden;" />
                                     <script>
@@ -76,6 +61,11 @@
                                         }
                                     </script>
                                 </div>
+
+                                <h2>{{user.normal_user.nickname}}</h2>
+                                <!--<h2>{{user.password}}</h2>-->
+                                <h2>{{request.session.login_user.nickname}}</h2>
+
 
 
 
@@ -239,7 +229,7 @@
                 <div class="ac_container my_information">
                     <h4>我们希望了解您的更多个人信息，以便为您提供更加贴心的服务体验。</h4>
                     <div class="my_information_box">
-                        <form action="" id="extendedreg">
+                        <form action="" id="extendedreg" >
                             <table class="type_input">
                                 <tr>
                                     <th><i>身 &nbsp;&nbsp; &nbsp;&nbsp; 高：</i></th>
@@ -317,12 +307,12 @@
                     <cite>修改密码 · Change Password</cite>
                 </div>
                 <div class="ac_container my_information">
-                    <form action="" id="editPass">
+                    <form action="/shopsite/update_user_password/" id="editPass" method="post">
                         <table class="type_input">
                             <tr>
                                 <th><i>原始密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="text" id="pass" name="pass" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="text" id="pass" name="password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red"></span>
                                 </td>
@@ -330,7 +320,7 @@
                             <tr>
                                 <th><i>新密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="equal" id="password" name="password" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="equal" id="password" name="new_password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_equal"></span>
                                 </td>
@@ -338,7 +328,7 @@
                             <tr>
                                 <th><i>确认新密码：</i></th>
                                 <td>
-                                    <input type="password" id="password2" name="password2" class="input_large_en" />&nbsp;
+                                    <input type="password" id="password2" name="new_password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_text"></span>
                                 </td>
