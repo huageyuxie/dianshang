@@ -117,7 +117,7 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + random.randint(1000000), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
             user.save()
             normal_user.save()
             return render(request, 'shopsite/index.html',)
