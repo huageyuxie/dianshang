@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/static/js/lib/bootstrap-3.3.7-dist/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/common.css">
-
     {% block css_and_js %}
 
     {% endblock %}
@@ -45,24 +44,30 @@
 
         <ul class="heager_a">
             <li>hi~</li>
-               {% if request.session.login_user %}
-            <li>
-                <span href="/shopsite/user_login/"></span>
+            {% if request.session.login_user %}
+            <li><span href="/shopsite/user_login/"></span>
                 {{request.user.username}}
+
             </li>
             <li><a href="/shopsite/user_logout/">[退出]</a> </li>
             <li><a href="/shopsite/user_register/">[免费注册]</a> </li>
+
             {% else %}
+
+
+
             <li><a href="/shopsite/user_login/">[请登录]</a>  </li>
             <li><a href="/shopsite/user_register/">[免费注册]</a> </li>
             {% endif %}
+
+
             <li><a href="" >MY有货</a> </li>
-            <li><a href="" class="glyphicon glyphicon-list-alt">我的DBGO |</a> </li>
+            <li><a href="/shopsite/user_self/" class="glyphicon glyphicon-list-alt">我的DBGO |</a> </li>
             <li><a href="" class="glyphicon glyphicon-heart">我的收藏 |</a> </li>
             <li><a href="" class="glyphicon glyphicon-envelope">消息 |</a> </li>
             <li><a href="" class="glyphicon glyphicon-headphones">客户服务 |</a> </li>
             <li><a href="">关注有货 |</a> </li>
-            <li><a href="">手机版 |</a> </li>
+
         </ul>
 
     </div>
@@ -70,7 +75,7 @@
     <div id="header1">
         <div class="header-change">
             <div class="header2">
-                <a href="/shopsite/index/"><img class="index_logo" src="/static/images/log/logo_e.png" alt="logo"></a>
+                <a href="/shopsite/index/"><img class="logo" src="/static/images/log/logo_e.png" alt="logo"></a>
                 <div class="search">
                     <form action="//www.yohobuy.com/search" method="get" id="search-form">
                         <input id="defaultsearch"  placeholder="萌奇文化">

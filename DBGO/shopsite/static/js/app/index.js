@@ -18,11 +18,11 @@ $(function(){
 
 	/***********************************/
 	//轮播图样式效果
-	
+
 	var clearTime = null;
 	var $index = 0;
 	var $qiandex = 0;
-	
+
 	//显示前进后退按钮，通过hover事件处理
 	$(".home_large").hover(
 		function(){
@@ -54,7 +54,7 @@ $(function(){
 			$(".slides_container li").eq($index).css("left","-960px").stop(true,true).animate({"left":"0"});
 		}
 	}
-	
+
 	//设置自动播放效果
 	function autoPlay(){
 		clearTime = setInterval(function(){
@@ -68,7 +68,7 @@ $(function(){
 		},3000);
 	}
 	autoPlay();
-	
+
 	//用户点击下一张图片，顺序显示图片
 	$(".next").click(function(){
 		$index++;
@@ -81,7 +81,7 @@ $(function(){
 		clearInterval(clearTime);
 		autoPlay();
 	});
-	
+
 	//用户点击前一张图片,倒序显示图片
 	$(".prev").click(function(){
 		$index--;
@@ -94,7 +94,7 @@ $(function(){
 		clearInterval(clearTime);
 		autoPlay();
 	});
-	
+
 	//悬停展示动画效果
 	$(".slides_list a").mouseover(function(){
 		clearInterval(clearTime);
