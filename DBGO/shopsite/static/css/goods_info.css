@@ -11,7 +11,7 @@ a { color:#333; text-decoration:none; }
 #good-wrap{min-height: 200px;height: auto !important;height:200px;width:1200px;margin:0 auto;}
 #good-wrap:after{content: '.';display: block;height: 0;clear: both;overflow: hidden;visibility: hidden;}
 
-.good-nav{height:40px;width:1200px;margin:0 auto;line-height:40px;background:;}
+.good-nav{height:40px;width:1200px;margin:0 auto;line-height:40px;}
 .good-nav a{font-size: 14px;color:#666;}
 .good-nav span{font-size: 14px;color:#666;}
 
@@ -97,7 +97,7 @@ a { color:#333; text-decoration:none; }
 .fine-bottom a{font-size:14px;color:  #ee120b;}
 
 
-#intrduce{width:1200px;height:9500px;position:relative;}
+#intrduce{width:1200px;height:7300px;position:relative;}
 .intrduce-left{width:210px;height:650px;float:left;border:1px solid #ccc;background:#fff;}
 .intrduce-left h2{height:35px;width:190px;padding:5px 10px;background:#f5f5f5;border-bottom:1px solid #e6e6e6;font-weight: 100;line-height:35px;font-size:16px;margin-bottom:10px;}
 .good-class{width:210px;height:141px;margin-bottom:10px;}
@@ -129,15 +129,15 @@ a { color:#333; text-decoration:none; }
 
 
 
-.intrduce-right{height:9348px;width:980px;background:#fff;float:right;border:1px solid #ccc;position:absolute;left:218px;top:0;}
+.intrduce-right{width:980px;background:#fff;float:right;border:1px solid #ccc;position:absolute;left:218px;top:0;}
 .intrduce-nav{height:40px;width:980px;border-bottom:1px solid #ccc;}
 .intrduce-nav li{float:left;height:33px;width:88px;background:#DCDCDC;line-height:33px;text-align: center;border-right:1px solid #ccc;margin-top:7px;}
 .intrduce-nav .change{height:38px;background:#fff;margin-top:0px;line-height:38px;border-top:3px solid #ee120b;border-bottom:#fff;}
 
 .intrduce-p1{height:40px;width:978px;border:1px solid #ccc;border-top:0;padding-top:10px;margin-bottom:10px;}
 
-.big-img1{height:7453px;width:980px;}
-.big-img2{height:1894px;width:980px;}
+.big-img1 img {height:auto;width:800px;}
+.big-img2 img {height:auto;width:800px;}
 
 
 .intrduce-nav1{height:40px;width:980px;border-bottom:1px solid #ccc;position:fixed;left:330px;top:0;background:#fff;display:none;}

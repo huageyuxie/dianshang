@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^user_register/$', views.user_register, name='user_register'),
     url(r'^user_self', views.user_self, name='user_self'),
     url(r'^update_user_self', views.update_user_self, name='update_user_self'),
+    url(r'^goods_show/$', views.goods_show, name='goods_show'),
 
 
 
