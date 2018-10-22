@@ -1,6 +1,5 @@
 import random
 from io import BytesIO
-import uuid
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -124,11 +123,11 @@ def user_register(request):
             # 创建用户保存用户
             print("用户名可用")
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(uuid.uuid1()), user=user)
+            normal_user = models.NormalUser(nickname="用户" + random.randint(1000000), user=user)
             user.save()
             normal_user.save()
             print("用户保存成功")
-            return render(request, 'shopsite/user_login.html',)
+            return render(request, 'shopsite/index.html',)
 
 
 # 个人信息展示界面
@@ -153,7 +152,7 @@ def update_user_self(request):
     :return:
     """
     if request.method == 'GET':
-        return render(request, 'shopsite/user_self.html')
+        return render(request, 'shopsite/update_user_self.html')
     if request.method == 'POST':
         nickname = request.POST['nickname']
         age = request.POST['age']
@@ -169,17 +168,15 @@ def update_user_self(request):
 # 修改个人密码
 @login_required(login_url="/shopsite/user_login/")
 def update_user_password(request):
-    if request.method =='POST':
-        password = request.POST['password']
-        new_password = request.POST['new_password']
-        if password == request.user.password:
-            user = models.User.objects.get(username=request.user.username)
-            user.password = new_password
-
-            return render(request, 'shopsite/user_login.html', {'msg':
-                                                                 '修改密码成功，请重新登陆'})
-        else:
-            return redirect('/shopsite/user_self/')
+    password = request.POST['password']
+    new_password = request.POST['new_password']
+    if password == request.user.password:
+        user = models.User.objects.get(username=request.user.username)
+        user.password = new_password
+        return render(request, 'shopsite/user_login.html', {'msg':
+                                                             '修改密码成功，请重新登陆'})
+    else:
+        return redirect('/shopsite/update_user_self/')
 
 
 # 修改头像 #TODO 修改头像功能待完善
@@ -201,6 +198,3 @@ def code(request):
     return HttpResponse(file.getvalue(), 'image/png')
 
 
-
-def goods_show(request):
-    return render(request,'shopsite/goods_show1.html')

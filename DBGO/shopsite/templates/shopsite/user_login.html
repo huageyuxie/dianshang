@@ -16,7 +16,7 @@
 <div id="header-wrap">
     <div id="header">
 
-        <img class="logo" src="/static/images/log/logo_e.png" alt="logo">
+        <a href="/shopsite/index/"><img class="logo" src="/static/images/log/logo_e.png" alt="logo"></a>
         <ul class="heager_a">
 
             <li>hi~</li>
@@ -38,7 +38,7 @@
         <div>
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">DBGO &nbsp;登录</a></li>
-                <li role="presentation" class="log-tit"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">二维码扫描登录</a></li>
+                <li role="presentation" class="log-tit QR-code-title"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="margin-right: 35.4px" >二维码登录</a></li>
             </ul>
             <div style="color:#ee120b;font-size: 14px;margin-top: 10px;margin-left: 30px ">{{msg}}</div>
             <form action="/shopsite/user_login/" method="post"  class="tab-content">
@@ -54,10 +54,10 @@
                      </div>
                      {% if request.session.login_times > 3 %}
                      <input placeholder="验证码" class="log-input1" name="code" type="text">
+                     <div onclick="change_code()" id="code-img" ><img src="/shopsite/code/"  alt="">
+                     </div>
                      <div class="log-tishi setNumber-tishi4">
                         请输入验证码
-                     </div>
-                     <div onclick="change_code()" id="code-img" ><img src="/shopsite/code/"  alt="">
                      </div>
                      {% endif %}
                      <div class="self-login">
