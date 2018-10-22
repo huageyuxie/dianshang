@@ -3,6 +3,9 @@ import string
 
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from django.contrib.contenttypes import forms
+
+
 
 
 # 生成随机4位字符串
@@ -40,6 +43,7 @@ def create_code():
     # 使用模糊滤镜
     # img = img.filter(ImageFilter.BLUR)
     return img, code
+
 
 
 # 事务处理

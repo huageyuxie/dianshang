@@ -118,10 +118,13 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
+            try:
+                normal_user = models.NormalUser(nickname="用户" + ''.join(str(random.choice(range(0, 10))) for _ in range(7)), user=user)
+            except:
+                normal_user = models.NormalUser(nickname="用户" + ''.join(str(random.choice(range(0, 10))) for _ in range(7)), user=user)
             user.save()
             normal_user.save()
-            return render(request, 'shopsite/index.html',)
+            return render(request, 'shopsite/user_login.html',)
 
 
 # 个人信息展示界面
@@ -133,7 +136,19 @@ def user_self(request):
     :param request:
     :return:
     """
-    return render(request, 'shopsite/user_self.html')
+    user = models.NormalUser.objects.get(user=request.user)
+    date = str(user.birthday)[:10]
+    print("date:" + date)
+    try:
+        year = date.split("-")[0]
+        month = date.split("-")[1]
+        day = date.split("-")[2]
+    except:
+        year = month = day = ''
+    print("year:" + year)
+    print("month:" + month)
+    print("day:" + day)
+    return render(request, 'shopsite/user_self.html', {'year': year, 'month': month, 'day': day})
 
 
 #用户修改界面
@@ -151,11 +166,19 @@ def update_user_self(request):
         nickname = request.POST['nickname']
         age = request.POST['age']
         gender = request.POST['gender']
+        birthday = request.POST['YYYY'] + '-' + request.POST['MM'] + '-' + request.POST['DD']
+        email = request.POST['email']
+        phone = request.POST['phone']
         new_user = models.NormalUser.objects.get(user=request.user)
         new_user.nickname = nickname
         new_user.age = age
         new_user.gender = gender
+        new_user.birthday = birthday
+        new_user.email = email
+        new_user.phone = phone
+        print("修改")
         new_user.save()
+        print("修改成功")
         return redirect('/shopsite/user_self/')
 
 
@@ -168,7 +191,7 @@ def update_user_password(request):
     :return:
     """
     if request.method == "GET":
-        return redirect('/shopsite/update_user_self/')
+        return redirect('/shopsite/user_self/')
     if request.method == "POST":
         password = request.POST['password']
         new_password = request.POST['new_password']
@@ -191,15 +214,18 @@ def update_user_header(request):
     :return:
     """
     user = request.user
-    try:
-        header = request.FILES.get("avatar")
-        header = '/static/images/headers/' + user.username + header
-    except:
-        header = '/static/images/headers/default.jpg'
-    user.normaluser.header = header
+
+    header = request.FILES.get("avatar", False)
+    avatar = request.FILES.get("avatar", False)
+    print(avatar)
+    if header:
+        # header = '/static/images/headers/' + user.username + str(header)
+        user.normaluser.header = header
+    print('header:' + str(header))
+    print("user.normaluser.header:" + str(user.normaluser.header))
     user.save()
     user.normaluser.save()
-    return redirect('/shopsite/update_user_self/')
+    return redirect('/shopsite/user_self/')
 
 
 

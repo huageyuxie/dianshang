@@ -132,7 +132,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static').replace("\\", '/'),
 ]
+
+MEDIA_URL = '/shopsite/static/images/'
+MEDIA_ROOT = './shopsite/'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

@@ -14,10 +14,14 @@ class NormalUser(models.Model):
     gender = models.CharField(max_length=5, blank=True, null=True, verbose_name="用户性别")
     # 用户头像
     header = models.ImageField(upload_to='static/images/headers',
-                               default='/static/images/headers/default.jpg',
+                               default='static/images/headers/default.jpg',
                                verbose_name='用户头像')
     # 联系方式
     phone = models.CharField(max_length=30, blank=True, verbose_name='用户联系方式')
+    # 用户邮箱
+    email = models.CharField(max_length=50, blank=True, verbose_name='用户邮箱')
+    # 出生日期
+    birthday = models.DateTimeField(null=True, blank=True, verbose_name="出生日期")
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
