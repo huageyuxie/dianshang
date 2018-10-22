@@ -1,0 +1,205 @@
+/*-------------此页面为公共样式表----------------*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; } 
+fieldset, img { border:none; } 
+img{display: block;} 
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; } 
+ul, ol { list-style:none; } 
+body { color:#333;font-size:12px;font-family:"Microsoft YaHei",Tahoma,Arial,Helvetica,sans-serif,HELVETICA; background:#fff;/* overflow-y:scroll;*/ overflow-x:hidden;}
+a { color:#666; text-decoration:none; }
+.fl{float:left;}
+.fr{float:right;}
+.clearR{clear:right;}
+.gray{color:#989a99;}
+.white{color:#fff;}
+.clearfix:after{content: ".";clear: both;display: block;height:0;overflow: hidden;visibility: hidden;}
+/*---------------以上部分为样式重置-不可动----------------*/
+
+/***右侧返回顶部***/
+.returnTop{width:98px;height:300px;position:fixed;left:50%;margin-left:550px;bottom:50px;overflow: hidden;z-index: 9997;text-align: center;}
+.top{background: #000;color:#fff;font-size:14px;overflow: hidden;padding:5px 0;}
+.top span{color:red; font-size: 16px;font-weight: bold;letter-spacing: 2px;}
+.erweima{background: #fff;border:1px solid #ccc;margin:0; overflow:hidden;padding: 5px 0;}
+.erweima span{display: inline-block;line-height: 22px;}
+.erweima img{display: inline-block;width:75px;height:75px;margin-bottom: 5px;}
+.clickOn a{background: url(../img/base.png) no-repeat -564px -428px;display: block;height:24px;overflow: hidden;text-indent: -9999px; width:96px;border:1px solid #ccc;border-top:0;}
+.clickOn {height:24px;background-color: #fff;}
+
+
+body{background: url(../img/bg.png) repeat-x center top;padding-bottom: 20px;}
+
+
+/***************头部样式**********************/
+#header{width:1000px;height:120px;margin:0 auto;position:relative;z-index: 10;}
+#quick-access{height:30px;}
+#quick-access a{color:#000}
+#quick_access_left{height:30px;line-height: 30px;}
+#quick_access_left ul li{float: left;height:30px;line-height:30px;}
+ #quick_access_left ul li  a:hover{color:red;}   
+#quick_access_left .quick-img{padding-left:3px;margin-right:5px;}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+#quick_access_left .space{padding:0 20px;}
+		/*右边样式*/
+#quick_access_right{width:285px;height:30px;line-height:30px;}
+.quick_access_right_list{height:30px;}
+#quick_access_right ul li{float:left;}
+#quick_access_right ul .space{padding:0 20px;}
+#quick_access_right .sina{text-indent: -9999px; float: left;background: url(../img/base.png) no-repeat -604px -330px;width:21px;height:17px;margin-top:6px;}
+#quick_access_right .quick_hover a:hover{color:red;}  
+#quick_access_right .quick_hover {position: relative;}
+#quick_access_right .mobile-app{width:114px;height:130px;background:#fff;text-align:center;position:absolute;top:30px;left:-20px;z-index:99;padding-top:5px;}
+ .mobile-app img{width:100px;height:100px;display: inline-block;vertical-align: bottom;}
+ .mobile-app p{line-height: 20px;}
+ 
+  
+  
+  
+  /*品牌logo*/
+#branding{height:90px;}
+#logo{width:187px;margin-right:20px; background: url(../img/base.png) no-repeat -853px -294px;height:90px;text-indent: -9999px;}
+#logo_slogan{width:140px; height:90px;background: url(../img/base.png) no-repeat -904px -72px;text-indent: -9999px;cursor:default;}
+
+/*************************************nav**************************************/
+#nav_container{background: #000;height:42px;width:100%;z-index:5;}
+#nav{width:1000px;height:42px;z-index:9;position:relative;margin:0 auto;}
+#nav_left {height:42px;width:700px;float: left;}
+#nav_left .nav_left_list{height:42px;float: left;position:relative;}
+#nav_left li .nav_list{color:#fff;height:42px;line-height: 42px;float: left;padding-right:51px;}
+#nav_left li a:hover{color:#db2726;}
+#nav_left li .active{color:#db2726;}
+
+#nav_right{float:right;width:110px;height:42px;position:relative;}
+
+#nav_right .nav_right_list{float:left;color:#fff;height:42px;line-height: 42px;cursor:pointer;}
+#nav_right .space{padding:0 16px;}
+#nav_right .li1{width:24px;background: url(/static/images/img/base.png) no-repeat -1010px  -219px;color:#a8a8a8;text-align: center;}
+.nav_right_list{height:42px;}
+/********导航部分***鼠标移上购物袋出现*********/
+.nav_shopping_bag{width:285px;height:auto;box-shadow: 0 1px 6px #999;position: absolute;right:0;top:42px;background: #fff;overflow: hidden;}
+.nav_button_close{background: url(/static/images/img/nav_shopbag_close.png) no-repeat 0 0;height:11px;display:block;position:absolute;right:10px;top:10px;width:10px;text-indent: -9999px;}
+.inner_none{width:245px;height:auto;margin-bottom:20px;margin-left:20px;margin-top:35px;text-align: center;overflow: hidden;}
+/*购物袋的商品样式*/
+.inner_have{width:260px;height:auto;margin-left:20px;margin-top:40px;overflow: hidden;}
+
+.my_product_container {max-height: 263px;overflow: hidden;width: 260px;}
+
+.inner_have .subtotal {float: right;margin-bottom: 67px;margin-top: 10px;}
+
+.my_product_button{width:100px;height:27px;background:#db2726;color:#fff;position: absolute;left: 93px;bottom:20px;display: block;line-height: 27px; text-align: center;}
+.my_product { border-bottom: 1px solid #e7e7e7;height: 77px; margin-bottom: 10px;position: relative;width: 245px;z-index: auto;}
+.my_product_img {border: 1px solid #e7e7e7;display: block;height: 65px;left: 0;overflow: hidden;position: absolute;top: 0;width: 48px;color:#000;}
+.my_product_img img{width:100%;}
+.my_product_delete {bottom: 10px;position: absolute;right: 0;color:#000;}
+.my_product ul li {margin-bottom: 3px; margin-left: 60px;overflow: hidden; text-align: left;white-space: nowrap;width: 185px;}
+
+.my_product ul li a{color:#000;}
+.my_product a:hover{color:#db2726;}
+
+
+
+/*女士部分*/
+.woman{width:590px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.woman .woman_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.hotactivity_list{height:200px;margin-bottom: 24px;}
+.hotactivity{height:44px;line-height:44px;font-size: 12px;color:#000000;border-bottom: 1px solid #e7e7e7;margin-bottom: 13px;}
+#nav .hotactivity_list a{color:#666;font-size:12px;}
+#nav .hotactivity_list li{height:25px;}
+.woman .woman_right{padding-left:20px;width:274px;}
+/*男士部分*/
+.man{width:590px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.man .man_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.man .man_right{padding-left:20px;width:274px;}
+/*美妆部分*/
+.beauty{width:590px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.beauty .beauty_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.beauty .beauty_right{padding-left:20px;width:274px;}
+/*家具部分*/
+.furniture{width:590px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.furniture .furniture_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.furniture .furniture_right{padding-left:20px;width:274px;}
+
+.furniture_right_list1{width:50%;}
+.furniture_right_list2{width:50%;clear:right;}
+/*婴童部分*/
+.child{width:590px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.child .child_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.child .child_right{padding-left:20px;width:274px;}
+/*老佛爷奥莱*/
+.Lafayette{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+.Lafayette{width:275px;height:304px;background: #fff;padding:10px 20px 0 20px;position: absolute;left:0px;top:42px;box-shadow: 0 1px 6px #999;}
+.Lafayette .Lafayette_left{height:294px;width:274px;border-right:1px solid #e7e7e7;padding-right: 20px;}
+
+
+
+/***************banner大图样式**********************/
+#banner{width:1800px;margin:0 auto;}
+
+
+
+/***************底部**********************/
+#footer-wrap{background: #f2f2f2;height:235px;margin:0 auto; width:100%;position:relative;z-index: 6;}
+#footer{width:1000px;height:205px;padding-top:30px;margin: 0 auto;}
+
+.footer_advantage{height:60px;margin-bottom: 23px;}
+.footer_advantage_li{width:165px;height:60px;border-right:1px solid #777;float:left;}
+.footer_advantage_li a{width:165px;height:18px;padding-top:42px;float:left;text-align: center;color:#000;}
+.footer_advantage_right{border:0;clear:right;}
+.adv1{background: url(../img/base.png) no-repeat -153px -146px;}
+.adv1:hover{background-position:-153px -264px;}
+.adv2{background: url(../img/base.png) no-repeat -543px -104px;}
+.adv2:hover{background-position:-543px 7px;}
+.adv3{background: url(../img/base.png) no-repeat -150px -382px;}
+.adv3:hover{background-position:-301px -229px;}
+.adv4{background: url(../img/base.png) no-repeat -419px 5px;}
+.adv4:hover{background-position:-419px -107px;}
+.adv5{background: url(../img/base.png) no-repeat -301px -346px;}
+.adv5:hover{background-position:-301px -459px;}
+.adv6{background: url(../img/base.png) no-repeat -301px -112px;}
+.adv6:hover{background-position:-301px 5px;}
+
+.footer_link{text-align: center;height:37px;letter-spacing: 0.5px;}
+.footer_link a{display: inline-block;padding: 0 12px;color:#000;}
+.footer_link a:hover{color:red;}
+
+.footer_copyright{text-align: center;height:34px;color:#000;letter-spacing: 0.5px;}
+
+.footer_license{text-align: center;}
+.footer_license img {display: inline;}
+
+.license1{margin-right: 25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

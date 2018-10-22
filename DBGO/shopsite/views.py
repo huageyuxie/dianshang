@@ -1,5 +1,6 @@
 import random
 from io import BytesIO
+import uuid
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -127,7 +128,7 @@ def user_register(request):
             user.save()
             normal_user.save()
             print("用户保存成功")
-            return render(request, 'shopsite/index.html',)
+            return render(request, 'shopsite/user_login.html',)
 
 
 # 个人信息展示界面
@@ -224,3 +225,6 @@ def code(request):
     return HttpResponse(file.getvalue(), 'image/png')
 
 
+
+def goods_show(request):
+    return render(request,'shopsite/goods_show1.html')

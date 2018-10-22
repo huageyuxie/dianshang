@@ -13,5 +13,8 @@ urlpatterns = [
 
 
     url(r'^code/$', views.code, name='code'),
-    url(r'^$', views.index)
+    url(r'^$', views.index),
+    url(r'^goods_show/$', views.goods_show, name='goods_show'),
 ]
+
+
