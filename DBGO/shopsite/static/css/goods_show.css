@@ -9,18 +9,12 @@
 .t-link2{height:36px;width:81px;background:url(../img/2.jpg) no-repeat left center;float:left;}
 .t-link2 p{line-height:36px;height:36px;margin-left:20px;}
 .top-right a{color:#333;}
-		/*top-erweima*/
+
 .top-erweima{height:198px;width:164px;position:absolute;left:0;top:36px;background:red;z-index:99;}
 .t-link1 .top-a1{display:block;height:34px;width:164px;line-height:34px;background:#fff url(../img/xinlang-icon.gif) no-repeat 5px 10px;text-align:left;text-indent: 30px;}
 .t-link1 .top-a2 {height:164px;width:164px;background:#f4f4f4;display: block;}
 .t-link1 .top-a2 span{display:block;width:164px;height:39px;background:yellow;background:url(../img/weixin.gif) no-repeat 5px 10px;text-align:left;text-indent: 30px;line-height: 39px;}
 
-
-/*header*/
-#header{height:163px;border-bottom:2px solid #ffa500;margin-bottom:8px;}
-.header-con{width:1200px;height:150px;margin:0 auto;padding-top:13px;margin-bottom:8px;position:relative;}
-.header-t{width:1200px;height:111px;}
-.header-t h1{float:left;}
 
 .search-box{height:65px;width:510px;margin-left:400px;}
 .search-box ul li{height:28px;width:65px;float:left;line-height:28px;text-align:center;font-size:14px;cursor: pointer;}

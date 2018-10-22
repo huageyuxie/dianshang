@@ -203,4 +203,4 @@ def code(request):
 
 
 def goods_show(request):
-    return render(request,'shopsite/goods_show1.html')
+    return render(request,'shopsite/goods_show.html')

@@ -6,7 +6,7 @@ $(function(){
 		itwo = $("#small-box img"),
 		tthe = $("#big-box img");
 
-	var arr = ["images/1.jpg","images/2.jpg","images/3.jpg"];
+	var arr = ["/static/images/iii/1.jpg","/static/images/iii/2.jpg","/static/images/iii/3.jpg"];
 
 	itwo.each(function(i){
 		$(this).hover(function(){
@@ -189,7 +189,7 @@ $(function(){
 
 	//网页you边菜单.default_user
 	$('.default_user').hover(function(){
-		$(this).css('background','#FFA500');
+		$(this).css('background','#ee120b');
 		$('.default_user span').css('display','block')
 	},function(){
 		$(this).css('background','none');
@@ -197,19 +197,19 @@ $(function(){
 	})
 
 	$('.left-cars').hover(function(){
-		$(this).css('background','#FFA500 url(images/car2.png) no-repeat center 15px')
+		$(this).css('background',' url(/static/images/iii/car2.png) no-repeat center 15px')
 	},function(){
 		//$(this).css('background','none')
-		$(this).css('background','#000 url(images/car1.png) no-repeat center 15px')
+		$(this).css('background','#000 url(/static/images/iii/car1.png) no-repeat center 15px')
 	})
 	$('.qq-pic').hover(function(){
-		$(this).css('background','#FFA500')
+		$(this).css('background','#ee120b')
 	},function(){
 		$(this).css('background','none')
 	})
 
 	$('.to-top').hover(function(){
-		$(this).css('background','#FFA500');
+		$(this).css('background','#ee120b');
 		$('.to-top span').css('display','block')
 	},function(){
 		$(this).css('background','none');
