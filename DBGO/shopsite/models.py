@@ -22,6 +22,8 @@ class NormalUser(models.Model):
     email = models.CharField(max_length=50, blank=True, verbose_name='用户邮箱')
     # 出生日期
     birthday = models.DateTimeField(null=True, blank=True, verbose_name="出生日期")
+    # 用户状态  0:隐藏用户 1:正常用户 2:使用手机号登陆的用户，没有用户名
+    status = models.CharField(max_length=10, default=1, verbose_name="用户状态")
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 

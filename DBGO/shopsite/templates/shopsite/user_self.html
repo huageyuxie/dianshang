@@ -55,11 +55,18 @@
                         <form action="/shopsite/update_user_self/" method="post" id="regother" >
                             {% csrf_token %}
                             <table class="type_input">
-
+                                {% if request.user.normaluser.status == 2 %}
+                                <tr>
+                                    <th><i>登录账户：</i></th>
+                                    <td colspan="3">
+                                         <input type="text" class="input_large_ch" name="username" id="username" maxlength="30" value=""/></td>
+                                </tr>
+                                {% else %}
                                 <tr>
                                     <th><i>登录账户：</i></th>
                                     <td colspan="3">{{request.user.username}}</td>
                                 </tr>
+                                {% endif %}
                                 <tr>
                                     <th><i>昵 &nbsp;&nbsp; &nbsp;&nbsp; 称：</i></th>
                                     <td colspan="3">
