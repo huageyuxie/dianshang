@@ -12,7 +12,7 @@ class GoodsType(models.Model):
     # 商品种类名称
     type_name = models.CharField(max_length=255, unique=True, verbose_name='商品种类名称')
     # 商品类别图片
-    cover = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
+    goodtype_cover = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
     # 商品介绍
     intro = models.CharField(max_length=255, verbose_name="商品类型描述")
 
@@ -38,7 +38,7 @@ class Goods(models.Model):
     # 商品品牌
     good_type = models.ForeignKey(GoodsType, on_delete=models.CASCADE)
     # 商品图片
-    # cover = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
+    # covers = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
 
 
     # 一对多的外键
