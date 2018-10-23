@@ -62,7 +62,8 @@ def update_store(request, store_id):
     :return:
     """
     if request.method == 'GET':
-        return render(request, 'store/update_html')
+        store = models.Store.objects.get(id=store_id)
+        return render(request, 'stores/update_store.html', {'store': store})
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
@@ -116,9 +117,11 @@ def update_cover(request, store_id):
     store = models.Store.objects.get(id=store_id)
     old_cover = str(store.cover)
     cover = request.FILES.get("cover", False)
-
+    print(cover)
     if cover:
         store.cover = cover
     store.save()
-    os.remove(settings.MEDIA_ROOT + old_cover)
+    if old_cover[-11:] != 'default.jpg':
+        pass
+        # os.remove(settings.MEDIA_ROOT + old_cover)
     return render(request, 'stores/index.html', {'store': store})

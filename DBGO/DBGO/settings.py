@@ -136,8 +136,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static').replace("\\", '/'),
 ]
 
-MEDIA_URL = '/shopsite/ueupload/images/'
-MEDIA_ROOT = './shopsite/'
+# MEDIA_URL = '/ueupload/images/'
+# MEDIA_ROOT = './ueupload/images/'
 
 LOGIN_URL = '/shopsite/user_login/'
 
