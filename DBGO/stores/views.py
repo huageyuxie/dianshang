@@ -97,9 +97,9 @@ def close_store(request, store_id):
 def update_cover(request, store_id):
     """
     更换店铺封面
-    :param request: 
-    :param store_id: 
-    :return: 
+    :param request:
+    :param store_id:
+    :return:
     """
     store = models.Store.objects.get(id=store_id)
     old_cover = str(store.cover)
