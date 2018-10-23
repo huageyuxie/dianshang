@@ -6,12 +6,13 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET
 from django.contrib.auth.decorators import login_required
 
 
 from . import models
 from . import utils
+from dysms_python import demo_sms_send
 
 
 # 首页
@@ -118,13 +119,10 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            try:
-                normal_user = models.NormalUser(nickname="用户" + ''.join(str(random.choice(range(0, 10))) for _ in range(7)), user=user)
-            except:
-                normal_user = models.NormalUser(nickname="用户" + ''.join(str(random.choice(range(0, 10))) for _ in range(7)), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
             user.save()
             normal_user.save()
-            return render(request, 'shopsite/user_login.html',)
+            return render(request, 'shopsite/index.html',)
 
 
 # 个人信息展示界面
@@ -151,7 +149,7 @@ def user_self(request):
     return render(request, 'shopsite/user_self.html', {'year': year, 'month': month, 'day': day})
 
 
-#用户修改界面
+# 用户修改界面
 @login_required(login_url="/shopsite/user_login/")
 def update_user_self(request):
     """
@@ -245,6 +243,20 @@ def code(request):
     return HttpResponse(file.getvalue(), 'image/png')
 
 
+# 手机验证码
+def phone_code(request):
+    create_code = utils.create_phonecode()
+
+    # 将生成的验证码保存到session中
+    request.session['code'] = create_code
+    return render(request, 'shopsite/user_register.html')
+
+
+# 发送短信
+def sms(request,phone):
+    __business_id = uuid.uuid1()
+    params = "{'code': phone_code.create_code}"
+    demo_sms_send.send_sms(__business_id, phone, "gqw", "SMS_148613819", params)
 
 def goods_show(request):
     return render(request,'shopsite/goods_show.html')
