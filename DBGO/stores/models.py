@@ -10,7 +10,8 @@ class Store(models.Model):
     # 商店名称
     name = models.CharField(max_length=50, verbose_name="店铺名称")
     # 店铺图片
-    cover = models.ImageField(upload_to='static/images/stores/default/default.jpg')
+    # cover = models.ImageField(upload_to='static/images/stores/default/default.jpg')
+    cover = models.ImageField(upload_to='static/images/store_img',default='static/images/store_img/default.jpg')
     # 店铺介绍
     intro = models.CharField(max_length=255, verbose_name="店铺介绍")
     # 店铺状态 0:关闭 1:正常营业 2:休息
@@ -20,4 +21,19 @@ class Store(models.Model):
 
     # 店铺所属用户
     user = models.ForeignKey(NormalUser, on_delete=models.CASCADE, verbose_name="店铺店长")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

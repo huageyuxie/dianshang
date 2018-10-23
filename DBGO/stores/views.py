@@ -15,7 +15,7 @@ def add_store(request):
     :return:
     """
     if request.method == "GET":
-        return render(request, 'store/add_store1.html', {'msg': '请填写以下数据'})
+        return render(request, 'stores/add_store1.html', {'msg': '请填写以下数据'})
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
@@ -25,7 +25,7 @@ def add_store(request):
         if cover:
             store.cover = cover
         store.save()
-        return render(request, 'store/index.html', {'store': store})
+        return render(request, 'stores/index.html', {'store': store})
 
 
 # 删除店铺
@@ -50,7 +50,7 @@ def update_store(request, store_id):
     :return:
     """
     if request.method == 'GET':
-        return render(request, 'store/update_html')
+        return render(request, 'stores/update.html')
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
@@ -63,7 +63,7 @@ def update_store(request, store_id):
         if cover:
             store.cover = cover
         store.save()
-        return render(request, 'store/index.html', {'msg': "店铺信息修改成功", 'store': store})
+        return render(request, 'stores/index.html', {'msg': "店铺信息修改成功", 'store': store})
 
 
 # 店铺营业
@@ -76,7 +76,7 @@ def open_store(request, store_id):
     store = models.Store.objects.get(id=store_id)
     store.status = 1
     store.save()
-    return render(request, 'store/index.html', {'msg': '店铺开始营业了', 'store': store})
+    return render(request, 'stores/index.html', {'msg': '店铺开始营业了', 'store': store})
 
 
 # 店铺歇业
@@ -90,7 +90,7 @@ def close_store(request, store_id):
     store = models.Store.objects.get(id=store_id)
     store.status = 2
     store.save()
-    return render(request, 'store/index.html', {'msg': '店铺暂时歇业了', 'store': store})
+    return render(request, 'stores/index.html', {'msg': '店铺暂时歇业了', 'store': store})
 
 
 # 更换店铺封面
@@ -109,4 +109,4 @@ def update_cover(request, store_id):
         store.cover = cover
     store.save()
     os.remove(settings.MEDIA_ROOT + old_cover)
-    return render(request, 'store/index.html', {'store': store})
+    return render(request, 'stores/index.html', {'store': store})
