@@ -94,7 +94,7 @@ def good_info(request, good_id):
     try:
         good = models.Goods.objects.get(id=good_id)
     except:
-        return redirect('back')
+        return redirect('/shopsite/index/')
     return render(request, 'goods/goods_show.html', {'good': good})
     # return render(request, 'goods/goods_show.html')
 
