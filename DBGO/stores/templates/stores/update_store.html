@@ -10,9 +10,8 @@
 <form action="/stores/update_cover/{{store.id}}/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
-    {{store.cover}}
     <div>
-        <img src="/ueupload/images/{{store.cover}}" alt="wwww">
+        <img src="/{{store.cover}}" alt="wwww">
         <input type="file" name="cover" id="">
                 <button class="submit">保存</button>
     </div>

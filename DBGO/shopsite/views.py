@@ -248,13 +248,12 @@ def update_user_header(request):
     user = request.user
     avatar2 = str(user.normaluser.header)
     header = request.FILES.get("avatar", False)
-
     if header:
         user.normaluser.header = header
     user.save()
     user.normaluser.save()
-    os.remove(settings.MEDIA_ROOT + avatar2)
-
+    if avatar2[-11:] != 'default.jpg':
+        os.remove(avatar2)
     return redirect('/shopsite/user_self/')
 
 
