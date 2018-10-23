@@ -33,8 +33,7 @@ def add_store(request):
         intro = request.POST['intro']
         user = request.user.normaluser
         store = models.Store(name=name, intro=intro, user=user)
-        cover = request.FILES.get('covers', False)
-        print('covers'+str(cover))
+        cover = request.FILES.get('cover', False)
         if cover:
             store.cover = cover
         store.save()
@@ -63,7 +62,7 @@ def update_store(request, store_id):
     :return:
     """
     if request.method == 'GET':
-        return render(request, 'stores/update_store.html')
+        return render(request, 'store/update_html')
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
@@ -72,7 +71,7 @@ def update_store(request, store_id):
         store.name = name
         store.intro = intro
         store.user = user
-        cover = request.FILES.get('covers', False)
+        cover = request.FILES.get('cover', False)
         if cover:
             store.cover = cover
         store.save()
@@ -116,7 +115,7 @@ def update_cover(request, store_id):
     """
     store = models.Store.objects.get(id=store_id)
     old_cover = str(store.cover)
-    cover = request.FILES.get("covers", False)
+    cover = request.FILES.get("cover", False)
 
     if cover:
         store.cover = cover
