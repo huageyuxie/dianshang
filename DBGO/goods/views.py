@@ -92,3 +92,4 @@ def del_good(request, good_id):
     good = models.Goods.objects.get(id=good_id)
     good.delete()
     return render(request, 'stores/self_store.html')
+

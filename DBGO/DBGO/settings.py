@@ -138,4 +138,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/shopsite/static/images/'
 MEDIA_ROOT = './shopsite/'
 
+LOGIN_URL = '/shopsite/user_login/'
+
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

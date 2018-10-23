@@ -41,7 +41,8 @@ def user_login(request):
         request.session['login_times'] = 1
         return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
-        if request.POST['login_phone']:
+        try:
+            request.POST['login_phone']
             # 手机验证码
             phone = request.POST['login_phone']
             my_code = request.POST['phone_code']
@@ -61,7 +62,7 @@ def user_login(request):
                     return render(request, 'shopsite/index.html',)
             else:
                 return render(request, 'shopsite/user_login.html', {'msg': '手机验证码错误'})
-        else:
+        except:
             username = request.POST['username']
             password = request.POST['password']
             try:
@@ -277,3 +278,7 @@ def send_msg(request, phone):
 
 def goods_show(request):
     return render(request,'shopsite/goods_show.html')
+
+
+def goods_car(request):
+    return render(request,'shopsite/goods_car.html')
