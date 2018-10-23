@@ -337,12 +337,13 @@
                     <cite>修改密码 · Change Password</cite>
                 </div>
                 <div class="ac_container my_information">
-                    <form action="" id="editPass">
+                    <form action="/shopsite/update_user_password/" id="editPass" method="post">
+                        {% csrf_token %}
                         <table class="type_input">
                             <tr>
                                 <th><i>原始密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="text" id="pass" name="pass" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="text" id="pass" name="password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red"></span>
                                 </td>
@@ -350,7 +351,7 @@
                             <tr>
                                 <th><i>新密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="equal" id="password" name="password" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="equal" id="password" name="new_password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_equal"></span>
                                 </td>
@@ -358,7 +359,7 @@
                             <tr>
                                 <th><i>确认新密码：</i></th>
                                 <td>
-                                    <input type="password" id="password2" name="password2" class="input_large_en" />&nbsp;
+                                    <input type="password" id="password2" name="new_password2" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_text"></span>
                                 </td>

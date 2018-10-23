@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import render,redirect
 
 
 from . import models
@@ -44,7 +45,7 @@ def add_good(request):
 
 
 # 商品的修改
-def update_goods(request, good_id):
+def update_good(request, good_id):
     """
     修改商品信息函数
     :param request:
@@ -69,7 +70,7 @@ def update_goods(request, good_id):
 
 
 # 商品的隐藏
-def lower(request, good_id):
+def lower_good(request, good_id):
     """
     商品售空，商家删除商品---等于展示的隐藏
     :param request:
@@ -80,6 +81,38 @@ def lower(request, good_id):
     good.status = 0
     good.save()
     return render(request, 'stores/self_store.html')
+
+
+# 商品的信息
+def good_info(request, good_id):
+# def good_info(request):
+    """
+    展示商品信息
+    :param request:
+    :return:
+    """
+    try:
+        good = models.Goods.objects.get(id=good_id)
+    except:
+        return redirect('back')
+    return render(request, 'goods/goods_show.html', {'good': good})
+    # return render(request, 'goods/goods_show.html')
+
+
+# 添加购物车
+def shop_good(request, good_id):
+    """
+    添加商品到购物车
+    :param request:
+    :return:
+    """
+    try:
+        good = models.Goods.objects.get(id=good_id)
+        request.user.normaluser.shopcart.goods = good
+        return HttpResponse('success')
+    except:
+        return render(request, "goods/goods_show.html", {"good": good})
+
 
 
 # 商品的删除

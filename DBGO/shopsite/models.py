@@ -14,7 +14,7 @@ class NormalUser(models.Model):
     gender = models.CharField(max_length=5, blank=True, null=True, verbose_name="用户性别")
     # 用户头像
     header = models.ImageField(upload_to='static/images/headers',
-                               default='static/images/headers/default.jpg',
+                               default='static/images/headers/default/default.jpg',
                                verbose_name='用户头像')
     # 联系方式
     phone = models.CharField(max_length=30, blank=True, verbose_name='用户联系方式')
@@ -51,3 +51,20 @@ class Address(models.Model):
 
     # 属于谁的地址
     user = models.ForeignKey(NormalUser, on_delete=models.CASCADE)
+
+
+# 购物车
+class ShopCart(models.Model):
+    id = models.AutoField(primary_key=True)
+    # 购买数量
+    count = models.IntegerField(default=0, verbose_name='购买数量')
+    # 小计金额
+    subtotal = models.FloatField(default=0, verbose_name="小计价格")
+    # 添加时间
+    add_time = models.DateTimeField(null=True, blank=True, verbose_name="添加时间")
+
+    # 一对一用户外键
+    user = models.OneToOneField(NormalUser, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ["-add_time"]

@@ -1,19 +1,19 @@
+import os
 import random
 from io import BytesIO
-import uuid
+
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.http import require_GET
 from django.contrib.auth.decorators import login_required
 
-
+from DBGO import settings
 from shopsite.utils import phone_code
 from . import models
 from . import utils
-from dysms_python import demo_sms_send
 
 
 # 首页
@@ -41,7 +41,7 @@ def user_login(request):
         request.session['login_times'] = 1
         return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
-        if request.POST['login_phone']:
+        try:
             # 手机验证码
             phone = request.POST['login_phone']
             my_code = request.POST['phone_code']
@@ -50,8 +50,10 @@ def user_login(request):
                 if not models.NormalUser.objects.fliter(phone=phone):
                     user = User.objects.create_user(username=phone, password="")
                     normaluser = models.NormalUser(phone=phone, status=2, nickname="用户" + str(random.randint(0, 1000000)), user=user)
+                    shopcart = models.ShopCart()
                     user.is_active = 1
                     user.save()
+                    shopcart.save()
                     normaluser.save()
                     login(request, user)
                     return render(request, 'shopsite/user_self.html', {'msg': '您是使用手机验证码快速登陆的，请尽快完善您的密码和个人资料'})
@@ -61,7 +63,7 @@ def user_login(request):
                     return render(request, 'shopsite/index.html',)
             else:
                 return render(request, 'shopsite/user_login.html', {'msg': '手机验证码错误'})
-        else:
+        except:
             username = request.POST['username']
             password = request.POST['password']
             try:
@@ -219,13 +221,18 @@ def update_user_password(request):
     if request.method == "POST":
         password = request.POST['password']
         new_password = request.POST['new_password']
-        if password == request.user.password:
-            user = models.User.objects.get(username=request.user.username)
-            user.password = new_password
-
-            return render(request, 'shopsite/user_login.html', {'msg':
-                                                                 '修改密码成功，请重新登陆'})
-        else:
+        try:
+            if authenticate(username=request.user.username, password=password):
+                print("密码正确")
+                user = models.User.objects.get(username=request.user.username)
+                user.set_password(new_password)
+                user.save()
+                return render(request, 'shopsite/user_login.html', {'msg': '修改密码成功，请重新登陆'})
+            else:
+                print("密码错误1")
+                return redirect('/shopsite/user_self/')
+        except:
+            print("密码错误2")
             return redirect('/shopsite/user_self/')
 
 
@@ -238,10 +245,8 @@ def update_user_header(request):
     :return:
     """
     user = request.user
-
+    avatar2 = str(user.normaluser.header)
     header = request.FILES.get("avatar", False)
-    avatar = request.FILES.get("avatar", False)
-    print(avatar)
     if header:
         # header = '/static/images/headers/' + user.username + str(header)
         user.normaluser.header = header
@@ -249,6 +254,10 @@ def update_user_header(request):
     print("user.normaluser.header:" + str(user.normaluser.header))
     user.save()
     user.normaluser.save()
+    # fname = os.path.join(settings.MEDIA_ROOT, avatar2)
+    # if os.path.isfile(fname):
+    #     os.remove(fname)
+    os.remove(settings.MEDIA_ROOT + avatar2)
     return redirect('/shopsite/user_self/')
 
 
