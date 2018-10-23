@@ -1,3 +1,4 @@
+import os
 import random
 from io import BytesIO
 import uuid
@@ -249,12 +250,10 @@ def update_user_header(request):
     header = request.FILES.get("avatar", False)
 
     if header:
-        # header = '/static/images/headers/' + user.username + str(header)
         user.normaluser.header = header
-    print('header:' + str(header))
-    print("user.normaluser.header:" + str(user.normaluser.header))
     user.save()
     user.normaluser.save()
+    os.remove(settings.MEDIA_ROOT + avatar2)
 
     return redirect('/shopsite/user_self/')
 

@@ -1,7 +1,10 @@
+import os
+
 from django.shortcuts import render, redirect
 
 # Create your views here.
 # 开店
+from DBGO import settings
 from . import models
 
 
@@ -88,3 +91,22 @@ def close_store(request, store_id):
     store.status = 2
     store.save()
     return render(request, 'store/index.html', {'msg': '店铺暂时歇业了', 'store': store})
+
+
+# 更换店铺封面
+def update_cover(request, store_id):
+    """
+    更换店铺封面
+    :param request: 
+    :param store_id: 
+    :return: 
+    """
+    store = models.Store.objects.get(id=store_id)
+    old_cover = str(store.cover)
+    cover = request.FILES.get("cover", False)
+
+    if cover:
+        store.cover = cover
+    store.save()
+    os.remove(settings.MEDIA_ROOT + old_cover)
+    return render(request, 'store/index.html', {'store': store})
