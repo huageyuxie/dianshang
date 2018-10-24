@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地址列表</title>
+</head>
+<body>
+    {% for address in addresses %}
+        收货人：{{address.recv_name}}
+        联系电话：{{address.recv_tel}}
+        收货地址：{{address.city}} {{address.area}} {{address.street}} {{address.desc}}
+        {% if address.is_default %}
+            <span style="color:cornflowerblue">默认地址</span>
+        {% endif %}
+    <br>
+    {% endfor %}
+</body>
+</html>
