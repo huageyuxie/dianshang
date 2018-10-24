@@ -179,11 +179,11 @@
     position: relative;
     display: block;
 }
-.dropdown{
+.dropdown-base{
     margin-left: 30px;
     /*color: black;*/
 }
-.dropdown a{
+.dropdown-base a{
     color: black;
     margin-top: 10px;
     text-decoration: none;

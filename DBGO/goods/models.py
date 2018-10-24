@@ -45,3 +45,16 @@ class Goods(models.Model):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
