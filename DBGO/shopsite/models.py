@@ -14,7 +14,7 @@ class NormalUser(models.Model):
     gender = models.CharField(max_length=5, blank=True, null=True, verbose_name="用户性别")
     # 用户头像
     header = models.ImageField(upload_to='static/images/headers',
-                               default='shopsite/static/images/headers/default/default.jpg',
+                               default='static/images/headers/default/default.jpg',
                                verbose_name='用户头像')
     # 联系方式
     phone = models.CharField(max_length=30, blank=True, verbose_name='用户联系方式')

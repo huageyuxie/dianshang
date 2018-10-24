@@ -144,7 +144,9 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0, 1000000)), user=user)
+            shopcart = models.ShopCart(user=normal_user)
+            normal_user.shopcart = shopcart
             user.save()
             normal_user.save()
             return render(request, 'shopsite/user_login.html',)
@@ -253,7 +255,10 @@ def update_user_header(request):
     user.save()
     user.normaluser.save()
     if avatar2[-11:] != 'default.jpg':
-        os.remove(avatar2)
+        try:
+            os.remove(avatar2)
+        except Exception as e:
+            print(e)
     return redirect('/shopsite/user_self/')
 
 

@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 # 开店
-from DBGO import settings
+from goods.models import Goods
 from . import models
 
 
@@ -117,11 +117,13 @@ def update_cover(request, store_id):
     store = models.Store.objects.get(id=store_id)
     old_cover = str(store.cover)
     cover = request.FILES.get("cover", False)
-    print(cover)
     if cover:
         store.cover = cover
     store.save()
     if old_cover[-11:] != 'default.jpg':
-        pass
-        # os.remove(settings.MEDIA_ROOT + old_cover)
+        try:
+            os.remove(old_cover)
+        except Exception as e:
+            print(e)
     return render(request, 'stores/index.html', {'store': store})
+

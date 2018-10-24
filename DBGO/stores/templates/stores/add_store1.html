@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>{{msg}}</h2>
-<form action="" method="post">
+<form action="/stores/add_store/" enctype="multipart/form-data" method="post">
     {% csrf_token %}
     店铺名称<input type="text" name="name">
     店铺封面<input type="file" name="cover">

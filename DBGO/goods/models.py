@@ -5,6 +5,7 @@ from django.db import models
 
 # 商品种类
 from shopsite.models import ShopCart
+from stores.models import Store
 
 
 class GoodsType(models.Model):
@@ -40,8 +41,9 @@ class Goods(models.Model):
     # 商品图片
     # covers = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
 
+    store = models.ForeignKey(Store, on_delete=models.CASCADE, verbose_name="商品店铺")
 
     # 一对多的外键
-    shopcart = models.ForeignKey(ShopCart, on_delete=models.CASCADE)
+    shopcart = models.ForeignKey(ShopCart, null=True, blank=True, on_delete=models.CASCADE)
 
 

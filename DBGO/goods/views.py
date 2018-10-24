@@ -25,23 +25,30 @@ def add_goods_type(request):
 
 
 # 商品添加
-def add_good(request):
+def add_good(request, store_id):
     """
     商品的添加函数
     :param request:
     :return:
     """
+    store = models.Store.objects.get(id=store_id)
     if request.method == "GET":
-        return render(request, 'goods/add_good.html', {"msg": "请在下方完善商品的信息"})
+        return render(request, 'goods/add_good.html', {'msg': '添加你想要售卖的商品吧', 'store': store})
     if request.method == "POST":
         good_name = request.POST['good_name']
         good_price = request.POST['good_price']
         good_stack = request.POST['good_stack']
         good_desc = request.POST['good_desc']
-        good_type = request.POST['good_type']
+        type_name = request.POST['type_name']
+        good_type = models.GoodsType.objects.get(type_name=type_name)
         good = models.Goods(good_name=good_name, good_price=good_price, good_stack=good_stack, good_desc=good_desc, good_type=good_type)
+        good.store = store
         good.save()
-        return render(request, 'stores/self_store.html')
+        goods = models.Goods.objects.filter(store=store)
+        if goods:
+            request.session['goods'] = goods
+            return render(request, 'stores/index.html', {'store': store})
+        return render(request, 'stores/index.html', {'store': store})
 
 
 # 商品的修改
@@ -51,22 +58,22 @@ def update_good(request, good_id):
     :param request:
     :return:
     """
+    good = models.Goods.objects.get(id=good_id)
     if request.method == "GET":
-        return render(request, 'stores/self_store.html')
+        return render(request, 'stores/self_store.html', {'good': good})
     if request.method == "POST":
         good_name = request.POST['good_name']
         good_price = request.POST['good_price']
         good_stack = request.POST['good_stack']
         good_desc = request.POST['good_desc']
         good_type = request.POST['good_type']
-        good = models.Goods.objects.get(id=good_id)
         good.good_name = good_name
         good.good_price = good_price
         good.good_stack = good_stack
         good.good_desc = good_desc
         good.good_type = good_type
         good.save()
-        return render(request, 'stores/self_store.html')
+        return render(request, 'stores/index.html')
 
 
 # 商品的隐藏
