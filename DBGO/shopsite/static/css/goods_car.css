@@ -44,10 +44,10 @@ body{color:#000;padding-bottom: 0;}
 .list_content_info .list_content_discribe{color:#000;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .list_content_ul li .number_choose{border:1px solid #999;height:28px;overflow: hidden;width:108px;margin:38px auto 0;}
 .number_choose span{display: block;float: left;overflow: hidden;}
-.number_choose .number_reduce{background: url(../img/reduce_none.gif) no-repeat ;border-right:1px solid #999;cursor: pointer;height:28px;width:28px;text-indent: -9999px;}
+.number_choose .number_reduce{background: url(./static/images/iii/reduce_none.gif) no-repeat ;border-right:1px solid #999;cursor: pointer;height:28px;width:28px;text-indent: -9999px;}
 .number_choose .quantity_number{height:18px;width:50px;padding: 5px 0;}
-.number_choose .number_add{background: url(../img/increase.gif) no-repeat; border-left: 1px solid #999;cursor:pointer;height:28px;width:28px;text-indent: -9999px;}
-.quantity_number input{float: left;width:50px;height: 18px;font-size: 14px;line-height: 18px;text-align: center;border:0;vertical-align: middle;}
+.number_choose .number_add{background: url(./static/images/iii/increase.gif) no-repeat; border-left: 1px solid #999;cursor:pointer;height:28px;width:28px;text-indent: -9999px;}
+.quantity_number input{float: left;width:50px;height: 15px;font-size: 14px;line-height: 18px;text-align: center;border:0;vertical-align: middle;}
 .good_remove{position: relative;}
 .good_remove img{position: absolute;cursor: pointer;height:12px;width:12px;left:55px;top:47px;}
 

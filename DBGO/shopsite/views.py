@@ -285,9 +285,24 @@ def send_msg(request, phone):
     return HttpResponse(p_code)
 
 
-def goods_show(request):
-    return render(request,'shopsite/goods_show.html')
-
 
 def goods_car(request):
-    return render(request,'shopsite/goods_car.html')
+    """
+    购物车界面
+    :param request:
+    :return:
+    """
+    shopcarts = models.ShopCart.objects.filter(user=request.user)
+    return render(request,'shopsite/goods_car.html', {'shopcarts': shopcarts})
+
+
+def cancel_buy(request, shopcart_id):
+    """
+    删除购物车的商品
+    :param request:
+    :return:
+    """
+    shopcart = models.ShopCart.objects.get(id=shopcart_id)
+    shopcart.delete()
+    return redirect('/shopsite/goods_car/')
+

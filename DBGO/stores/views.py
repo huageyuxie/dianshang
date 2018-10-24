@@ -19,7 +19,7 @@ def index(request, store_id):
     goods = Goods.objects.filter(store=store)
     request.session['goods'] = goods
     request.session['store'] = store
-    return render(request, 'stores/index.html')
+    return render(request, 'stores/index.html', {'store': store})
 
 
 
@@ -34,7 +34,7 @@ def add_store(request):
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
-        user = request.user.normaluser
+        user = request.user
         store = models.Store(name=name, intro=intro, user=user)
         cover = request.FILES.get('cover', False)
         if cover:
@@ -70,7 +70,7 @@ def update_store(request, store_id):
     if request.method == "POST":
         name = request.POST['name']
         intro = request.POST['intro']
-        user = request.user.normaluser
+        user = request.user
         store = models.Store.objects.get(id=store_id)
         store.name = name
         store.intro = intro

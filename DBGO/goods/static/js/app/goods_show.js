@@ -73,7 +73,7 @@ $(function(){
 			//$conts.eq($(this).index()).css('display','block')*/
 
 		})
-	})
+	});
 
 
 
@@ -86,15 +86,15 @@ $(function(){
 		},function(){
 			$(this).siblings('div').css('display','none')
 		})
-	})
+	});
 
 	$('.intrduce-nav > li').each(function(){
 		$(this).on('click',function(){
 			$(this).addClass('change');
 			$(this).siblings().removeClass('change');
-		})
+		});
 
-	})
+	});
 
 	$('.intrduce-nav1 > li').each(function(){
 		$(this).on('click',function(){
@@ -102,7 +102,7 @@ $(function(){
 			$(this).siblings().removeClass('change');
 		})
 
-	})
+	});
 
 	/*小按钮点击事件*/
 
@@ -150,7 +150,7 @@ $(function(){
 
 
 
-	})
+	});
 	$('#red-btn2 > a').on('click',function(){
 		$('.intrduce-right').css('left','218'+'px')
 		$('.intrduce-nav1').css('left','330'+'px')
@@ -172,7 +172,7 @@ $(function(){
 		$('#red-btn1').css('background','red')*/
 
 
-	})
+	});
 
 	var $inLi=$('.intrduce-nav1 > li')
 		//console.log($inLi)
@@ -184,7 +184,7 @@ $(function(){
 
 		})
 
-	})
+	});
 
 
 	//网页you边菜单.default_user
@@ -201,12 +201,12 @@ $(function(){
 	},function(){
 		//$(this).css('background','none')
 		$(this).css('background','#000 url(/static/images/iii/car1.png) no-repeat center 15px')
-	})
+	});
 	$('.qq-pic').hover(function(){
 		$(this).css('background','#ee120b')
 	},function(){
 		$(this).css('background','none')
-	})
+	});
 
 	$('.to-top').hover(function(){
 		$(this).css('background','#ee120b');
@@ -214,7 +214,7 @@ $(function(){
 	},function(){
 		$(this).css('background','none');
 		$('.to-top span').css('display','none')
-	})
+	});
 
 
 
@@ -225,88 +225,124 @@ $(function(){
 	})
 
 
-})
+
+});
 
 
+$(function () {
+	//	2018-10-24 修改
+	$(".a5").click(function (){
+		console.log('test')
+		var shopcars = $('.left-cars');
+        //console.log(shopcars)
+        var addImg = $('#middle-img');
+        //console.log(addImg)
+        //console.log(addImg.offset().top())
+        var cloneImg = addImg.clone();
+        //console.log(cloneImg)
+        shopcars.css('position', 'relative');
+        cloneImg.css({
+            'width': 400,
+            'height': 400,
+            'position': 'absolute',
+            'top': 250,
+            'left': 100,
+            'z-index': 1000,
+            'opacity': .8
+        });
+        cloneImg.appendTo($('body')).animate({
+            'width': 50, 'height': 50, 'top': 400, 'left': 1400,
+        }, 2500, function () {
+            cloneImg.animate({
+                'width': 0, 'height': 0,
+            }, function () {
+                $('.shop-num').html(prevNum);
+                $(this).detach();
 
+            }, buycar())
+        });
 
-
-$(function(){
-	var carNum=0;
-	$('.a5').on('click',function(){
-		var shopcars=$('.left-cars');
-		//console.log(shopcars)
-		var addImg=$('#middle-img');
-		//console.log(addImg)
-		//console.log(addImg.offset().top())
-		var cloneImg=addImg.clone();
-		//console.log(cloneImg)
-		cloneImg.css({'width':400,'height':400,'position':'absolute','top':250,'left':100,'z-index':1000,'opacity':.8})
-		cloneImg.appendTo($('body')).animate({
-			'width':50,'height':50,'top':400,'left':1400,
-		},2500,function(){
-			cloneImg.animate({
-				'width':0,'height':0,
-			},function(){
-				$('.shop-num').html(prevNum);
-				$(this).detach();
-
+        // var $goods_id = $(this).attr("good.id");
+		function buycar(){
+			$strs = location.href;
+			var $goods_id =$strs.slice(-2,-1);
+			var $count = $("#goumai-count").html();
+			console.log("$count---"+$count);
+			console.log($goods_id);
+			if ($count <= 0) {
+				alert("对不起，数量不能小于0")
+			}
+			$.ajax({
+				url: "/goods/shop_good/" + $count + "/" + $goods_id + "/",
+				type: "get",
+				success: function (msg) {
+					alert("添加成功")
+				},
+				error: function (info) {
+					alert("添加失败，请重新添加");
+					window.location.href = '/goods/good_show/' + $goods_id;
+				},
 			})
-		})
+		}
 
 
-	})
+    })
+
 
 	var prevNum=1;
 	$('.a2').on('click',function(){
 		$('.buy-num b').html(++prevNum);
-	})
+	});
 	$('.a3').on('click',function(){
 		$('.buy-num b').html(--prevNum);
 		if(prevNum<1){
 			prevNum=1;
 		}
-	})
-
-})
+	});
 
 
-
-
-
-
-
-$(function(){
-
-
-	$('.a5').on('click',function(){
-		// 创建购物车
-
-		// 获取商品id
-		var id = $('.fine-shop > h3').text();
-
-			// 获取图片路径
-		var imgPath = $('#middle-img').attr('src');
-		console.log(imgPath)
-					// 获取名称
-		var goodsName = $('#good-price > h2').text();
-			//console.log(goodsName)
-					// 获取单价
-		var price = $('.p-left span').text();
-		//console.log(price)
-					// 获取购买数量
-		var count =$('.buy-num b').text() ;
-			//console.log(count)
-					// 写购物车到cookie中
-		new CartHelper().Add(id, goodsName, count, price, imgPath);
-
-			// 加载购物车中的数据
-			//loadCart();
+});
 
 
 
 
 
 
-	})
-})
+
+
+
+
+
+
+
+
+
+// $(function(){
+//
+//
+// 	$('.a5').on('click',function(){
+// 		// 创建购物车
+//
+// 		// 获取商品id
+// 		var id = $('.fine-shop > h3').text();
+//
+// 			// 获取图片路径
+// 		var imgPath = $('#middle-img').attr('src');
+// 		console.log(imgPath)
+// 					// 获取名称
+// 		var goodsName = $('#good-price > h2').text();
+// 			//console.log(goodsName)
+// 					// 获取单价
+// 		var price = $('.p-left span').text();
+// 		//console.log(price)
+// 					// 获取购买数量
+// 		var count =$('.buy-num b').text() ;
+// 			//console.log(count)
+// 					// 写购物车到cookie中
+// 		new CartHelper().Add(id, goodsName, count, price, imgPath);
+//
+// 			// 加载购物车中的数据
+// 			//loadCart();
+//
+// 	})
+// })

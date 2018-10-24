@@ -8,7 +8,6 @@
 <link rel="stylesheet" href="/static/css/goods_show.css">
 <link rel="stylesheet" href="/static/css/goods_info.css">
 <script src="/static/js/app/goods_show.js"></script>
-<script src="/static/js/app/shopcart.js"></script>
 
 {% endblock %}
 {% block content %}
@@ -16,7 +15,7 @@
 		<!-----------------------商品详情内容区--------------------------->
 <div id='good-wrap'>
     <div class="good-nav">
-        <a>首页</a>&nbsp;>&nbsp;<a>女生</a>&nbsp;>&nbsp;<a>羽绒服</a>&nbsp;>&nbsp;<a>TYAKASHA 塔卡沙芝麻街系列</a>&nbsp;>&nbsp;<span>女款黑色连帽羽绒服</span>
+        <a>首页</a>&nbsp;>&nbsp;<a>女生</a>&nbsp;>&nbsp;<a>羽绒服</a>&nbsp;>&nbsp;<a>{{good.good_type.type_name}}</a>&nbsp;>&nbsp;<span>{{good.good_name}}</span>
     </div>
 
     <div id='good-show'>
@@ -47,11 +46,12 @@
         </div>
         <!--587*523-->
         <div id='good-price'>
-            <h2>TYAKASHA 塔卡沙芝麻街系列 女款黑色连帽羽绒服 </h2>
+            <!--<h2>TYAKASHA 塔卡沙芝麻街系列 女款黑色连帽羽绒服 </h2>-->
+            <h2>{{good.good_name}}</h2>
             <div class='price'>
                 <div class='p-left'>
-                    <p>市场价：<b>￥{{good.price*1.5}}</b></p>
-                    <p>商城价：<span>￥{{good.price}}</span></p>
+                    <p>市场价：<b>￥{{good.good_price}}</b></p>
+                    <p>商城价：<span>￥{{good.good_price}}</span></p>
                 </div>
                 <div class="p-right">
                     <p>商品评分</p>
@@ -111,16 +111,17 @@
                 <dl class='buy-num'>
                     <dt>购买数量：</dt>
                     <dd>
-                        <b>1</b>
+                        <b id="goumai-count">1</b>
                         <a class='a2'>+</a>
                         <a class="a3">-</a>
-                        <span>(当前库存20件)</span>
+                        <!--<span>(当前库存20件)</span>-->
+                        <span>当前库存{{good.good_stack}}</span>
                     </dd>
                 </dl>
 
                 <div class='add-good'>
                     <a class="a4" title='立即购买'>立即购买</a>
-                    <a class="a5" title="添加到购物车">添加购物车</a>
+                    <button class="a5" href='javascript:;' title="添加到购物车">添加购物车</button>
                 </div>
         </div>
 
@@ -297,7 +298,8 @@
             <ul class='intrduce-nav'>
                 <li class='change'>商品详情</li>
                 <li>商品评价(0)</li>
-                <li>销售记录(0)</li>
+                <!--<li>销售记录(0)</li>-->
+                <li>销售记录({{good.good_count}})</li>
                 <li>购买咨询</li>
             </ul>
             <p class='intrduce-p1'>
@@ -326,7 +328,8 @@
 <ul class='intrduce-nav1'>
     <li class='change'>商品详情</li>
     <li>商品评价(0)</li>
-    <li>销售记录(0)</li>
+    <!--<li>销售记录(0)</li>-->
+    <li>销售记录({{good.good_count}})</li>
     <li>购买咨询</li>
 </ul>
 

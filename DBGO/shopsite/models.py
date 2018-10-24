@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+from goods.models import Goods
+
+
 class NormalUser(models.Model):
     # 用户ID
     id = models.AutoField(primary_key=True)
@@ -50,7 +53,7 @@ class Address(models.Model):
     status = models.BooleanField(default=False, verbose_name="是否默认地址")
 
     # 属于谁的地址
-    user = models.ForeignKey(NormalUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 # 购物车
@@ -64,7 +67,9 @@ class ShopCart(models.Model):
     add_time = models.DateTimeField(null=True, blank=True, verbose_name="添加时间")
 
     # 一对一用户外键
-    user = models.OneToOneField(NormalUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # 购物车外键
+    good = models.ForeignKey(Goods, verbose_name="购物车商品")
 
     class Meta:
         ordering = ["-add_time"]

@@ -5,7 +5,9 @@ $(function(){
 	/*购物车 在售、心愿单、已失效 选项卡*/
 
 	$(".shoplist_tab a").each(function(index,value){
+		console.log("心愿单切换1");
 		$(value).on("click",function(){
+			console.log("心愿单切换2");
 			$(this).siblings().removeClass("active");
 			$(this).addClass("active");
 			$(".shopbag_tag").css({"display":"block"});
@@ -15,42 +17,64 @@ $(function(){
 
 
 	/*点击购物车加减按钮,确定购买数量*/
-
+	//减
 	$(".number_reduce").on("click",function(event){
 		event.stopPropagation();
-
 		$("#truenum").val($("#truenum").val()-1);
-		if($("#truenum").val()<5){
-			$(".number_add").css({"background":"url(../img/increase.gif)"});
+
+		// $('.price_totle').html('￥' + parseInt($("#truenum").val()) * parseInt($(".goods_price").html().slice(1,)));
+
+		// console.log(float($("#truenum").val()) * $(".goods_price").html().slice(1,))
+		// console.log($('.price_totle').html());
+		// console.log($("#truenum").val());
+		// console.log($(".goods_price").html());
+		if($("#truenum").val()<30){
+			$(".number_add").css({"background":"url(/static/images/iii/increase.gif)"});
+			suanjia();
 		}
 		if($("#truenum").val()<=1){
-			$(".number_reduce").css({"background":"url(../img/reduce_none.gif)"});
+			$(".number_reduce").css({"background":"url(/static/images/iii/reduce_none.gif)"});
 			$("#truenum").val("1");
+			suanjia();
 		}
 		if($("#truenum").val()>1){
-			$(".number_reduce").css({"background":"url(../img/reduce.gif)"});
+			$(".number_reduce").css({"background":"url(/static/images/iii/reduce.gif)"});
+			suanjia();
 		}
-		updateCart.apply($(this));
 	});
+
+	//加
 	$(".number_add").on("click",function(event){
 		event.stopPropagation();
 		$("#truenum").val(parseInt($("#truenum").val())+1);
+		// valuess = $("#truenum").val() * $(".goods_price").html().slice(1,)
+		// $('.price_totle').html('￥' + valuess.toFixed(1));
+
+
+
+		// console.log($('.price_totle').html());
+		// console.log($("#truenum").val());
+		// console.log($(".goods_price").html());
 		if($("#truenum").val()>1){
-			$(".number_reduce").css({"background":"url(../img/reduce.gif)"});
+			$(".number_reduce").css({"background":"url(/static/images/iii/reduce.gif)"});
+			suanjia()
 
 		}
-		if($("#truenum").val()>=5){
+		if($("#truenum").val()>=30){
 			$(".list_content_State").css({"display":"block"});
-			$(".number_add").css({"background":"url(../img/increase_none.gif)"});
-			$("#truenum").val("5");
-			$(".list_content_State").html("本次限购5件");
+			$(".number_add").css({"background":"url(/static/images/iii/increase_none.gif)"});
+			$("#truenum").val("30");
+			suanjia();
+			$(".list_content_State").html("本次限购30件");
 			setTimeout(function(){
 				$(".list_content_State").css({"display":"none"});
 			},1500);
 		}
-		updateCart.apply($(this));
 	});
-
+	function suanjia(){
+		valuess = $("#truenum").val() * $(".goods_price").html().slice(1,)
+		$('.price_totle').html('￥' + valuess.toFixed(1));
+	}
 
 	/*点击删除按钮弹出确定、取消框*/
 	$(".good_remove_img").on("click",function(){
@@ -64,52 +88,52 @@ $(function(){
 
 	//继续购物，跳转首页
 	$(".continue_buy").on("click",function(){
-		window.open("../index.html","_self");
-	})
+		window.open("/shopsite/index/","_self");
+	});
 
 	/************购物车主体内容部分***************/
 
 	// 创建购物车
 				$(window).on("load", function () {
-					loadCart();
+					// loadCart();
 					if($("#truenum").val()>1){
-						$(".number_reduce").css({"background":"url(../img/reduce.gif)"});
+						$(".number_reduce").css({"background":"url(/static/images/iii/reduce.gif)"});
 					}
 				});
 
 
 				// 加载购物车中的商品
-				function loadCart() {
-					var carts = new CartHelper().Read();// 读取购物车中的数据
-					$(".inner_have").remove();
+				// function loadCart() {
+				// 	var carts = new CartHelper().Read();// 读取购物车中的数据
+				// 	$(".inner_have").remove();
 
 
 					// 加载到页面上
 					/******************* 加载购买商品信息 BEGIN***********************/
-					$.each(carts.Items, function(index,cartItem) {
-
-						updateCartPage(cartItem.Id, cartItem.Name, cartItem.Count, cartItem.Price, cartItem.imgPath);
-					});
+					// $.each(carts.Items, function(index,cartItem) {
+					//
+					// 	updateCartPage(cartItem.Id, cartItem.Name, cartItem.Count, cartItem.Price, cartItem.imgPath);
+					// });
 					/******************* 加载购买商品信息 END***********************/
-					// 加载购物结算信息
-					$(".totalCount").text(carts.Count);
-					$(".totalPrice").text(carts.Total);
+					// // 加载购物结算信息
+					// $(".totalCount").text(carts.Count);
+					// $(".totalPrice").text(carts.Total);
 
-				}
+				// }
 
 
 
 				//向购物车中添加数据
-				function updateCart(){
-					// 获取商品id
-					var id = $(this).parents(".shopslist").attr("data-id");
-					var count = $(this).parent().find("#truenum").val();
-					new CartHelper().Change(id, count);
-					$(this).parents(".shopslist").remove();
+				// function updateCart(){
+				// 	// 获取商品id
+				// 	var id = $(this).parents(".shopslist").attr("data-id");
+				// 	var count = $(this).parent().find("#truenum").val();
+				// 	new CartHelper().Change(id, count);
+				// 	$(this).parents(".shopslist").remove();
 					// 加载购物车中的数据
-					loadCart();
-
-				};
+					// loadCart();
+				//
+				// };
 
 				/********************** 更新页面 ************************/
 				function updateCartPage(id, goodsName, count, price, imgPath) {
@@ -125,7 +149,7 @@ $(function(){
 						$(".shopbag_pay").css({"display":"block"});
 					}
 				//更新购物车的主页面部分
-					var $conImg=$("<img>").attr({src:"../img/piano_buy.jpg",title:"3岁+30键粉色钢琴E0319",alt:"3岁+30键粉色钢琴E0319"});
+					var $conImg=$("<img>").attr({src:"/static/images/piano_buy.jpg",title:"3岁+30键粉色钢琴E0319",alt:"3岁+30键粉色钢琴E0319"});
 					$(".list_content_img a").first().html($conImg);
 					$(".goodsbuy_brand").first().html($nameCon[0]);
 					$(".list_content_discribe").first().html($nameCon[1]);

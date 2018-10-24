@@ -4,6 +4,7 @@
 {% endblock %}
 {% block css_and_js %}
 <link rel="stylesheet" href="/static/css/shopbag.css">
+<script src="/static/js/app/goods_car.js"></script>
 
 
 
@@ -42,6 +43,7 @@
                             <li>删除</li>
                         </ul>
                     </div>
+                    {% for shopcart in shopcarts %}
                     <div class="list_content">
                         <ul class="list_content_ul clearfix">
                             <li class="list_content_left">
@@ -50,26 +52,26 @@
                                 </p>
                                 <p class="list_content_info fl">
                                     <span class="list_content_name">
-                                        <a href="javascript:;" class="goodsbuy_brand">TYAKASHA  </a>
+                                        <a href="javascript:;" class="goodsbuy_brand">{{shopcart.good.good_type.type_name}}</a>
                                     </span>
-                                    <span><a class="list_content_discribe" style="width: 250px;">塔卡沙芝麻街系列 女款黑色连帽羽绒服</a></span>
+                                    <span><a class="list_content_discribe" style="width: 250px;">{{shopcart.good.good_name}}</a></span>
                                     <span class="list_content_State"></span>
                                 </p>
                             </li>
-                            <li class="goods_price">￥ 1030.00 </li>
+                            <li class="goods_price">￥{{shopcart.good.good_price}} </li>
                             <li>
                                 <div class="number_choose">
                                     <span class="number_reduce">-</span>
                                     <span class="quantity_number">
-                                        <input readonly="readonly" value="1" type="text" id="truenum">
+                                        <input readonly="readonly" value="{{shopcart.count}}" type="text" id="truenum">
                                     </span>
                                     <span class="number_add">+</span>
                                 </div>
                             </li>
-                            <li class="price_reduce">￥80.00</li>
-                            <li class="price_totle">￥950.00</li>
+                            <li class="price_reduce">￥0.00</li>
+                            <li class="price_totle">￥{{shopcart.subtotal}}</li>
                             <li class="good_remove">
-                                <div class="good_remove_box" style="display: none;">
+                                <div class="good_remove_box" style="display: None;">
                                     <div class="box_top">
                                         <div class="top_icon"></div>
                                     </div>
@@ -77,7 +79,7 @@
                                         <p class="p1">您确定要删除该商品吗？</p>
                                         <p class="p2">
                                             <span class="button_cancel">取消</span>
-                                            <a href="javascript:;" class="button_yes">确定</a>
+                                            <a href="/shopsite/cancel_buy/{{shopcart.id}}/" class="button_yes">确定</a>
                                         </p>
                                     </div>
                                 </div>
@@ -103,6 +105,12 @@
                             </ul>
                         </div>
                     </div>
+                    {% empty %}
+                    <div>
+                        <hr>
+                        <h1>购物车是空的~</h1>
+                    </div>
+                    {% endfor %}
                 </div>
                 <!--添加购物车的商品 end-->
 
@@ -133,10 +141,10 @@
                     <div class="shopbag_pay_right">
                         <div class="shopbag_pay_right1 price_total">
                             总金额（已免运费）
-                            <span>￥950.00</span>
+                            <span id="zongjine">￥{{shopcart.subtotal}}</span>
                         </div>
                         <div class="shopbag_pay_right1">
-                            <span class="continue_buy">继续购物</span>
+                            <span class="continue_buy" href="/shopsite/index/">继续购物</span>
                             <span class="pay_now">立即结账</span>
                         </div>
                     </div>
@@ -159,31 +167,31 @@
     <!--购物袋商品内容区  end -->
 
 <!--网站底部-->
-    <div id=footer-wrap>
-			<div id="footer">
-				<div class="footer_advantage">
-					<ul class="footer_advantage_list">
-						<li class="footer_advantage_li"><a href="javascript:;" class="adv1">100%品牌授权正品</a></li>
-						<li class="footer_advantage_li"><a href="javascript:;" class="adv2">满688免运费</a></li>
-						<li class="footer_advantage_li"><a href="javascript:;" class="adv3">7天无条件退货</a></li>
-						<li class="footer_advantage_li"><a href="javascript:;" class="adv4">超值折扣</a></li>
-						<li class="footer_advantage_li"><a href="javascript:;" class="adv5">9点限时闪购</a></li>
-						<li class="footer_advantage_li footer_advantage_right"><a href="javascript:;" class="adv6">400 - 644 - 6698</a></li>
-					</ul>
-				</div>
-				<p class="footer_link">
-					<a href="javascript:;">关于魅力惠</a>
-					<a href="javascript:;">加入我们</a>
-					<a href="javascript:;">联系我们</a>
-					<a href="javascript:;">使用帮助</a>
-					<a href="javascript:;">使用规则</a>
-					<a href="javascript:;">隐私声明</a>
-					<a href="javascript:;">网站地图</a>
-				</p>
-				<p class="footer_copyright">COPYRIGHT&copy;2016&nbsp;杭州魅俪信息技术有限公司版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备16004860号-1</p>
+    <!--<div id=footer-wrap>-->
+			<!--<div id="footer">-->
+				<!--<div class="footer_advantage">-->
+					<!--<ul class="footer_advantage_list">-->
+						<!--<li class="footer_advantage_li"><a href="javascript:;" class="adv1">100%品牌授权正品</a></li>-->
+						<!--<li class="footer_advantage_li"><a href="javascript:;" class="adv2">满688免运费</a></li>-->
+						<!--<li class="footer_advantage_li"><a href="javascript:;" class="adv3">7天无条件退货</a></li>-->
+						<!--<li class="footer_advantage_li"><a href="javascript:;" class="adv4">超值折扣</a></li>-->
+						<!--<li class="footer_advantage_li"><a href="javascript:;" class="adv5">9点限时闪购</a></li>-->
+						<!--<li class="footer_advantage_li footer_advantage_right"><a href="javascript:;" class="adv6">400 - 644 - 6698</a></li>-->
+					<!--</ul>-->
+				<!--</div>-->
+				<!--<p class="footer_link">-->
+					<!--<a href="javascript:;">关于魅力惠</a>-->
+					<!--<a href="javascript:;">加入我们</a>-->
+					<!--<a href="javascript:;">联系我们</a>-->
+					<!--<a href="javascript:;">使用帮助</a>-->
+					<!--<a href="javascript:;">使用规则</a>-->
+					<!--<a href="javascript:;">隐私声明</a>-->
+					<!--<a href="javascript:;">网站地图</a>-->
+				<!--</p>-->
+				<!--<p class="footer_copyright">COPYRIGHT&copy;2016&nbsp;杭州魅俪信息技术有限公司版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浙ICP备16004860号-1</p>-->
 
-			</div>
-		</div>
+			<!--</div>-->
+		<!--</div>-->
 
 
 {% endblock %}
