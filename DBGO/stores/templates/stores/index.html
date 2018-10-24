@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商铺首页</title>
+</head>
+<body>
+<h2>店铺名称{{store.name}}</h2>
+<h2>店铺封面<img src="/{{store.cover}}" alt=""></h2>
+<h2>店铺介绍{{store.intro}}</h2>
+<h2>店铺状态{{store.status}}</h2>
+<a href="/stores/update_store/{{store.id}}">修改</a> <br/>
+<a href="/stores/del_store/{{store.id}}">删除</a> <br/>
+<a href="/stores/open_store/{{store.id}}">营业</a> <br/>
+<a href="/stores/close_store/{{store.id}}">歇业</a> <br/>
+<a href="/goods/add_good/{{store.id}}">上架商品</a> <br/>
+goods:{{request.session.goods}}
+    {% for good in request.session.goods %}
+        <div>
+            <p>{{good.good_name}}</p>
+            <p>{{good.good_price}}</p>
+            <p>{{good.good_stack}}</p>
+            <p>{{good.good_desc}}</p>
+            <p>{{good.good_status}}</p>
+            <p>{{good.good_type.type_name}}</p>
+            <p>{{good.status}}</p>
+            <a href="/goods/update_good/{{good.id}}/">修改</a>
+            <a href="/goods/del_good/{{good.id}}/">删除</a>
+            <hr>
+        </div>
+    {% empty %}
+        <hr>
+        <h1>无数据</h1>
+    {% endfor %}
+</body>
+</html>

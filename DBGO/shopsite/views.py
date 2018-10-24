@@ -1,17 +1,20 @@
+import os
 import random
 from io import BytesIO
 import uuid
 
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET
 from django.contrib.auth.decorators import login_required
 
-
+from DBGO import settings
+from shopsite.utils import phone_code
 from . import models
 from . import utils
+from dysms_python import demo_sms_send
 
 
 # 首页
@@ -39,43 +42,66 @@ def user_login(request):
         request.session['login_times'] = 1
         return render(request, 'shopsite/user_login.html', {})
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
         try:
-            is_remember = request.POST['is_remember']
-        except:
-            is_remember = ''
-        if request.session['login_times'] > 3:
-            input_code = request.POST['code']
-            print(request.session['code'])
-            if input_code.upper() == request.session['code'].upper():
-                del request.session['code']
-            else:
-                print('验证码错误')
-                return render(request, 'shopsite/user_login.html', {'msg': '验证码错误'})
-        try:
-            user = authenticate(username=username, password=password)
-            if user:
-                if user.is_active:
+            # 手机验证码
+            phone = request.POST['login_phone']
+            my_code = request.POST['phone_code']
+            if my_code == request.session['phone_code']:
+                del request.session['phone_code']
+                if not models.NormalUser.objects.fliter(phone=phone):
+                    user = User.objects.create_user(username=phone, password="")
+                    normaluser = models.NormalUser(phone=phone, status=2, nickname="用户" + str(random.randint(0, 1000000)), user=user)
+                    shopcart = models.ShopCart()
+                    user.is_active = 1
+                    user.save()
+                    shopcart.save()
+                    normaluser.save()
                     login(request, user)
-                    login_user = models.NormalUser.objects.get(user=user)
-                    request.session['login_times'] = 1
-                    request.session['login_user'] = login_user
-                    if is_remember == 'YES':
-                        response = redirect('/shopsite/index/')
-                        response.set_cookie('login_user', login_user, max_age=1800)
-                        return response
-                    else:
-                        return redirect('/shopsite/index/')
+                    return render(request, 'shopsite/user_self.html', {'msg': '您是使用手机验证码快速登陆的，请尽快完善您的密码和个人资料'})
                 else:
-                    print("账号未激活")
-                    return render(request, 'shopsite/user_login.html', {'msg': '账户未激活'})
+                    user = models.NormalUser.objects.get(phone=phone).user
+                    login(request, user)
+                    return render(request, 'shopsite/index.html',)
             else:
+                return render(request, 'shopsite/user_login.html', {'msg': '手机验证码错误'})
+        except:
+            username = request.POST['username']
+            password = request.POST['password']
+            try:
+                is_remember = request.POST['is_remember']
+            except:
+                is_remember = ''
+            if request.session['login_times'] > 3:
+                input_code = request.POST['code']
+                print(request.session['code'])
+                if input_code.upper() == request.session['code'].upper():
+                    del request.session['code']
+                else:
+                    print('验证码错误')
+                    return render(request, 'shopsite/user_login.html', {'msg': '验证码错误'})
+            try:
+                user = authenticate(username=username, password=password)
+                if user:
+                    if user.is_active:
+                        login(request, user)
+                        login_user = models.NormalUser.objects.get(user=user)
+                        request.session['login_times'] = 1
+                        request.session['login_user'] = login_user
+                        if is_remember == 'YES':
+                            response = redirect('/shopsite/index/')
+                            response.set_cookie('login_user', login_user, max_age=1800)
+                            return response
+                        else:
+                            return redirect('/shopsite/index/')
+                    else:
+                        print("账号未激活")
+                        return render(request, 'shopsite/user_login.html', {'msg': '账户未激活'})
+                else:
+                    request.session['login_times'] += 1
+                    return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
+            except:
                 request.session['login_times'] += 1
                 return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
-        except:
-            request.session['login_times'] += 1
-            return render(request, 'shopsite/user_login.html', {'msg': '用户名或密码错误'})
 
 
 # 用户退出
@@ -118,10 +144,12 @@ def user_register(request):
         else:
             # 创建用户保存用户
             user = User.objects.create_user(username=username, password=password)
-            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0,1000000)), user=user)
+            normal_user = models.NormalUser(nickname="用户" + str(random.randint(0, 1000000)), user=user)
+            shopcart = models.ShopCart(user=normal_user)
+            normal_user.shopcart = shopcart
             user.save()
             normal_user.save()
-            return render(request, 'shopsite/index.html',)
+            return render(request, 'shopsite/user_login.html',)
 
 
 # 个人信息展示界面
@@ -133,10 +161,22 @@ def user_self(request):
     :param request:
     :return:
     """
-    return render(request, 'shopsite/user_self.html')
+    user = models.NormalUser.objects.get(user=request.user)
+    date = str(user.birthday)[:10]
+    print("date:" + date)
+    try:
+        year = date.split("-")[0]
+        month = date.split("-")[1]
+        day = date.split("-")[2]
+    except:
+        year = month = day = ''
+    print("year:" + year)
+    print("month:" + month)
+    print("day:" + day)
+    return render(request, 'shopsite/user_self.html', {'year': year, 'month': month, 'day': day})
 
 
-#用户修改界面
+# 用户修改界面
 @login_required(login_url="/shopsite/user_login/")
 def update_user_self(request):
     """
@@ -148,14 +188,26 @@ def update_user_self(request):
     if request.method == 'GET':
         return render(request, 'shopsite/user_self.html')
     if request.method == 'POST':
+        new_user = models.NormalUser.objects.get(user=request.user)
+        if request.user.normaluser.status == 2:
+            username = request.POST.get('username', False)
+            if username:
+                new_user.username = username
         nickname = request.POST['nickname']
         age = request.POST['age']
         gender = request.POST['gender']
-        new_user = models.NormalUser.objects.get(user=request.user)
+        birthday = request.POST['YYYY'] + '-' + request.POST['MM'] + '-' + request.POST['DD']
+        email = request.POST['email']
+        phone = request.POST['phone']
         new_user.nickname = nickname
         new_user.age = age
         new_user.gender = gender
+        new_user.birthday = birthday
+        new_user.email = email
+        new_user.phone = phone
+        print("修改")
         new_user.save()
+        print("修改成功")
         return redirect('/shopsite/user_self/')
 
 
@@ -168,17 +220,22 @@ def update_user_password(request):
     :return:
     """
     if request.method == "GET":
-        return redirect('/shopsite/update_user_self/')
+        return redirect('/shopsite/user_self/')
     if request.method == "POST":
         password = request.POST['password']
         new_password = request.POST['new_password']
-        if password == request.user.password:
-            user = models.User.objects.get(username=request.user.username)
-            user.password = new_password
-
-            return render(request, 'shopsite/user_login.html', {'msg':
-                                                                 '修改密码成功，请重新登陆'})
-        else:
+        try:
+            if authenticate(username=request.user.username, password=password):
+                print("密码正确")
+                user = models.User.objects.get(username=request.user.username)
+                user.set_password(new_password)
+                user.save()
+                return render(request, 'shopsite/user_login.html', {'msg': '修改密码成功，请重新登陆'})
+            else:
+                print("密码错误1")
+                return redirect('/shopsite/user_self/')
+        except:
+            print("密码错误2")
             return redirect('/shopsite/user_self/')
 
 
@@ -191,15 +248,18 @@ def update_user_header(request):
     :return:
     """
     user = request.user
-    try:
-        header = request.FILES.get("avatar")
-        header = '/static/images/headers/' + user.username + header
-    except:
-        header = '/static/images/headers/default.jpg'
-    user.normaluser.header = header
+    avatar2 = str(user.normaluser.header)
+    header = request.FILES.get("avatar", False)
+    if header:
+        user.normaluser.header = header
     user.save()
     user.normaluser.save()
-    return redirect('/shopsite/update_user_self/')
+    if avatar2[-11:] != 'default.jpg':
+        try:
+            os.remove(avatar2)
+        except Exception as e:
+            print(e)
+    return redirect('/shopsite/user_self/')
 
 
 
@@ -219,6 +279,15 @@ def code(request):
     return HttpResponse(file.getvalue(), 'image/png')
 
 
+def send_msg(request, phone):
+    p_code = phone_code(phone)
+    request.session['phone_code'] = p_code
+    return HttpResponse(p_code)
+
 
 def goods_show(request):
     return render(request,'shopsite/goods_show.html')
+
+
+def goods_car(request):
+    return render(request,'shopsite/goods_car.html')

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shopsite',
     'goods',
-    'shopcar',
+    'stores',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +133,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static').replace("\\", '/'),
 ]
+
+# MEDIA_URL = '/ueupload/images/'
+# MEDIA_ROOT = './ueupload/images/'
+
+LOGIN_URL = '/shopsite/user_login/'
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'

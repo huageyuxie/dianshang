@@ -4,20 +4,22 @@ from django.db import models
 # Create your models here.
 
 # 商品种类
+from shopsite.models import ShopCart
+from stores.models import Store
+
+
 class GoodsType(models.Model):
     id = models.AutoField(primary_key=True)
     # 商品种类名称
     type_name = models.CharField(max_length=255, unique=True, verbose_name='商品种类名称')
     # 商品类别图片
-    cover = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default.jpg', verbose_name='商品类型图片')
+    goodtype_cover = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
     # 商品介绍
     intro = models.CharField(max_length=255, verbose_name="商品类型描述")
 
     # 商品父类
     parent = models.ForeignKey('self', null=True, blank=True, verbose_name='品牌父类')
 
-    class Meta:
-        db_table = 'goods_type'
 
 
 class Goods(models.Model):
@@ -36,8 +38,12 @@ class Goods(models.Model):
     status = models.IntegerField(default=1, verbose_name='商品状态')
     # 商品品牌
     good_type = models.ForeignKey(GoodsType, on_delete=models.CASCADE)
+    # 商品图片
+    # covers = models.ImageField(upload_to='static/images/goods', default='static/images/goods/default/default.jpg', verbose_name='商品类型图片')
 
-    class Meta:
-        db_table = 'goods'
+    store = models.ForeignKey(Store, on_delete=models.CASCADE, verbose_name="商品店铺")
+
+    # 一对多的外键
+    shopcart = models.ForeignKey(ShopCart, null=True, blank=True, on_delete=models.CASCADE)
 
 

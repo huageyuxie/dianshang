@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上架商品</title>
+</head>
+<body>
+    {{msg}}
+    <form action="/goods/add_good/{{store.id}}/" method="post">
+        {% csrf_token %}
+        商品名称
+        <input type="text" name="good_name">
+        商品价格
+        <input type="text" name="good_price">
+        商品库存
+        <input type="text" name="good_stack">
+        商品详细描述
+        <textarea cols="3" rows="5" name="good_desc" placeholder="请输入您对商品的详细描述，将会展示在商品详情界面"></textarea>
+        商品种类
+        <input type="text" name="type_name">
+        <button type="submit">提交</button>
+    </form>
+
+</body>
+</html>

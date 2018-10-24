@@ -9,7 +9,35 @@
 <link rel="stylesheet" href="/static/css/user_login.css">
 <link rel="stylesheet" href="/static/css/user_register.css">
 <script src="/static/js/app/user_login.js"></script>
+<script>
+    $(function () {
+     $("#get_code").on('click', function() {
+         console.log("onclick执行了");
+         var $tel = $("#login_phone").val();
+         if ($tel) {
+             $.ajax({
+                 url: "/shopsite/send_msg/" + $tel + "/",
+                 type: "post",
+                 data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                 success: function () {
+                     if (data.success) {
+                         $("#show5").html("正确");
+                         $("#phone_code").addClass("colgreen").removeClass("colred");
+                         $("#phone_submit").removeAttr("disabled");
+                     } else {
+                         $("#show5").html("错误");
+                         $("#phone_code").addClass("colred").removeClass("colgreen");
+                         $("#phone_submit").attr("disabled", disabled);
+                     }
+                 }
+             })
 
+         } else {
+             $("#show5").html("请输入手机号！")
+         }
+     })
+        });
+</script>
 {% endblock %}
 
 {% block header %}
@@ -38,13 +66,13 @@
         <div>
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">DBGO &nbsp;登录</a></li>
-                <li role="presentation" class="log-tit QR-code-title"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="margin-right: 35.4px" >二维码登录</a></li>
+                <li role="presentation" class="log-tit QR-code-title"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="margin-right: 35.4px" >手机号登录</a></li>
             </ul>
             <div style="color:#ee120b;font-size: 14px;margin-top: 10px;margin-left: 30px ">{{msg}}</div>
-            <form action="/shopsite/user_login/" method="post"  class="tab-content">
+
+                 <div role="tabpanel" class="tab-pane active" id="home">                        <form action="/shopsite/user_login/" method="post"  class="tab-content">
                  {% csrf_token %}
-                 <div role="tabpanel" class="tab-pane active" id="home">
-                     <input placeholder="以验证手机/邮箱" name="username" class="log-input" type="text"  >
+                     <input placeholder="请输入手机号/邮箱/用户名" name="username" class="log-input" type="text"  >
                      <div class="log-tishi setNumber-tishi1">
                         手机号用于登录和找回密码，请正确填写。
                      </div>
@@ -54,7 +82,7 @@
                      </div>
                      {% if request.session.login_times > 3 %}
                      <input placeholder="验证码" class="log-input1" name="code" type="text">
-                     <div onclick="change_code()" id="code-img" ><img src="/shopsite/code/"  alt="">
+                     <div href="javascript:;" onclick="change_code()" id="code-img" ><img src="/shopsite/code/"  alt="">
                      </div>
                      <div class="log-tishi setNumber-tishi4">
                         请输入验证码
@@ -83,28 +111,39 @@
                         <li>139邮箱</li><span>|</span>
                         <li>手机支付</li>
                      </ul>
-
-
-
-
+                 </form>
                  </div>
                  <div role="tabpanel" class="tab-pane" id="profile">
-                     <div id="logNumber2-con">用DBDO APP 扫描二维码安全登录</div>
-                     <div id="logNumber-pic">
-                        <img class="img1" src="/static/images/log/log-number2-er.jpg">
-                        <img class="img2" src="/static/images/log/log-number2-er1.png">
+                    <button href="javascript:;" id="get_code">获取短信验证码</button>
+                     <form  action="/shopsite/user_login/" method="post"  class="tab-content">
+                         {% csrf_token %}
+                     <input placeholder="请输入手机号" id="login_phone" name="login_phone" class="log-input" type="text">
+                     <input placeholder="验证码" class="log-input1"  id="phone_code" name="phone_code" type="text">
+                     <div class="log-tishi setNumber-tishi4" id="show5">
+                        请输入验证码
                      </div>
 
-                     <div id="logNumber-con2">
-                        <span><a href="">下载DBGO APP</a></span>
-                        <span><a href="">使用帮助</a></span>
+                     <div class="setNumber-8a">
+                        <button type="submit" id="phone_submit" class="setNumberbtn login-btn">登录</button>
                      </div>
-                     <div id="logNumber-con3">
-                        <p>仅限4.1.1版本以上使用</p>
-                     </div>
+                     </form>
+
                  </div>
-
-            </form>
+<!--{#                <div role="tabpanel" class="tab-pane" id="profile">#}-->
+<!--{#                     <div id="logNumber2-con">用DBDO APP 扫描二维码安全登录</div>#}-->
+<!--{#                     <div id="logNumber-pic">#}-->
+<!--{#                        <img class="img1" src="/static/images/log/log-number2-er.jpg">#}-->
+<!--{#                        <img class="img2" src="/static/images/log/log-number2-er1.png">#}-->
+<!--{#                     </div>#}-->
+<!--{##}-->
+<!--{#                     <div id="logNumber-con2">#}-->
+<!--{#                        <span><a href="">下载DBGO APP</a></span>#}-->
+<!--{#                        <span><a href="">使用帮助</a></span>#}-->
+<!--{#                     </div>#}-->
+<!--{#                     <div id="logNumber-con3">#}-->
+<!--{#                        <p>仅限4.1.1版本以上使用</p>#}-->
+<!--{#                     </div>#}-->
+<!--{#                 </div>#}-->
 
         </div>
 
@@ -120,10 +159,6 @@
 
 
 <script>
-// $(function() {
-//     $('.login1').animate({left: 0}, 800);    //椤甸潰鍔犺浇鎵ц   鍐呭浠庝袱杈硅繘鍘�
-//     $('#setNumber-right').animate({right: 0}, 800);
-// })
     $(function () {
         var $logNumberPic  =  $('#logNumber-pic');
         var $logNumberPic1 =  $('#logNumber-pic .img1');

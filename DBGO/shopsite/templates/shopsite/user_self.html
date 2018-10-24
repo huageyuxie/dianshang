@@ -42,46 +42,98 @@
                 <div class="ac_container my_information">
                     <h4>请您放心填写，我们承诺妥善保管个人信息的隐私权。</h4>
                     <div class="my_information_box">
-                        <form action="" id="regother" >
+                        <form action="/shopsite/update_user_header/" enctype="multipart/form-data" method="post">
+                             {% csrf_token %}
+                            <span class="btn  fileinput-button  ">
+                            <div id="img_warp" style="position: relative">
+                                    <div id="imgdiv"><img src="/{{request.user.normaluser.header}}" alt="wwww">
+                                <input type="file" name="avatar" id="putfile"></div>
+                                        <button id="up_img" class="submit">保存</button>
+                            </div>
+                            </span>
+                        </form>
+                        <form action="/shopsite/update_user_self/" method="post" id="regother" >
+                            {% csrf_token %}
                             <table class="type_input">
+                                {% if request.user.normaluser.status == 2 %}
                                 <tr>
                                     <th><i>登录账户：</i></th>
-                                    <td colspan="3">54****@qq.com</td>
-                                </tr>
-                                <tr>
-                                    <th><i>真实姓名：</i></th>
                                     <td colspan="3">
-                                        <input type="text" class="input_large_ch" name="name" id="name" maxlength="30" />
+                                         <input type="text" class="input_large_ch" name="username" id="username" maxlength="30" value=""/></td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <th><i>登录账户：</i></th>
+                                    <td colspan="3">{{request.user.username}}</td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <th><i>昵 &nbsp;&nbsp; &nbsp;&nbsp; 称：</i></th>
+                                    <td colspan="3">
+                                        <input type="text" class="input_large_ch" name="nickname" id="name" maxlength="30" value="{{request.user.normaluser.nickname}}"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th><i>性 &nbsp;&nbsp; &nbsp;&nbsp; 别：</i></th>
                                     <td colspan="3" class="sex">
-                                        <input type="radio" class="input_small" name="gender" id="male" value="0" checked="checked" />
-                                        <label for="male"><i>先生</i></label>
-                                        <input type="radio" class="input_small" name="gender" id="female" value="1"/>
-                                        <label for="female"><i>小姐</i></label>
+                                        {% if request.user.normaluser.gender == '1' %}
+                                            <input type="radio" class="input_small" name="gender" id="male" value="0"  />
+                                            <label for="male"><i>先生</i></label>
+                                            <input type="radio" class="input_small" name="gender" id="female" value="1" checked="checked"/>
+                                            <label for="female"><i>小姐</i></label>
+                                        {% else %}
+                                            <input type="radio" class="input_small" name="gender" id="male1" value="0" checked="checked"/>
+                                            <label for="male1"><i>先生</i></label>
+                                            <input type="radio" class="input_small" name="gender" id="female1" value="1" />
+                                             <label for="female1"><i>小姐</i></label>
+                                        {% endif %}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th><i>生 &nbsp;&nbsp; &nbsp;&nbsp; 日：</i></th>
                                     <td colspan="3">
-                                        <select class="YYYY select_normal" name="YYYY" style="width:62px; height:22px;" noteid="birthday">
+                                        <select class="YYYY select_normal" name="YYYY" style="width:62px; height:22px;" noteid="birthday" >
+                                            {% if year %}
+                                            <option value="{{year}}">{{year}}</option>
+                                            {% else %}
                                             <option value>----</option>
+                                            {% endif %}
                                             <option value="1990">1990</option>
-                                            <option value="1992">1992</option>
-                                            <option value="1994">1994</option>
-                                            <option value="1996">1996</option>
+                                            <option value="1992">1991</option>
+                                            <option value="1994">1992</option>
+                                            <option value="1996">1993</option>
+                                            <option value="1998">1994</option>
+                                            <option value="1998">1995</option>
+                                            <option value="1998">1996</option>
                                             <option value="1998">1998</option>
-                                            <option value="2000">2000</option>
+                                            <option value="1998">1999</option>
+                                            <option value="1998">2000</option>
+                                            <option value="2000">2001</option>
                                             <option value="2002">2002</option>
-                                            <option value="2004">2004</option>
-                                            <option value="2006">2006</option>
+                                            <option value="2004">2003</option>
+                                            <option value="2006">2004</option>
+                                            <option value="2008">2005</option>
+                                            <option value="2008">2006</option>
+                                            <option value="2008">2007</option>
                                             <option value="2008">2008</option>
+                                            <option value="2008">2009</option>
+                                            <option value="2008">2010</option>
+                                            <option value="2008">2011</option>
+                                            <option value="2008">2012</option>
+                                            <option value="2008">2013</option>
+                                            <option value="2008">2014</option>
+                                            <option value="2008">2015</option>
+                                            <option value="2008">2016</option>
+                                            <option value="2008">2017</option>
+                                            <option value="2008">2018</option>
                                         </select>
                                         年
                                         <select class="MM select_normal" name="MM" style="width:60px; height:22px;" noteid="birthday">
-                                            <option value=>--</option>
+                                            {% if month %}
+                                            <option value="{{month}}">{{month}}</option>
+                                            {% else %}
+                                            <option value>--</option>
+                                            {% endif %}
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -97,7 +149,11 @@
                                         </select>
                                         月
                                         <select class="DD select_normal" name="DD" style="width:60px; height:22px;" noteid="birthday">
-                                            <option value=>--</option>
+                                            {% if day %}
+                                            <option value="{{day}}">{{day}}</option>
+                                            {% else %}
+                                            <option value>--</option>
+                                            {% endif %}
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -134,14 +190,19 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th><i>年 &nbsp;&nbsp; &nbsp;&nbsp; 龄：</i></th>
+                                        <td colspan="3">
+                                            <input type="text" class="input_large_ch" name="age" maxlength="30" value="{{request.user.normaluser.age}}" />
+                                </tr>
+                                <tr>
                                     <th>邮 &nbsp;&nbsp; &nbsp;&nbsp; 箱：</th>
                                     <td>
-                                        <input type="text" class="input_large_en" id="email" name="email" value="54****@qq.com" />
+                                        <input type="text" class="input_large_en" id="email" name="email" value="{{request.user.normaluser.email}}" />
                                         <span class="c_purple">*</span>
                                         <span style="display: none;">
                                             <a href="javascript:;">保存</a>&nbsp;
                                         </span>
-                                        <span class="change_a">修改</span>
+                                        <span class="change_a"></span>
                                         <span id="maillink" style="display:inline; ">
                                             &nbsp;
                                             <a href="javascript:;"><img src="images/pic_mail_c.gif" border="0" style="vertical-align: middle;" alt="" /></a>
@@ -156,12 +217,12 @@
                                 <tr>
                                     <th>手机号码：</th>
                                     <td>
-                                        <input type="text" class="input_large_en" id="mobile" name="mobile" value="" />
+                                        <input type="text" class="input_large_en" id="mobile" name="phone" value="{{request.user.normaluser.phone}}" />
                                         <span class="c_purple">*</span>
                                         <span id="email_save" style="display: none;">
                                             <a href="javascript:;">保存</a>&nbsp;
                                         </span>
-                                        <span class="change_m">修改</span>
+                                        <span class="change_m"></span>
                                         <span id="mobilelink" style="display:none; ">
                                             &nbsp;
                                             <a href="javascript:;"><img src="images/pic_tel_c.gif" border="0" style="vertical-align: middle;" alt="" /></a>
@@ -173,12 +234,7 @@
                                         <span class="prompt-info red" id="mobile_text"></span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th><i>固定电话：</i></th>
-                                    <td colspan="3">
-                                        <input type="text" class="input_large_en" value  id="phone" name="phone" />
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <th></th>
                                     <td colspan="3">
@@ -281,12 +337,13 @@
                     <cite>修改密码 · Change Password</cite>
                 </div>
                 <div class="ac_container my_information">
-                    <form action="" id="editPass">
+                    <form action="/shopsite/update_user_password/" id="editPass" method="post">
+                        {% csrf_token %}
                         <table class="type_input">
                             <tr>
                                 <th><i>原始密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="text" id="pass" name="pass" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="text" id="pass" name="password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red"></span>
                                 </td>
@@ -294,7 +351,7 @@
                             <tr>
                                 <th><i>新密码：</i></th>
                                 <td>
-                                    <input type="password" texttype="equal" id="password" name="password" class="input_large_en" />&nbsp;
+                                    <input type="password" texttype="equal" id="password" name="new_password" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_equal"></span>
                                 </td>
@@ -302,7 +359,7 @@
                             <tr>
                                 <th><i>确认新密码：</i></th>
                                 <td>
-                                    <input type="password" id="password2" name="password2" class="input_large_en" />&nbsp;
+                                    <input type="password" id="password2" name="new_password2" class="input_large_en" />&nbsp;
                                     <span class="c_purple">*</span>
                                     <span class="prompt-info red" id="pass_text"></span>
                                 </td>

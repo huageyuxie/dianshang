@@ -20,6 +20,8 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^shopsite/', include('shopsite.urls', namespace='shopsite')),
+    url(r'^goods/', include('goods.urls', namespace='goods')),
+    url(r'^stores/', include('stores.urls', namespace='stores')),
     url(r'^$', include('shopsite.urls')),
     url(r'^shopcar/', include('shopcar.urls', namespace='shopcar')),
 ]

@@ -1,11 +1,16 @@
 import random
 import string
+import uuid
 
+from PIL import Image, ImageDraw, ImageFont
+from dysms_python import demo_sms_send
 
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 
 # 生成随机4位字符串
+
+
+
 def get_random_char(count=4):
     # 生成随机字符串
     # string模块包含各种字符串
@@ -33,7 +38,7 @@ def create_code():
     code = get_random_char(4)
     # 将生成的字符写在画布上
     for i in range(4):
-        draw.text((30*i+5, 0), code[i], get_random_color(), font)
+        draw.text((30 * i + 5, 0), code[i], get_random_color(), font)
     # 生成干扰点
     for _ in range(random.randint(0, 300)):
         draw.point((random.randint(0, 120), random.randint(0, 30)), fill=get_random_color())
@@ -42,4 +47,21 @@ def create_code():
     return img, code
 
 
+# 创建验证码
+def create_phonecode():
+    chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+    x = random.choice(chars), random.choice(chars), random.choice(chars), random.choice(chars), random.choice(chars), random.choice(chars)
+    code = "".join(x)
+    return code
 # 事务处理
+
+
+# 手机验证码
+def phone_code(phone):
+    create_code = create_phonecode()
+    __business_id = uuid.uuid1()
+    params = {'code': create_code}
+    demo_sms_send.send_sms(__business_id, phone, "gqw", "SMS_148613819", params)
+    return create_code
+
+
