@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28f6f07d-73da-4c44-b76c-e56a178523b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/add_address.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/list_address.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBGO/shopsite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/shopsite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/goods/templates/goods/add_good.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/goods/templates/goods/add_good1.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/goods/templates/goods/add_good1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/shopsite/static/js/app/goods_car.js" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/shopsite/static/js/app/goods_car.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DBGO/shopsite/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/shopsite/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/stores/templates/stores/update_store1.html" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/stores/templates/stores/update_store1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBGO/stores/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBGO/stores/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,34 +74,40 @@
     <session id="-1029666519">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="3" />
-          <entry key="html" value="24" />
-          <entry key="jpg" value="29" />
-          <entry key="js" value="2" />
-          <entry key="py" value="75" />
+          <entry key="css" value="5" />
+          <entry key="gif" value="5" />
+          <entry key="html" value="38" />
+          <entry key="jpg" value="49" />
+          <entry key="js" value="5" />
+          <entry key="png" value="10" />
+          <entry key="py" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="24" />
-          <entry key="Image" value="29" />
-          <entry key="JavaScript" value="2" />
-          <entry key="Python" value="75" />
+          <entry key="CSS" value="5" />
+          <entry key="HTML" value="38" />
+          <entry key="Image" value="64" />
+          <entry key="JavaScript" value="5" />
+          <entry key="Python" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="1875" />
-          <entry key="py" value="7387" />
-          <entry key="txt" value="94" />
+          <entry key="css" value="18" />
+          <entry key="html" value="2885" />
+          <entry key="js" value="868" />
+          <entry key="py" value="9214" />
+          <entry key="txt" value="127" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1875" />
-          <entry key="PLAIN_TEXT" value="94" />
-          <entry key="Python" value="7387" />
+          <entry key="CSS" value="18" />
+          <entry key="HTML" value="2885" />
+          <entry key="JavaScript" value="868" />
+          <entry key="PLAIN_TEXT" value="127" />
+          <entry key="Python" value="9214" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -112,74 +121,48 @@
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.vcs.git.usages" />
     </session>
-    <session id="-1561622070">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="4" />
-          <entry key="py" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="4" />
-          <entry key="Python" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="html" value="520" />
-          <entry key="py" value="855" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="520" />
-          <entry key="Python" value="855" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.vcs.git.usages" />
-      <usages-collector id="statistics.js.language.service.starts" />
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopcar/templates/shopcar/list.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/models.py">
+        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/goods_car.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
+            <state relative-caret-position="175">
+              <caret line="143" column="47" lean-forward="true" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
+              <folding>
+                <element signature="e#3427#3449#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/add_address.html">
+        <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/update_good.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/list_address.html">
+        <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/update_store1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+            <state relative-caret-position="300">
+              <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
               <folding>
-                <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#2592#2598#0" expanded="true" />
+                <element signature="e#3488#3494#1" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/js/app/goods_car.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="325">
+              <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -187,57 +170,37 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DBGO/shopsite/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="200">
+              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/goods_car.html">
+        <entry file="file://$PROJECT_DIR$/DBGO/stores/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="120" column="3" selection-start-line="120" selection-start-column="3" selection-end-line="120" selection-end-column="3" />
+            <state relative-caret-position="200">
+              <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopsite/views.py">
+        <entry file="file://$PROJECT_DIR$/DBGO/stores/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+            <state relative-caret-position="-125">
+              <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1540386768497" expanded="true" signature="9396:9401" ph="..." />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopcar/admin.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBGO/shopcar/__init__.py">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -259,9 +222,22 @@
       <find>authenticate</find>
       <find>settings</find>
       <find>store</find>
+      <find>good_info</find>
+      <find>goods_show</find>
+      <find>a5</find>
+      <find>fine</find>
+      <find>a2</find>
+      <find>ad</find>
+      <find>input</find>
+      <find>../img/</find>
+      <find>inp</find>
+      <find>static/img/</find>
+      <find>shoplist_tab</find>
     </findStrings>
     <replaceStrings>
       <replace>stores</replace>
+      <replace>static/images/</replace>
+      <replace>good_show</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -271,7 +247,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../仿站小工具+V8.1/www.yohobuy.com/default.html" />
+        <option value="$USER_HOME$/Desktop/仿站小工具+V8.1/www.yohobuy.com/default.html" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/static/css/user_login.css" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/user_register.html" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/static/css/user_register.css" />
@@ -281,27 +257,35 @@
         <option value="$PROJECT_DIR$/DBGO/shopsite/utils.py" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/user_login.html" />
         <option value="$PROJECT_DIR$/DBGO/goods/templates/goods/goods_show.html" />
-        <option value="$PROJECT_DIR$/DBGO/DBGO/urls.py" />
         <option value="$PROJECT_DIR$/DBGO/DBGO/settings.py" />
-        <option value="$PROJECT_DIR$/DBGO/stores/models.py" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/user_self.html" />
         <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/update_store.html" />
         <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/add_store1.html" />
         <option value="$PROJECT_DIR$/DBGO/stores/urls.py" />
         <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/shangjia.html" />
-        <option value="$PROJECT_DIR$/DBGO/goods/models.py" />
-        <option value="$PROJECT_DIR$/DBGO/stores/views.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/index.html" />
-        <option value="$PROJECT_DIR$/DBGO/goods/urls.py" />
         <option value="$PROJECT_DIR$/DBGO/goods/templates/goods/update_good.html" />
+        <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/index.html" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/__init__.py" />
+        <option value="$PROJECT_DIR$/DBGO/stores/models.py" />
+        <option value="$PROJECT_DIR$/DBGO/goods/models.py" />
         <option value="$PROJECT_DIR$/DBGO/goods/templates/goods/add_good.html" />
-        <option value="$PROJECT_DIR$/DBGO/goods/views.py" />
+        <option value="$PROJECT_DIR$/DBGO/DBGO/urls.py" />
+        <option value="$PROJECT_DIR$/DBGO/goods/urls.py" />
+        <option value="$PROJECT_DIR$/DBGO/goods/templates/goods/good_show.html" />
+        <option value="$PROJECT_DIR$/DBGO/goods/static/js/app/goods_show.js" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/static/css/shopbag.css" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/models.py" />
-        <option value="$PROJECT_DIR$/DBGO/shopsite/views.py" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/goods_car.html" />
         <option value="$PROJECT_DIR$/DBGO/shopsite/urls.py" />
-        <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/add_address.html" />
-        <option value="$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/list_address.html" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/static/css/goods_car.css" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/static/js/app/goods_car.js" />
+        <option value="$PROJECT_DIR$/DBGO/shopsite/views.py" />
+        <option value="$PROJECT_DIR$/DBGO/goods/views.py" />
+        <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/index1.html" />
+        <option value="$PROJECT_DIR$/DBGO/stores/views.py" />
+        <option value="$PROJECT_DIR$/DBGO/goods/templates/goods/add_good1.html" />
+        <option value="$PROJECT_DIR$/DBGO/stores/templates/stores/update_store1.html" />
       </list>
     </option>
   </component>
@@ -311,11 +295,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="435" />
-    <option name="y" value="120" />
-    <option name="width" value="1360" />
-    <option name="height" value="847" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="271" />
+    <option name="y" value="20" />
+    <option name="width" value="1071" />
+    <option name="height" value="749" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -339,7 +323,66 @@
               <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
               <item name="dianshang" type="462c0819:PsiDirectoryNode" />
               <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
               <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
@@ -355,6 +398,33 @@
               <item name="shopsite" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="shopsite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dianshang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dianshang" type="462c0819:PsiDirectoryNode" />
+              <item name="DBGO" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="stores" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -371,19 +441,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\git_test\dianshang\DBGO\static\images\goods_img" />
-      <recent name="D:\git_test\dianshang\DBGO\ueupload\ueupload\images" />
-      <recent name="D:\git_test\dianshang\DBGO\static\images\store_img" />
-      <recent name="D:\git_test\dianshang\DBGO\stores\static\images\dafault" />
-      <recent name="D:\git_test\dianshang" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\git_test\dianshang\DBGO\goods\templates\goods" />
       <recent name="D:\git_test\dianshang\DBGO\ueupload\images\store_img" />
       <recent name="D:\git_test\dianshang\DBGO" />
       <recent name="D:\git_test\dianshang\DBGO\static\images\store_img\default" />
       <recent name="D:\git_test\dianshang\DBGO\stores\static\images\stores" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\git_test\dianshang\DBGO\shopsite\static\images\iii" />
+      <recent name="D:\git_test\dianshang\DBGO\static\images\goodtype_img\default" />
+      <recent name="D:\git_test\dianshang\DBGO\static\images\goodtype_img" />
+      <recent name="D:\git_test\dianshang\DBGO\static\images\goods_img" />
+      <recent name="D:\git_test\dianshang\DBGO\ueupload\ueupload\images" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -619,7 +689,28 @@
       <option name="project" value="LOCAL" />
       <updated>1540292700983</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="2018-10-24  08:57&#10;星期三简单完成开店">
+      <created>1540342631494</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1540342631494</updated>
+    </task>
+    <task id="LOCAL-00024" summary="2018-10-24  09:39">
+      <created>1540345198402</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1540345198402</updated>
+    </task>
+    <task id="LOCAL-00025" summary="2018-10-24  20:04&#10;购物车">
+      <created>1540382754030</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1540382754030</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -632,10 +723,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="435" y="120" width="1360" height="847" extended-state="0" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922958" weight="0.20307693" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49922958" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" sideWeight="0.5007704" side_tool="true" weight="0.32936507" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -646,10 +737,10 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32852563" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.75346684" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.75192606" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50238097" side_tool="true" weight="0.18798152" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49761903" weight="0.4899329" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49761903" visible="true" weight="0.31587058" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32852563" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -717,269 +808,303 @@
     <MESSAGE value="2018-10-23   16:37&#10;开店2.0" />
     <MESSAGE value="2018-10-23   18:05&#10;开店3.0" />
     <MESSAGE value="2018-10-23   19:04&#10;店铺图片修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018-10-23   19:04&#10;店铺图片修改" />
+    <MESSAGE value="2018-10-24  08:57&#10;星期三简单完成开店" />
+    <MESSAGE value="2018-10-24  09:39" />
+    <MESSAGE value="2018-10-24  20:04&#10;购物车" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018-10-24  20:04&#10;购物车" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/goods_show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/Work/virtual_env_36/Lib/site-packages/django/urls/resolvers.py" />
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/static/images/stores/dafault/default.jpg">
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/8aaaf8bfad114d80b259f068c5b25b93.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/default/default.jpg">
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/8aaaf8bfad114d80b259f068c5b25b93_m9bzCof.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/ueupload/images/store_img/29ci2vnf0h7dp30hjpcp3uqvhehfcyag.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/ueupload/images/store_img/50f71d9ajw1f50vkab1c1j21jk111as2_UQZgdpJ.jpg">
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/saibopengke.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/DBGO/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="139" column="33" lean-forward="true" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/29ci2vnf0h7dp30hjpcp3uqvhehfcyag.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/headers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/person_main.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/saibopengke.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/headers/5978164_1.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/images/store_img/0e2442a7d933c89506fda1edd61373f0830200a0.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/headers/8aaaf8bfad114d80b259f068c5b25b93.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/user_self.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="48" column="64" selection-start-line="48" selection-start-column="64" selection-end-line="48" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/8aaaf8bfad114d80b259f068c5b25b93.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/0e2442a7d933c89506fda1edd61373f0830200a0.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/7dd98d1001e939014542ae7d79ec54e736d19634.jpg" />
     <entry file="file://$PROJECT_DIR$/DBGO/stores/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="125">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <element signature="e#1#29#0" expanded="true" />
+            <element signature="e#29#72#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/add_store.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/add_store1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="62" selection-start-line="8" selection-start-column="62" selection-end-line="8" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/update_store.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="15" column="40" lean-forward="true" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/68377c99gw1f4zyvhjzgrj215o0rq7aa.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/68377c99gw1f4zyvevohcj20rq15odo0.jpg" />
-    <entry file="file://$PROJECT_DIR$/DBGO/DBGO/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGO/static/images/goods_img/default/default.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="74" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/goodtype_img/default/default.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-344660216/builtins.py" />
-    <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/views.py">
+    <entry file="file://$PROJECT_DIR$/DBGO/DBGO/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="74" column="35" lean-forward="true" selection-start-line="74" selection-start-column="35" selection-end-line="74" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/goods/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="36" column="20" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        <state relative-caret-position="21">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#638#670#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGO/goods/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="275">
+          <caret line="11" column="45" lean-forward="true" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/update_good.html">
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/good_show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/add_good.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/goods/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+        <state relative-caret-position="248">
+          <caret line="114" column="39" selection-start-line="114" selection-start-column="39" selection-end-line="114" selection-end-column="39" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#578#584#0" expanded="true" />
+            <element signature="e#638#644#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/views.py">
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/static/js/app/goods_show.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
+        <state relative-caret-position="146">
+          <caret line="269" column="34" lean-forward="true" selection-start-line="269" selection-start-column="34" selection-end-line="269" selection-end-column="34" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#7105#7144#0" />
+            <element signature="e#7177#7251#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/urls.py">
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
-          <folding>
-            <element signature="e#0#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="205">
+          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/admin.py">
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/css/shopbag.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
+        <state relative-caret-position="167">
+          <caret line="50" column="136" selection-start-line="50" selection-start-column="136" selection-end-line="50" selection-end-column="136" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/red-btn2.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopcar/templates/shopcar/list.html">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/05151752275186226.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/05174866977471586.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/base.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/button_121.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/car.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/car1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/car2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/default_user_portrait.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/figer.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/good_transpro.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/goods1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/goods_buy.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/licence1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/qq-pic.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/red-btn1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/span.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/star-on.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/toolbar.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/toTop1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/images/iii/toTop2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1540364982270" expanded="true" signature="2026:2031" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/css/goods_car.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1675">
+          <caret line="46" column="149" lean-forward="true" selection-start-line="46" selection-start-column="149" selection-end-line="46" selection-end-column="149" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/goods_car.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="120" column="3" selection-start-line="120" selection-start-column="3" selection-end-line="120" selection-end-column="3" />
+        <state relative-caret-position="175">
+          <caret line="143" column="47" lean-forward="true" selection-start-line="143" selection-start-column="47" selection-end-line="143" selection-end-column="47" />
+          <folding>
+            <element signature="e#3427#3449#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/utils.py">
+    <entry file="file://$PROJECT_DIR$/DBGO/static/images/store_img/8aaaf8bfad114d80b259f068c5b25b93.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/index1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="77" column="56" lean-forward="true" selection-start-line="77" selection-start-column="56" selection-end-line="77" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/add_good.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+          <caret column="33" lean-forward="true" selection-start-column="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/add_store.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/add_good1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="78" column="74" lean-forward="true" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/templates/goods/update_good.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="21" column="38" lean-forward="true" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGO/shopsite/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="331" lean-forward="true" selection-start-line="331" selection-end-line="331" />
+        <state relative-caret-position="2119">
+          <caret line="309" column="10" lean-forward="true" selection-start-line="309" selection-start-column="10" selection-end-line="309" selection-end-column="10" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1540386768497" expanded="true" signature="9396:9401" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/goods/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="46" column="24" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+            <marker date="1540384540630" expanded="true" signature="3691:4860" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/static/js/app/goods_car.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="77" column="40" selection-start-line="77" selection-start-column="40" selection-end-line="77" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DBGO/shopsite/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="66" column="38" selection-start-line="66" selection-start-column="38" selection-end-line="66" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/add_address.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBGO/shopsite/templates/shopsite/list_address.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
+        <state relative-caret-position="200">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/stores/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/stores/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-125">
+          <caret line="59" column="4" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBGO/stores/templates/stores/update_store1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+          <folding>
+            <element signature="e#2592#2598#0" expanded="true" />
+            <element signature="e#3488#3494#1" expanded="true" />
           </folding>
         </state>
       </provider>

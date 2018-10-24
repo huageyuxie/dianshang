@@ -1,8 +1,8 @@
 
-from django.db import models
 
 # Create your models here.
-from shopsite.models import NormalUser
+from django.contrib.auth.models import User
+from django.db import models
 
 
 class Store(models.Model):
@@ -19,5 +19,5 @@ class Store(models.Model):
     add_time = models.DateTimeField(auto_now_add=True, verbose_name="店铺添加时间")
 
     # 店铺所属用户
-    user = models.ForeignKey(NormalUser, on_delete=models.CASCADE, verbose_name="店铺店长")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="店铺店长")
 
