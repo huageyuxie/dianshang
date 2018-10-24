@@ -303,6 +303,10 @@ def cancel_buy(request, shopcart_id):
     :return:
     """
     shopcart = models.ShopCart.objects.get(id=shopcart_id)
+    good = models.Goods.objects.get(shopcart=shopcart)
+    good.good_stack += shopcart.count
+    good.good_count -= shopcart.count
+    good.save()
     shopcart.delete()
     return redirect('/shopsite/goods_car/')
 

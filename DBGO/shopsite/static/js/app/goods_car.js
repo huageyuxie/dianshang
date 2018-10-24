@@ -74,6 +74,9 @@ $(function(){
 	function suanjia(){
 		valuess = $("#truenum").val() * $(".goods_price").html().slice(1,)
 		$('.price_totle').html('￥' + valuess.toFixed(1));
+		$('#zongjine').html('￥' + valuess.toFixed(1));
+		console.log($('#zongjine').val())
+
 	}
 
 	/*点击删除按钮弹出确定、取消框*/

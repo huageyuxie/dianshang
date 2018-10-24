@@ -19,7 +19,7 @@ def index(request, store_id):
     goods = Goods.objects.filter(store=store)
     request.session['goods'] = goods
     request.session['store'] = store
-    return render(request, 'stores/index.html')
+    return render(request, 'stores/index1.html', {'store': store})
 
 
 

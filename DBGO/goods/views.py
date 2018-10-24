@@ -141,12 +141,12 @@ def shop_good(request, count, good_id):
                 shopcart.count += int(count)
                 shopcart.subtotal = shopcart.count * good.good_price
                 shopcart.save()
-    else:
-        shopcart = ShopCart(subtotal=subtotal, good=good, user=request.user, count=count)
-        shopcart.save()
+                return render(request, "goods/good_show.html", {"good": good})
+    shopcart = ShopCart(subtotal=subtotal, good=good, user=request.user, count=count)
+    shopcart.save()
     print('购物车添加成功')
-    # TODO 告诉购物车添加成功
     return render(request, "goods/good_show.html", {"good": good})
+    # return redirect("/goods/good_show/", {"good": good})
 
 
 # 商品的删除

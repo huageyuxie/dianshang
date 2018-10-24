@@ -40,7 +40,7 @@
                     <h4>我们希望了解您添加商品信息，以便为您提供更加贴心的服务体验。</h4>
                     <div class="my_information_box">
                         <form action="/goods/add_good/{{store.id}}/" id="extendedreg" method="post">
-
+                            {% csrf_token %}
                             <table class="type_input">
 
                                 <tr>
@@ -74,11 +74,11 @@
                                 <tr>
                                     <th><i>商 &nbsp;品&nbsp;种 &nbsp;类：</i></th>
                                     <td>
-                                        <select name="coat_size" class="select_normal" style="width:130px;">
-                                            <option value="S">上衣</option>
-                                            <option value="XXXL">下装</option>
-                                            <option value="M">水果</option>
-                                            <option value="XXL">手表</option>
+                                        <select name="type_name" class="select_normal" style="width:130px;">
+                                            <option value="上衣">上衣</option>
+                                            <option value="下装">下装</option>
+                                            <option value="水果">水果</option>
+                                            <option value="手表">手表</option>
 
                                         </select>
                                     </td>
