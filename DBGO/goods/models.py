@@ -47,3 +47,16 @@ class Goods(models.Model):
     shopcart = models.ForeignKey(ShopCart, null=True, blank=True, on_delete=models.CASCADE)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -33,7 +33,7 @@ def add_good(request, store_id):
     """
     store = models.Store.objects.get(id=store_id)
     if request.method == "GET":
-        return render(request, 'goods/add_good.html', {'msg': '添加你想要售卖的商品吧', 'store': store})
+        return render(request, 'goods/add_good1.html', {'msg': '添加你想要售卖的商品吧', 'store': store})
     if request.method == "POST":
         good_name = request.POST['good_name']
         good_price = request.POST['good_price']
@@ -47,7 +47,7 @@ def add_good(request, store_id):
         goods = models.Goods.objects.filter(store=store)
         if goods:
             request.session['goods'] = goods
-        return render(request, 'stores/index.html', {'store': store})
+        return render(request, 'stores/index1.html', {'store': store})
 
 
 # 商品的修改
