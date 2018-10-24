@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^shopsite/', include('shopsite.urls', namespace='shopsite')),
     url(r'^$', include('shopsite.urls')),
+    url(r'^shopcar/', include('shopcar.urls', namespace='shopcar')),
 ]

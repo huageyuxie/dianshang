@@ -44,4 +44,4 @@ class Address(models.Model):
     status = models.BooleanField(default=False, verbose_name="是否默认地址")
 
     # 属于谁的地址
-    user = models.ForeignKey(NormalUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(NormalUser, on_delete=models.CASCADE, verbose_name="地址所属用户")
