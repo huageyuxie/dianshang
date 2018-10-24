@@ -9,15 +9,16 @@
     <form action="/goods/update_good/{{good.id}}/" method="post">
         {% csrf_token %}
         商品名称
-        <input type="text" name="good_name" value="good.good_name">
+        <input type="text" name="good_name" value="{{good.good_name}}">
         商品价格
-        <input type="text" name="good_price" value="good.good_price">
+        <input type="text" name="good_price" value="{{good.good_price}}">
         商品库存
-        <input type="text" name="good_stack" value="good.good_stack">
+        <input type="text" name="good_stack" value="{{good.good_stack}}">
         商品详细描述
         <textarea cols="8" rows="5" name="good_desc" placeholder="请输入您对商品的详细描述，将会展示在商品详情界面">{{good.good_desc}}</textarea>
         商品种类
-        <input type="text" name="type_name" value="good.good_type.type_name">
+        <input type="text" name="type_name" value="{{good.good_type.type_name}}">
+
         <button type="submit">提交</button>
     </form>
 </body>

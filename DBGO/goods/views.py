@@ -20,7 +20,7 @@ def add_goods_type(request):
         goodstype_parent = request.POST.get('parent', '')
         goods_type = models.GoodsType(type_name=goodstype_name, cover=goodstype_cover, intro=goodstype_intro, parent=goodstype_parent)
         goods_type.save()
-        return render(request, 'stores/self_store.html')
+        return render(request, 'stores/index.html')
 
 
 
@@ -47,7 +47,6 @@ def add_good(request, store_id):
         goods = models.Goods.objects.filter(store=store)
         if goods:
             request.session['goods'] = goods
-            return render(request, 'stores/index.html', {'store': store})
         return render(request, 'stores/index.html', {'store': store})
 
 
@@ -60,19 +59,23 @@ def update_good(request, good_id):
     """
     good = models.Goods.objects.get(id=good_id)
     if request.method == "GET":
-        return render(request, 'stores/self_store.html', {'good': good})
+        return render(request, 'goods/update_good.html', {'good': good})
     if request.method == "POST":
         good_name = request.POST['good_name']
         good_price = request.POST['good_price']
         good_stack = request.POST['good_stack']
         good_desc = request.POST['good_desc']
-        good_type = request.POST['good_type']
+        type_name = request.POST['type_name']
+        print("type_name : "+type_name)
+        good_type = models.GoodsType.objects.get(type_name=type_name)
         good.good_name = good_name
         good.good_price = good_price
         good.good_stack = good_stack
         good.good_desc = good_desc
         good.good_type = good_type
         good.save()
+        goods = models.Goods.objects.filter(store=good.store)
+        request.session['goods'] = goods
         return render(request, 'stores/index.html')
 
 
@@ -87,6 +90,8 @@ def lower_good(request, good_id):
     good = models.Goods.objects.get(id=good_id)
     good.status = 0
     good.save()
+    goods = models.Goods.objects.filter(store=good.store)
+    request.session['goods'] = goods
     return render(request, 'stores/self_store.html')
 
 
@@ -116,10 +121,10 @@ def shop_good(request, good_id):
     try:
         good = models.Goods.objects.get(id=good_id)
         request.user.normaluser.shopcart.goods = good
+        # TODO 告诉购物车添加成功
         return HttpResponse('success')
     except:
         return render(request, "goods/goods_show.html", {"good": good})
-
 
 
 # 商品的删除
@@ -130,6 +135,11 @@ def del_good(request, good_id):
     :return:
     """
     good = models.Goods.objects.get(id=good_id)
-    good.delete()
-    return render(request, 'stores/self_store.html')
+    try:
+        good.delete()
+        goods = models.Goods.objects.filter(store=good.store)
+        request.session['goods'] = goods
+    except Exception as e:
+        print(e)
+    return render(request, 'stores/index.html')
 

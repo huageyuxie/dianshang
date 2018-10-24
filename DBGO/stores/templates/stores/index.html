@@ -23,6 +23,9 @@ goods:{{request.session.goods}}
             <p>{{good.good_desc}}</p>
             <p>{{good.good_status}}</p>
             <p>{{good.good_type.type_name}}</p>
+            <p>{{good.status}}</p>
+            <a href="/goods/update_good/{{good.id}}/">修改</a>
+            <a href="/goods/del_good/{{good.id}}/">删除</a>
             <hr>
         </div>
     {% empty %}

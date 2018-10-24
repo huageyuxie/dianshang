@@ -16,7 +16,10 @@ def index(request, store_id):
     :return:
     """
     store = models.Store.objects.get(id=store_id)
-    return render(request, 'stores/index.html', {'store': store})
+    goods = Goods.objects.filter(store=store)
+    request.session['goods'] = goods
+    request.session['store'] = store
+    return render(request, 'stores/index.html')
 
 
 
