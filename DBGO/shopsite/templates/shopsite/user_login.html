@@ -68,10 +68,11 @@
                 <li role="presentation" class="active log-tit"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">DBGO &nbsp;登录</a></li>
                 <li role="presentation" class="log-tit QR-code-title"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" style="margin-right: 35.4px" >手机号登录</a></li>
             </ul>
-            <div style="color:#ee120b;font-size: 14px;margin-top: 10px;margin-left: 30px ">{{msg}}</div>
+            <!--<div style="color:#ee120b;font-size: 14px;margin-top: 10px;margin-left: 30px ">{{msg}}</div>-->
 
-                 <div role="tabpanel" class="tab-pane active" id="home">                        <form action="/shopsite/user_login/" method="post"  class="tab-content">
-                 {% csrf_token %}
+                 <div role="tabpanel" class="tab-pane active" id="home">
+                     <form action="/shopsite/user_login/" method="post"  class="tab-content">
+                         {% csrf_token %}
                      <input placeholder="请输入手机号/邮箱/用户名" name="username" class="log-input" type="text"  >
                      <div class="log-tishi setNumber-tishi1">
                         手机号用于登录和找回密码，请正确填写。

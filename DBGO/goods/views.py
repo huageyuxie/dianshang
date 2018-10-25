@@ -83,7 +83,7 @@ def update_good(request, good_id):
         good.save()
         goods = models.Goods.objects.filter(store=good.store)
         request.session['goods'] = goods
-        return render(request, 'stores/index.html', {'store': good.store})
+        return render(request, 'stores/index1.html', {'store': good.store})
 
 
 # 商品的隐藏
@@ -99,7 +99,7 @@ def lower_good(request, good_id):
     good.save()
     goods = models.Goods.objects.filter(store=good.store)
     request.session['goods'] = goods
-    return render(request, 'stores/index.html', {'store': good.store})
+    return render(request, 'stores/index1.html', {'store': good.store})
 
 
 # 商品的信息
