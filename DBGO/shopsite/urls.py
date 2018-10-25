@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^goods_car/$', views.goods_car, name='goods_car'),
     url(r'^cancel_buy/(\d+)/$', views.cancel_buy, name='cancel_buy'),
     url(r'^send_msg/(\d+)/$', views.send_msg, name='send_msg'),
+    url(r'^add_address/(\d+)/$', views.add_address, name='add_address'),
+    url(r'^address_list/(\d+)/$', views.address_list, name='address_list'),
 
 
 

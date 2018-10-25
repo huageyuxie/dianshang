@@ -6,7 +6,7 @@ import uuid
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views.decorators.http import require_GET
 from django.contrib.auth.decorators import login_required
 
@@ -310,3 +310,43 @@ def cancel_buy(request, shopcart_id):
     shopcart.delete()
     return redirect('/shopsite/goods_car/')
 
+
+    return render(request,'shopsite/goods_car.html')
+
+
+# 添加地址
+def add_address(request):
+    if request.method == "GET":
+        return render(request, "shopsite/add_address.html")
+    else:
+        recv_name = request.POST["recv_name"]
+        recv_tel = request.POST["recv_tel"]
+        province = request.POST["province"]
+        city = request.POST["city"]
+        area = request.POST["area"]
+        street = request.POST["street"]
+        desc = request.POST["desc"]
+
+        try:
+            # 地址设为默认
+            request.POST["is_default"]
+            addresses = models.Address.objects.filter(user=request.user)
+            for address in addresses:
+                address.is_default = False
+                address.save()
+            address = models.Address(recv_name=recv_name, recv_tel=recv_tel, province=province, \
+                           city=city, area=area, street=street, desc=desc, user=request.user, \
+                           is_default=True)
+            address.save()
+        except:
+            address = models.Address(recv_name=recv_name, recv_tel=recv_tel, province=province, \
+                                     city=city, area=area, street=street, desc=desc, user=request.user, \
+                                     is_default=False)
+            address.save()
+
+        return redirect(reverse("shopsite/address_list"))
+
+
+def address_list(request):
+    addresses = models.Address.objects.filter(user=request.user)
+    return render(request, "shopsite/list_address.html", {"addresses": addresses})

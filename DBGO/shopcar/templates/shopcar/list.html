@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>购物车界面</title>
+    </head>
+    <body>
+    <h1>查看购物车</h1>
+        <form action="#" method="post">
+            <table>
+                {% for s in shopcar %}
+                <tr>
+                    <td><input type="checkbox" name="g_id" value="{{s.goods.id}}"></td>
+                    <td><img src="{{s.goods.goodimage_set.first.path}}" alt=""></td>
+                    <td>商品名称：{{s.goods.name}}</td>
+                    <td>商品数量：{{s.count}}</td>
+                    <td>小计金额：{{s.allTotal}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button>确认订单</button>
+        </form>
+    </body>
+</html>
